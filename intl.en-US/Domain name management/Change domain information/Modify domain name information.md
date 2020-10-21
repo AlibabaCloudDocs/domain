@@ -12,7 +12,7 @@ Based on the [transfer policy](https://www.icann.org/resources/pages/transfer-po
 
 1.  Log on to the [Alibaba Cloud Domains console](https://dc.console.aliyun.com/?spm=a2c1d.8251217.1002.19.7e29eef5kAnBeP#/domain/list).
 
-2.  On the **Domain Names** page, find the target domain name and click **Manage** in the **Action** column.
+2.  On the **Domain Names** page, find the domain name for which you want to modify information and click **Manage** in the **Action** column.
 
     ![Modify domain name information 3](https://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/en-US/2525919951/p76671.png)
 
@@ -20,16 +20,16 @@ Based on the [transfer policy](https://www.icann.org/resources/pages/transfer-po
 
 4.  Click the **Registrant Info Modification**, **Admin Contact Modification**, **Billing Contact Modification**, or **Tech Contact Modification** tab as required.
 
-    **Note:** If you transfer the domain name ownership on the **Registrant Information** tab, the system will send an email to the email addresses of both the original and new registrants.
+    **Note:** If you transfer the domain name ownership on the **Registrant Info Modification** tab, the system will send an email to the email addresses of both the original and new registrants.
 
-5.  Enter all the required information and modify the domain name information as prompted.
+5.  Modify the domain name information as required.
 
 
 ## Modify the registration information of an internationalized domain name
 
 **Scenario: The information of an internationalized domain name changes or is invalid.**
 
-Based on the [provisions](https://whois.icann.org/en/whois-data-reminder-policy-wdrp) of ICANN and the domain name registration agreement, Alibaba Cloud, as a domain name registration service provider, will send an email about the update of registration information to the email address of the domain name registrant. Check the domain name information in a timely manner. If you find that the domain name information has changed or is invalid, update the domain name information as soon as possible to ensure that your domain name information is correct.
+Based on the[WHOIS Data Reminder Policy](https://whois.icann.org/en/whois-data-reminder-policy-wdrp) of ICANN and the domain name registration agreement, Alibaba Cloud, as a domain name registrar, will send a notification email to the domain name registrant when the registration information is updated. Check the domain name information in a timely manner. If you find that the domain name information has changed or is invalid, update the domain name information as soon as possible to ensure that your domain name information is correct.
 
 **Impact of not updating domain name information promptly**
 
