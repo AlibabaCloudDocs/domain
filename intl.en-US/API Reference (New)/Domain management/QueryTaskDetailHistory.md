@@ -1,235 +1,235 @@
-# QueryTaskDetailHistory {#concept_gfr_tyk_c2b .concept}
+# QueryTaskDetailHistory
 
-The QueryTaskDetailHistory API queries the task details list for the specified domain name and returns the results by page.
+Queries the historical details of a domain name task by page.
 
-## Request parameters {#section_frj_dmm_c2b .section}
+## Debugging
 
-For more information about public request parameters, see [Public parameters](intl.en-US/API Reference (New)/Calling method/Public parameters.md#).
+[OpenAPI Explorer automatically calculates the signature value. For your convenience, we recommend that you call this operation in OpenAPI Explorer. OpenAPI Explorer dynamically generates the sample code of the operation for different SDKs.](https://api.aliyun.com/#product=Domain&api=QueryTaskDetailHistory&type=RPC&version=2018-01-29)
 
-|Parameter|Type|Required|Description|
-|:--------|:---|:-------|:----------|
-|Action|String|Yes|The API name, a required parameter. Set this parameter to QueryTaskDetailHistory.|
-|PageSize|Integer|Yes|Page size.|
-|TaskNo|String|Yes|Task ID.|
-|TaskStatus|Integer|Optional|Task status, which has the following enumerated values: 0: The task is waiting to be executed. 1 : The task is being executed. 2: The task was successfully executed. 3: The task failed to be executed.|
-|DomainName|String|Optional|Domain name.|
-|InstanceId|String|Optional|Domain name instance ID.|
-|Domainnamecursor|String|Optional|Domain name cursor .|
-|TaskDetailNoCursor|String|Optional|Task details cursor.|
+## Request parameters
 
-## Response parameters {#section_qkp_3mm_c2b .section}
+|Parameter|Type|Required|Example|Description|
+|---------|----|--------|-------|-----------|
+|Action|String|Yes|QueryTaskDetailHistory|The operation that you want to perform. Set the value to **QueryTaskDetailHistory**. |
+|PageSize|Integer|Yes|1|The number of entries to return on each page. |
+|TaskNo|String|Yes|75addb07-28a3-450e-b5ec-test|The ID of the task that you want to query.
 
-|Parameter|Type|Description|
-|:--------|:---|:----------|
-|RequestId|String|Unique request identifier.|
-|PageSize|Integer|Page size.|
-|CurrentPageCursor|[TaskDetailHistoryCurrentPageCursorType](#table_h14_nmm_c2b)|Current page cursor.|
-|NextPageCursor|[TaskDetailHistoryNextPageCursorType](#table_x2j_vmm_c2b)|Next page cursor.|
-|PrePageCursor|[TaskDetailHistoryPrePageCursorType](#table_e25_2nm_c2b)|Previous page cursor.|
-|Objects|[TaskDetailHistoryType](#table_qrs_pnm_c2b)|Task details.|
+ **Note:** You can call the QueryTaskList operation to query the task ID. For more information, see [QueryTaskList](~~67709~~). |
+|Lang|String|No|en|The language of the error message to return. Valid values:
 
-|Type|Parameter|Description|
-|:---|:--------|:----------|
-|String|TaskType|Task type， which has the following enumerated values:-   CHG\_HOLDER: Modify the registrant’s information.
--   CHG\_DNS: Modify DNS information.
--   SET\_WHOIS\_PROTECT: Set privacy protection.
--   UPDATE\_ADMIN\_CONTACT : Modify the administrator information.
--   UPDATE\_BILLING\_CONTACT: Modify the payers information.
--   UPDATE\_TECH\_CONTACT: Modify the technician information.
--   SET\_UPDATE\_PROHIBITED: Set the domain name security lock.
--   SET\_TRANSFER\_PROHIBITED: Set the domain name transfer lock.
--   ORDER\_ACTIVATE: Create a registration order.
--   ORDER\_RENEW: Create a renewal order.
--   ORDER\_REDEEM: Create a redemption order.
--   CREATE\_DNSHOST: Create a DNS host.
--   UPDATE\_DNSHOST: Update a DNS host.
--   SYNC\_DNSHOST: Synchronize DNS host information.
+ -   **zh**: Chinese
+-   **en**: English
 
-|
-|String|DomainName|Domain name.|
-|String|InstanceId|Domain name instance ID.|
-|String|TaskStatus|Task status, which has the following values:-   WAITING\_EXECUTE : The task is waiting for execution.
--   EXECUTING: The task is being executed.
--   EXECUTE\_SUCCESS: The task has been successfully executed.
--   EXECUTE\_FAILURE: The task failed to be executed.
+ Default value: **en**. |
+|UserClientIp|String|No|127.0.0.1|The IP address of the client that you use to query the task. |
+|DomainName|String|No|test.com|The domain name of the task that you want to query. |
+|DomainNameCursor|String|No|test.com|The cursor of the domain name. |
+|TaskStatus|Integer|No|0|The status of the task. Valid values:
 
-|
-|String|TaskStatusCode|The task status code, which has the following values: which has the following values:-   0: awaiting execution.
--   1: execution in progress.
--   2: execution successful.
--   3: execution failed.
+ -   **0**: to be executed
+-   **1**: being executed
+-   **2**: successful
+-   **3**: failed |
+|TaskDetailNoCursor|String|No|75addb07-28a3-450e-b5ec|The cursor of the task details. |
 
-|
-|String|CreateTime|Task creation time.|
-|String|UpdateTime|Last execution time to obtain task details.|
-|Integer|TryCount|Number of retries to obtain task details.|
-|String|TaskNo|Task ID.|
-|String|TaskDetailNo|Task details ID.|
-|String|ErrorMsg|Task execution failure message.|
-|String|TaskTypeDescription|Description of the task type.|
+## Response parameters
 
-|Type|Parameter|Description|
-|:---|:--------|:----------|
-|String|TaskType|Task type， which has the following enumerated values:-   CHG\_HOLDER: Modify the registrant’s information.
--   CHG\_DNS: Modify DNS information.
--   SET\_WHOIS\_PROTECT: Set privacy protection.
--   UPDATE\_ADMIN\_CONTACT : Modify the administrator information.
--   UPDATE\_BILLING\_CONTACT: Modify the payers information.
--   UPDATE\_TECH\_CONTACT: Modify the technician information.
--   SET\_UPDATE\_PROHIBITED: Set the domain name security lock.
--   SET\_TRANSFER\_PROHIBITED: Set the domain name transfer lock.
--   ORDER\_ACTIVATE: Create a registration order.
--   ORDER\_RENEW: Create a renewal order.
--   ORDER\_REDEEM: Create a redemption order.
--   CREATE\_DNSHOST: Create a DNS host.
--   UPDATE\_DNSHOST: Update a DNS host.
--   SYNC\_DNSHOST: Synchronize DNS host information.
+|Parameter|Type|Example|Description|
+|---------|----|-------|-----------|
+|CurrentPageCursor|Struct| |The cursor of the current page. |
+|CreateTime|String|2019-07-30 00:00:00|The time when the task was created. |
+|DomainName|String|test.com|The domain name of the task that was queried. |
+|ErrorMsg|String|Successful|The task execution result. |
+|InstanceId|String|S1234456789|The instance ID of the domain name that was queried. |
+|TaskDetailNo|String|75addb07-28a3-450e-b5ec-2342|The ID of the task details. |
+|TaskNo|String|75addb07-28a3-450e-b5ec-test|The ID of the task that was queried. |
+|TaskStatus|String|EXECUTE\_SUCCESS|The status of the task. Valid values:
 
-|
-|String|DomainName|Domain name.|
-|String|InstanceId|Domain name instance ID.|
-|String|TaskStatus|Task status, which has the following values:-   WAITING\_EXECUTE : The task is waiting for execution.
--   EXECUTING: The task is being executed.
--   EXECUTE\_SUCCESS: The task has been successfully executed.
--   EXECUTE\_FAILURE: The task failed to be executed.
+ -   **WAITING\_EXECUTE**: to be executed
+-   **EXECUTING**: being executed
+-   **EXECUTE\_SUCCESS**: successful
+-   **EXECUTE\_FAILURE**: failed |
+|TaskStatusCode|Integer|2|The status code of the task. Valid values:
 
-|
-|String|TaskStatusCode|The task status code, which has the following values: which has the following values:-   0: awaiting execution.
--   1: execution in progress.
--   2: execution successful.
--   3: execution failed.
+ -   **0**: to be executed
+-   **1**: being executed
+-   **2**: successful
+-   **3**: failed |
+|TaskType|String|CHG\_DNS|The type of the task. Valid values:
 
-|
-|String|CreateTime|Task creation time.|
-|String|UpdateTime|Last execution time to obtain task details.|
-|Integer|TryCount|Number of retries to obtain task details.|
-|String|TaskNo|Task ID.|
-|String|TaskDetailNo|Task details ID.|
-|String|ErrorMsg|Task execution failure message.|
-|String|TaskTypeDescription|Description of the task type.|
+ -   **CHG\_HOLDER**: updates the registrant information.
+-   **CHG\_DNS**: changes Domain Name System \(DNS\) servers.
+-   **SET\_WHOIS\_PROTECT**: sets privacy protection for the domain name.
+-   **UPDATE\_ADMIN\_CONTACT**: updates the administrative contacts.
+-   **UPDATE\_BILLING\_CONTACT**: updates the payer information.
+-   **UPDATE\_TECH\_CONTACT**: updates the information about the technical support.
+-   **SET\_UPDATE\_PROHIBITED**: sets the security lock for the domain name.
+-   **SET\_TRANSFER\_PROHIBITED**: sets the transfer lock for the domain name.
+-   **ORDER\_ACTIVATE**: creates a registration order.
+-   **ORDER\_RENEW**: creates a renewal order.
+-   **ORDER\_REDEEM**: creates a redemption order.
+-   **CREATE\_DNSHOST**: creates a DNS host.
+-   **UPDATE\_DNSHOST**: updates the information about a DNS host.
+-   **SYNC\_DNSHOST**: synchronizes the information about a DNS host. |
+|TaskTypeDescription|String|Change DNS servers|The description of the task type. |
+|TryCount|Integer|0|The number of query attempts. |
+|UpdateTime|String|2019-07-30 00:00:00|The last time when the task was executed. |
+|NextPageCursor|Struct| |The cursor of the next page. |
+|CreateTime|String|2019-07-30 00:00:00|The time when the task was created. |
+|DomainName|String|test.com|The domain name of the task that was queried. |
+|ErrorMsg|String|The domain name has an update lock.|The task execution result. |
+|InstanceId|String|S1234567890|The instance ID of the domain name that was queried. |
+|TaskDetailNo|String|75addb07-28a3-450e-b5ec-2424|The ID of the task details. |
+|TaskNo|String|75addb07-28a3-450e-b5ec-test|The ID of the task that was queried. |
+|TaskStatus|String|EXECUTE\_FAILURE|The status of the task. Valid values:
 
-|Type|Parameter|Description|
-|:---|:--------|:----------|
-|String|TaskType|Task type， which has the following enumerated values:-   CHG\_HOLDER: Modify the registrant’s information.
--   CHG\_DNS: Modify DNS information.
--   SET\_WHOIS\_PROTECT: Set privacy protection.
--   UPDATE\_ADMIN\_CONTACT : Modify the administrator information.
--   UPDATE\_BILLING\_CONTACT: Modify the payers information.
--   UPDATE\_TECH\_CONTACT: Modify the technician information.
--   SET\_UPDATE\_PROHIBITED: Set the domain name security lock.
--   SET\_TRANSFER\_PROHIBITED: Set the domain name transfer lock.
--   ORDER\_ACTIVATE: Create a registration order.
--   ORDER\_RENEW: Create a renewal order.
--   ORDER\_REDEEM: Create a redemption order.
--   CREATE\_DNSHOST: Create a DNS host.
--   UPDATE\_DNSHOST: Update a DNS host.
--   SYNC\_DNSHOST: Synchronize DNS host information.
+ -   **WAITING\_EXECUTE**: to be executed
+-   **EXECUTING**: being executed
+-   **EXECUTE\_SUCCESS**: successful
+-   **EXECUTE\_FAILURE**: failed |
+|TaskStatusCode|Integer|3|The status code of the task. Valid values:
 
-|
-|String|DomainName|Domain name.|
-|String|InstanceId|Domain name instance ID.|
-|String|TaskStatus|The task status code, which has the following values:-   WAITING\_EXECUTE : The task is waiting for execution.
--   EXECUTING: The task is being executed.
--   EXECUTE\_SUCCESS: The task has been successfully executed.
--   EXECUTE\_FAILURE: The task failed to be executed.
+ -   **0**: to be executed
+-   **1**: being executed
+-   **2**: successful
+-   **3**: failed |
+|TaskType|String|CHG\_DNS|The type of the task. Valid values:
 
-|
-|String|TaskStatusCode|The task status code, which has the following values:-   0: awaiting execution.
--   1: execution in progress.
--   2: execution successful.
--   3: execution failed.
+ -   **CHG\_HOLDER**: updates the registrant information.
+-   **CHG\_DNS**: changes DNS servers.
+-   **SET\_WHOIS\_PROTECT**: sets privacy protection for the domain name.
+-   **UPDATE\_ADMIN\_CONTACT**: updates the administrative contacts.
+-   **UPDATE\_BILLING\_CONTACT**: updates the payer information.
+-   **UPDATE\_TECH\_CONTACT**: updates the information about the technical support.
+-   **SET\_UPDATE\_PROHIBITED**: sets the security lock for the domain name.
+-   **SET\_TRANSFER\_PROHIBITED**: sets the transfer lock for the domain name.
+-   **ORDER\_ACTIVATE**: creates a registration order.
+-   **ORDER\_RENEW**: creates a renewal order.
+-   **ORDER\_REDEEM**: creates a redemption order.
+-   **CREATE\_DNSHOST**: creates a DNS host.
+-   **UPDATE\_DNSHOST**: updates the information about a DNS host.
+-   **SYNC\_DNSHOST**: synchronizes the information about a DNS host. |
+|TaskTypeDescription|String|Change DNS servers|The description of the task type. |
+|TryCount|Integer|5|The number of query attempts. |
+|UpdateTime|String|2019-07-30 00:00:00|The last time when the task was executed. |
+|Objects|Array| |The details of the task. |
+|CreateTime|String|2019-07-30 00:00:00|The time when the task was created. |
+|DomainName|String|test.com|The domain name of the task that was queried. |
+|ErrorMsg|String|The domain name has an update lock.|The task execution result. |
+|InstanceId|String|S123456789|The instance ID of the domain name that was queried. |
+|TaskDetailNo|String|75addb07-28a3-450e-b5ec-4234|The ID of the task details. |
+|TaskNo|String|75addb07-28a3-450e-b5ec-test|The ID of the task that was queried. |
+|TaskStatus|String|EXECUTE\_FAILURE|The status of the task. Valid values:
 
-|
-|String|CreateTime|Task creation time.|
-|String|UpdateTime|Last execution time to obtain task details.|
-|Integer|TryCount|Number of retries to obtain task details.|
-|String|TaskNo|Task ID.|
-|String|TaskDetailNo|Task details ID.|
-|String|ErrorMsg|Task execution failure message.|
-|String|TaskTypeDescription|Description of the task type.|
+ -   **WAITING\_EXECUTE**: to be executed
+-   **EXECUTING**: being executed
+-   **EXECUTE\_SUCCESS**: successful
+-   **EXECUTE\_FAILURE**: failed |
+|TaskStatusCode|Integer|3|The status code of the task. Valid values:
 
-|Type|Parameter|Description|
-|:---|:--------|:----------|
-|String|TaskType|Task type， which has the following enumerated values:-   CHG\_HOLDER: Modify the registrant’s information.
--   CHG\_DNS: Modify DNS information.
--   SET\_WHOIS\_PROTECT: Set privacy protection.
--   UPDATE\_ADMIN\_CONTACT : Modify the administrator information.
--   UPDATE\_BILLING\_CONTACT: Modify the payers information.
--   UPDATE\_TECH\_CONTACT: Modify the technician information.
--   SET\_UPDATE\_PROHIBITED: Set the domain name security lock.
--   SET\_TRANSFER\_PROHIBITED: Set the domain name transfer lock.
--   ORDER\_ACTIVATE: Create a registration order.
--   ORDER\_RENEW: Create a renewal order.
--   ORDER\_REDEEM: Create a redemption order.
--   CREATE\_DNSHOST: Create a DNS host.
--   UPDATE\_DNSHOST: Update a DNS host.
--   SYNC\_DNSHOST: Synchronize DNS host information.
+ -   **0**: to be executed
+-   **1**: being executed
+-   **2**: successful
+-   **3**: failed |
+|TaskType|String|CHG\_DNS|The type of the task. Valid values:
 
-|
-|String|DomainName|Domain name.|
-|String|InstanceId|Domain name instance ID.|
-|String|TaskStatus|Task status, which has the following values:-   WAITING\_EXECUTE : The task is waiting for execution.
--   EXECUTING: The task is being executed.
--   EXECUTE\_SUCCESS: The task has been successfully executed.
--   EXECUTE\_FAILURE: The task failed to be executed.
+ -   **CHG\_HOLDER**: updates the registrant information.
+-   **CHG\_DNS**: changes DNS servers.
+-   **SET\_WHOIS\_PROTECT**: sets privacy protection for the domain name.
+-   **UPDATE\_ADMIN\_CONTACT**: updates the administrative contacts.
+-   **UPDATE\_BILLING\_CONTACT**: updates the payer information.
+-   **UPDATE\_TECH\_CONTACT**: updates the information about the technical support.
+-   **SET\_UPDATE\_PROHIBITED**: sets the security lock for the domain name.
+-   **SET\_TRANSFER\_PROHIBITED**: sets the transfer lock for the domain name.
+-   **ORDER\_ACTIVATE**: creates a registration order.
+-   **ORDER\_RENEW**: creates a renewal order.
+-   **ORDER\_REDEEM**: creates a redemption order.
+-   **CREATE\_DNSHOST**: creates a DNS host.
+-   **UPDATE\_DNSHOST**: updates the information about a DNS host.
+-   **SYNC\_DNSHOST**: synchronizes the information about a DNS host. |
+|TaskTypeDescription|String|Change DNS servers|The description of the task type. |
+|TryCount|Integer|5|The number of query attempts. |
+|UpdateTime|String|2019-07-30 00:00:00|The last time when the task was executed. |
+|PageSize|Integer|2|The number of entries returned per page. |
+|PrePageCursor|Struct| |The cursor of the previous page. |
+|CreateTime|String|2019-07-30 00:00:00|The time when the task was created. |
+|DomainName|String|test.com|The domain name of the task that was queried. |
+|ErrorMsg|String|The domain name has an update lock.|The task execution result. |
+|InstanceId|String|S123456789|The instance ID of the domain name that was queried. |
+|TaskDetailNo|String|75addb07-28a3-450e-b5ec-123|The ID of the task details. |
+|TaskNo|String|75addb07-28a3-450e-b5ec-test|The ID of the task that was queried. |
+|TaskStatus|String|EXECUTE\_FAILURE|The status of the task. Valid values:
 
-|
-|String|TaskStatusCode|The task status code, which has the following values: which has the following values:-   0: awaiting execution.
--   1: execution in progress.
--   2: execution successful.
--   3: execution failed.
+ -   **WAITING\_EXECUTE**: to be executed
+-   **EXECUTING**: being executed
+-   **EXECUTE\_SUCCESS**: successful
+-   **EXECUTE\_FAILURE**: failed |
+|TaskStatusCode|Integer|3|The status code of the task. Valid values:
 
-|
-|String|CreateTime|Task creation time.|
-|String|UpdateTime|Last execution time to obtain task details.|
-|Integer|TryCount|Number of retries to obtain task details.|
-|String|TaskNo|Task ID.|
-|String|TaskDetailNo|Task details ID.|
-|String|ErrorMsg|Task execution failure message.|
-|String|TaskTypeDescription|Description of the task type.|
+ -   **0**: to be executed
+-   **1**: being executed
+-   **2**: successful
+-   **3**: failed |
+|TaskType|String|CHG\_DNS|The type of the task. Valid values:
 
-## Error codes {#section_jwg_xnm_c2b .section}
+ -   **CHG\_HOLDER**: updates the registrant information.
+-   **CHG\_DNS**: changes DNS servers.
+-   **SET\_WHOIS\_PROTECT**: sets privacy protection for the domain name.
+-   **UPDATE\_ADMIN\_CONTACT**: updates the administrative contacts.
+-   **UPDATE\_BILLING\_CONTACT**: updates the payer information.
+-   **UPDATE\_TECH\_CONTACT**: updates the information about the technical support.
+-   **SET\_UPDATE\_PROHIBITED**: sets the security lock for the domain name.
+-   **SET\_TRANSFER\_PROHIBITED**: sets the transfer lock for the domain name.
+-   **ORDER\_ACTIVATE**: creates a registration order.
+-   **ORDER\_RENEW**: creates a renewal order.
+-   **ORDER\_REDEEM**: creates a redemption order.
+-   **CREATE\_DNSHOST**: creates a DNS host.
+-   **UPDATE\_DNSHOST**: updates the information about a DNS host.
+-   **SYNC\_DNSHOST**: synchronizes the information about a DNS host. |
+|TaskTypeDescription|String|Change DNS servers|The description of the task type. |
+|TryCount|Integer|5|The number of query attempts. |
+|UpdateTime|String|2019-07-30 00:00:00|The last time when the task was executed. |
+|RequestId|String|548CAE74-88F8-402F-8C12-97E747389C51|The ID of the request. |
 
-|Error code|Description|HTTP status code|Semantics|
-|:---------|:----------|:---------------|:--------|
-|ParameterIllegal|Parameter illegal.|400|Parameter error.|
-|NetworkIOError|Network IO Error.|400|Network I/O exception.|
+## Examples
 
-## Examples {#section_r31_24m_c2b .section}
-
-**Request example**
+Sample requests
 
 ```
-http://domain-intl.aliyuncs.com/?Action=QueryTaskDetailHistory
+http(s)://[Endpoint]/? Action=QueryTaskDetailHistory
 &PageSize=1
-&PageNum=1
 &TaskNo=75addb07-28a3-450e-b5ec-test
-&<Public request parameter>
+&<Common request parameters>
 ```
 
-**Response example**
+Sample success responses
 
--   XML format
+`XML` format
 
-    ```
-    <? xml version='1.0' encoding='UTF-8'? >
-    <QueryTaskDetailHistoryResponse>
-        <PageSize>2</PageSize>
-        <RequestId>548CAE74-88F8-402F-8C12-97E747389C51</RequestId>
-    </QueryTaskDetailHistoryResponse>
-    ```
+```
+<QueryTaskDetailHistoryResponse>
+  <currentPageCursor></currentPageCursor>
+  <nextPageCursor></nextPageCursor>
+  <pageSize>2</pageSize>
+  <prePageCursor></prePageCursor>
+  <requestId>CCE5DABB-48DF-403C-A7A1-A8F8B4F530CA</requestId>
+</QueryTaskDetailHistoryResponse>
+```
 
--   JSON format
+`JSON` format
 
-    ```
-    {
-      "currentPageCursor": {},
-      "nextPageCursor": {},
-      "objects": [],
-      "pageSize": 2,
-      "prePageCursor": {},
-      "requestId": "CCE5DABB-48DF-403C-A7A1-A8F8B4F530CA"
-    }
-    ```
+```
+{
+  "currentPageCursor": {},
+  "nextPageCursor": {},
+  "objects": [],
+  "pageSize": 2,
+  "prePageCursor": {},
+  "requestId": "CCE5DABB-48DF-403C-A7A1-A8F8B4F530CA"
+}
+```
 
+## Error codes
+
+For a list of error codes, visit the [API Error Center](https://error-center.alibabacloud.com/status/product/Domain).
 
