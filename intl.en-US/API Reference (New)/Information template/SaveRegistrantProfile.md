@@ -1,81 +1,101 @@
-# SaveRegistrantProfile {#concept_dsm_tbc_b2b .concept}
+# SaveRegistrantProfile
 
-Create or save a domain registrant information template.
+Creates or updates a domain name registrant profile.
 
-## Request parameters {#section_v4h_whc_b2b .section}
+## Description
 
-For more information about public request parameters, see [Public parameters](reseller.en-US/API Reference (New)/Calling method/Public parameters.md#).
+A registrant profile contains the information about the relevant domain name registrant. When you create or modify a registrant profile, we recommend that you specify the latest registrant information. When you specify registrant information, we recommend that you use lowercase letters to facilitate information review for the domain name registry. For more information about the requirements on the information to specify, see the parameter description in the following table.
 
-|Parameter|Type|Required|Description|
-|:--------|:---|:-------|:----------|
-|Action|String|Yes|API of the action. System required parameter. SaveRegistrantProfile.|
-|RegistrantProfileId|Long|Required in template update and empty in template creation.|ID of the domain name information template.|
-|Telephone|String|Required in template update and empty in template creation.|Phone number.|
-|DefaultRegistrantProfile|Boolean|Required in template update and empty in template creation.|Whether it is the default template.|
-|Country|String|Required in template update and empty in template creation.|Country code, such as CN or US.|
-|Province|String|Required in template update and empty in template creation.|Province.|
-|TelArea|String|Required in template update and empty in template creation.|Country dialing code.|
-|City|String|Required in template update and empty in template creation.|City.|
-|PostalCode|String|Required in template update and empty in template creation.|Zip code.|
-|Email|String|Required in template update and empty in template creation.|Email address.|
-|Address|String|Required in template update and empty in template creation.|Specific address.|
-|RegistrantName|String|Required in template update and empty in template creation.|Contact name.|
-|RegistrantOrganization|String|Required in template update and empty in template creation.|Owner name.|
-|TelExt|String|No|Extension number|
+## Debugging
 
-## Response parameters { .section}
+[OpenAPI Explorer automatically calculates the signature value. For your convenience, we recommend that you call this operation in OpenAPI Explorer. OpenAPI Explorer dynamically generates the sample code of the operation for different SDKs.](https://api.aliyun.com/#product=Domain&api=SaveRegistrantProfile&type=RPC&version=2018-01-29)
 
-|Parameter|Type|Description|
-|:--------|:---|:----------|
-|RequestId|String|Unique request identifier.|
-|RegistrantProfileId|Long|ID of the contact information template.|
+## Request parameters
 
-## Error codes { .section}
+|Parameter|Type|Required|Example|Description|
+|---------|----|--------|-------|-----------|
+|Action|String|Yes|SaveRegistrantProfile|The operation that you want to perform.Set the value to SaveRegistrantProfile. |
+|RegistrantProfileType|String|No|common|The type of the registrant profile. Valid values:
 
-|Error code|Description|HTTP status code|Meaning|
-|:---------|:----------|:---------------|:------|
-|ParameterIllegal|Parameter illegal.|400|Parameter error|
-|NetworkIOError|Network IO Error.|400|Network I/O exception|
+ -   **common**: common profile
+-   **cnnic**: China Internet Network Information Center \(CNNIC\) profile
 
-## Examples {#section_tpq_m3c_b2b .section}
+ **Note:** You can create and manage a CNNIC profile only on the Alibaba Cloud international site \(alibabacloud.com\). You must use a CNNIC profile to manage specific domain names, such as .cn, from the CNNIC registrar. For other domain names, you can use a common profile. |
+|RegistrantType|String|No|1|The type of the domain name registrant. Valid values:
 
-**Request example**
+ -   **1**: individual
+-   **2**: enterprise
+
+ Default value:**1**. |
+|RegistrantProfileId|Long|No|3600000|The ID of the registrant profile to be modified. The system generates an ID after you create a registrant profile.
+
+ **Note:** This parameter is required when you call the SaveRegistrantProfile operation to update a registrant profile. You can call the QueryRegistrantProfiles operation to query the ID of a created registrant profile. For more information, see [QueryRegistrantProfiles](~~67701~~). |
+|RegistrantOrganization|String|No|li si|The name of the domain name registrant. |
+|RegistrantName|String|No|li si|The name of the contact for the domain name. |
+|Province|String|No|zhe jiang|The province where the domain name registrant is located.
+
+ **Note:** Omit the word sheng when you set this parameter. For example, if the registrant is located in Zhejiang Province, set this parameter to zhe jiang. |
+|City|String|No|hang zhou shi|The city where the domain name registrant is located.
+
+ **Note:** Retain the word shi when you set this parameter. For example, if the registrant is located in Hangzhou, set this parameter to hang zhou shi. |
+|Address|String|No|zhe jiang sheng hang zhou shi shi li qu shi li zhen shi li da sha 1001 hao|The address of the domain name registrant. |
+|Country|String|No|CN|The code of the country or region where the domain name registrant is located,such as CN or US. |
+|TelArea|String|No|86|The calling code of the country or region where the domain name registrant is located. For example, the calling code of China is **86**. |
+|Telephone|String|No|1829756\*\*\*\*|The phone number of the domain name registrant. |
+|TelExt|String|No|1234|The extension number of the registrant's phone number. |
+|PostalCode|String|No|310024|The zip code of the region where the domain name registrant is located. |
+|Email|String|No|82106\*\*\*\*@qq.com|The email address of the domain name registrant. |
+|DefaultRegistrantProfile|Boolean|No|false|Specifies whether to set the registrant profile as the default profile. Valid values:
+
+ -   **true**
+-   **false**
+
+ Default value: **false**. |
+|Lang|String|No|en|The language of the error message to return. Valid values:
+
+ -   **zh**: Chinese
+-   **en**: English
+
+ Default value: **en**. |
+|UserClientIp|String|No|127.0.0.1|The IP address of the client that you use to create or update the registrant profile. |
+
+## Response parameters
+
+|Parameter|Type|Example|Description|
+|---------|----|-------|-----------|
+|RegistrantProfileId|Long|3600000|The ID of the registrant profile that was created or updated. |
+|RequestId|String|D09B153B-294D-42F1-BB61-F1C72136DFD3|The ID of the request. |
+
+## Examples
+
+Sample requests
 
 ```
-http://domain-intl.aliyuncs.com/?Action=SaveRegistrantProfile
-&DefaultRegistrantProfile=false
-&Email=a%40a.com
-&Address=test+a
-&Telephone=18800000000
-&PostalCode=000000
-&City=testc
-&Province=test+p
-&RegistrantName=test+rn
-&Country=CN
-&RegistrantOrganization=test+ro
-&TelArea=86
-&<Public request parameters>
+http(s)://domain.aliyuncs.com/? Action=SaveRegistrantProfile
+&<Common request parameters>
 ```
 
-**Response example**
+Sample success responses
 
--   XML format
+`XML` format
 
-    ```
-    <? xml version='1.0' encoding='UTF-8'? >
-    <SaveRegistrantProfileResponse>
-        <RegistrantProfileId>3600000</RegistrantProfileId>
-        <RequestId>D09B153B-294D-42F1-BB61-F1C72136DFD3</RequestId>
-    </SaveRegistrantProfileResponse>
-    ```
+```
+<SaveRegistrantProfileResponse>
+      <RegistrantProfileId>3600000</RegistrantProfileId>
+      <RequestId>D09B153B-294D-42F1-BB61-F1C72136DFD3</RequestId>
+</SaveRegistrantProfileResponse>
+```
 
--   JSON format
+`JSON` format
 
-    ```
-    {
-      "RegistrantProfileId": "3696573",
-      "RequestId": "ECB708B9-A82E-45D7-A230-58231E532A57"
-    }
-    ```
+```
+{
+  "RegistrantProfileId": "3600000",
+  "RequestId": "D09B153B-294D-42F1-BB61-F1C72136DFD3"
+}
+```
 
+## Error codes
+
+For a list of error codes, visit the [API Error Center](https://error-center.alibabacloud.com/status/product/Domain).
 
