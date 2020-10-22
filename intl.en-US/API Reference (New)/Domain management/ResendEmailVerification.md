@@ -1,91 +1,91 @@
-# ResendEmailVerification {#concept_dhd_zyk_c2b .concept}
+# ResendEmailVerification
 
-ResendEmailVerification: resends verification emails.
+Sends a new verification email to one or more email addresses.
 
-## Request parameters {#section_dbr_dzm_c2b .section}
+## Debugging
 
-For more information about public request parameters, see [Public parameters](intl.en-US/API Reference (New)/Calling method/Public parameters.md#).
+[OpenAPI Explorer automatically calculates the signature value. For your convenience, we recommend that you call this operation in OpenAPI Explorer. OpenAPI Explorer dynamically generates the sample code of the operation for different SDKs.](https://api.aliyun.com/#product=Domain&api=ResendEmailVerification&type=RPC&version=2018-01-29)
 
-|Parameter|Type|Required|Description|
-|:--------|:---|:-------|:----------|
-|Action|String|Yes|The API name, a required parameter. Set this parameter to ResendEmailVerification.|
-|Email|String|Yes|Email address. Use commas \(,\) to separate multiple email addresses.|
-|Lang|String|No|Language of the information returned from the API, which has the following enumerated values: zh\(Chinese\) and en \(English\). The default value is en.|
+## Request parameters
 
-## Response parameters {#section_zp1_3zm_c2b .section}
+|Parameter|Type|Required|Example|Description|
+|---------|----|--------|-------|-----------|
+|Action|String|Yes|ResendEmailVerification|The operation that you want to perform. Set the value to **ResendEmailVerification**. |
+|Email|String|Yes|test1@aliyun.com,test2@aliyun.com|The email address to which you want to send a new verification email. Separate multiple email addresses with commas \(,\). |
+|Lang|String|No|en|The language of the error message to return. Valid values:
 
-|Parameter|Type|Description|
-|:--------|:---|:----------|
-|RequestId|String|Unique request identifier.|
-|SuccessList|[SendResultType](#table_ltc_lzm_c2b)|Success list.|
-|FailList|SendResultType|Failure list.|
+ -   **zh**: Chinese
+-   **en**: English
 
-|Parameter|Type|Description|
-|:--------|:---|:----------|
-|Email|String|Email address to be verified.|
-|Code|String|Return code.|
-|Message|String|Response message.|
+ Default value: **en**. |
+|UserClientIp|String|No|127.0.0.1|The IP address of the client that you use to send a new verification email. |
 
-## Error codes {#section_n1h_rzm_c2b .section}
+## Response parameters
 
-|Error code|Description| HTTP status code|Meaning|
-|:---------|:----------|----------------:|:------|
-|ParameterIllegal|Parameter illegal.|400|Parameter error.|
-|NetworkIOError|Network IO Error.|400|Network I/O exception.|
+|Parameter|Type|Example|Description|
+|---------|----|-------|-----------|
+|FailList|Array| |The information about the email address to which a new verification email failed to be sent. |
+|Code|String|SendTokenQuotaExceeded|The code returned for the request. |
+|Email|String|test1@aliyun.com|The email address to which you attempted to send a new verification email. |
+|Message|String|The maximum number of attempts allowed to send the email verification link is exceeded.|The message returned for the request. |
+|SuccessList|Array| |The information about the email address to which a new verification email was sent. |
+|Code|String|Success|The code returned for the request. |
+|Email|String|test2@aliyun.com|The email address to which you attempted to send a new verification email. |
+|Message|String|Success|The message returned for the request. |
+|RequestId|String|0EA54E99-DB48-4CE3-A099-6ED8E451B8AC|The ID of the request. |
 
-## Examples {#section_mdg_tzm_c2b .section}
+## Examples
 
-**Request example**
+Sample requests
 
 ```
-http://domain-intl.aliyuncs.com/?Action=ResendEmailVerification
+http(s)://domain.aliyuncs.com/? Action=ResendEmailVerification
 &Email=test1@aliyun.com,test2@aliyun.com
-&<Public request parameter>
+&<Common request parameters>
 ```
 
-**Response example**
+Sample success responses
 
--   XML format
+`XML` format
 
-    ```
-    <? xml version='1.0' encoding='UTF-8'? >
-    <ResendEmailVerificationResponse>
-        <FailList>
-            <SendResult>
-                <Email>test1@aliyun.com</Email>
-                <Message>The maximum number of attempts allowed to send the email verification link is exceeded.</Message>
-                <Code>SendTokenQuotaExceeded</Code>
-            </SendResult>
-            <SendResult>
-                <Email>test2@aliyun.com</Email>
-                <Message>The maximum number of attempts allowed to send the email verification link is exceeded.</Message>
-                <Code>SendTokenQuotaExceeded</Code>
-            </SendResult>
-        </FailList>
-        <RequestId>0EA54E99-DB48-4CE3-A099-6ED8E451B8AC</RequestId>
-        <SuccessList/>
-    </ResendEmailVerificationResponse>
-    ```
+```
+<ResendEmailVerificationResponse>
+  <failList>
+        <code>SendTokenQuotaExceeded</code>
+        <email>test1@aliyun.com</email>
+        <message>The maximum number of attempts allowed to send the email verification link is exceeded.</message>
+  </failList>
+  <failList>
+        <code>ParameterIllegall</code>
+        <email>test2@aliyun.com</email>
+        <message>Parameter error</message>
+  </failList>
+  <requestId>0EA54E99-DB48-4CE3-A099-6ED8E451B8AC</requestId>
+</ResendEmailVerificationResponse>
+```
 
--   JSON format
+`JSON` format
 
-    ```
+```
+{
+  "failList": [
     {
-      "failList": [
-        {
-          "code": "SendTokenQuotaExceeded",
-          "email": "test1@aliyun.com",
-          "message": "The maximum number of attempts allowed to send the email verification link is exceeded."
-        },
-        {
-          "code": "ParameterIllegall",
-          "email": "test2@aliyun.com",
-          "message": "Parameter error"
-        }
-      ],
-      "requestId": "8D93B5EC-09D5-43C3-A5ED-AFBC6A98DDDF",
-      "successList": []
+      "code": "SendTokenQuotaExceeded",
+      "email": "test1@aliyun.com",
+      "message": "The maximum number of attempts allowed to send the email verification link is exceeded."
+    },
+    {
+      "code": "ParameterIllegall",
+      "email": "test2@aliyun.com",
+      "message": "Parameter error"
     }
-    ```
+  ],
+  "requestId": "0EA54E99-DB48-4CE3-A099-6ED8E451B8AC",
+  "successList": []
+}
+```
 
+## Error codes
+
+For a list of error codes, visit the [API Error Center](https://error-center.alibabacloud.com/status/product/Domain).
 
