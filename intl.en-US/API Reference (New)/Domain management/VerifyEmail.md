@@ -1,57 +1,62 @@
-# VerifyEmail {#concept_yhk_mrp_b2b .concept}
+# VerifyEmail
 
-The VerifyEmail API verifies the email token.
+Verifies the token that was received at the email address of a domain name.
 
-## Request parameters {#section_cbr_jtq_b2b .section}
+## Debugging
 
-For more information about public request parameters, see [Public parameters](intl.en-US/API Reference (New)/Calling method/Public parameters.md#).
+[OpenAPI Explorer automatically calculates the signature value. For your convenience, we recommend that you call this operation in OpenAPI Explorer. OpenAPI Explorer dynamically generates the sample code of the operation for different SDKs.](https://api.aliyun.com/#product=Domain&api=VerifyEmail&type=RPC&version=2018-01-29)
 
-|Parameter|Type|Required|Description|
-|:--------|:---|:-------|:----------|
-|Action|String|Yes|API of the action, system required parameter. Set this parameter to VerifyEmail.|
-|Token|String|Yes|Token received in the email.|
-|Lang|String|No|Language of the information returned from the API. The enumerated values include zh \(Chinese\) and en \(English\). The default value is en.|
+## Request parameters
 
-## Response parameters {#section_szd_stq_b2b .section}
+|Parameter|Type|Required|Example|Description|
+|---------|----|--------|-------|-----------|
+|Action|String|Yes|VerifyEmail|The operation that you want to perform. Set the value to **VerifyEmail**. |
+|Token|String|Yes|0b32247496409441e9e179ea7c2e0\*\*\*\*|The token that was received in the email.
 
-|Parameter|Type|Description|
-|:--------|:---|:----------|
-|RequestId|String|Unique request identifier.|
+ After a verification email is sent, you can log on to your email server and check the token in the email that you have received. |
+|Lang|String|No|en|The language of the error message to return. Valid values:
 
-## Error codes {#section_itv_5tq_b2b .section}
+ -   **zh**: Chinese
+-   **en**: English
 
-|Error code|Description|HTTP status code|Semantics|
-|:---------|:----------|:---------------|:--------|
-|ParameterIllegal|Parameter illegal.|400|Parameter error.|
-|NetworkIOError|Network IO Error.|400|Network I/O exception.|
+ Default value: **en**. |
+|UserClientIp|String|No|127.0.0.1|The IP address of the client that you use to verify the token. |
 
-## Examples {#section_jmz_wtq_b2b .section}
+## Response parameters
 
-**Request example**
+|Parameter|Type|Example|Description|
+|---------|----|-------|-----------|
+|RequestId|String|FD3AD289-83EE-4E32-803A-CF1B3A8EEE64|The ID of the request. |
+
+## Examples
+
+Sample requests
 
 ```
-http://domain-intl.aliyuncs.com/?Action=VerifyEmail
-&Email=test@aliyun.com
-&<Public request parameters>
+http(s)://domain.aliyuncs.com/? Action=VerifyEmail
+&Token=0b32247496409441e9e179ea7c2e0****
+&<Common request parameters>
 ```
 
-**Response example**
+Sample success responses
 
--   XML format
+`XML` format
 
-    ```
-    <? xml version='1.0' encoding='UTF-8'? >
-    <VerifyEmailResponse>
-        <RequestId>FD3AD289-83EE-4E32-803A-CF1B3A8EEE64</RequestId>
-    </VerifyEmailResponse>
-    ```
+```
+<VerifyEmailResponse>
+      <RequestId>FD3AD289-83EE-4E32-803A-CF1B3A8EEE64</RequestId>
+</VerifyEmailResponse>
+```
 
--   JSON format
+`JSON` format
 
-    ```
-    {
-        "requestId":"6ED795BD-192E-4921-B8E5-1BCA6F71186C"
-    }
-    ```
+```
+{
+    "requestId":"FD3AD289-83EE-4E32-803A-CF1B3A8EEE64"
+}
+```
 
+## Error codes
+
+For a list of error codes, visit the [API Error Center](https://error-center.alibabacloud.com/status/product/Domain).
 
