@@ -1,57 +1,62 @@
-# DeleteRegistrantProfile {#concept_wcr_vyb_b2b .concept}
+# DeleteRegistrantProfile
 
-The DeleteRegistrantProfile API deletes the specified domain name information templates.
+Deletes a registrant profile.
 
-## Request parameters {#section_g5r_1zb_b2b .section}
+**Note:** If the request is successful, the system deletes the specified registrant profile.
 
-For more information about public request parameters, see [Public parameters](intl.en-US/API Reference (New)/Calling method/Public parameters.md#).
+## Debugging
 
-|Name|Type|Required|Description|
-|:---|:---|:-------|:----------|
-|Action|String|Yes|API of the action, system required parameter. Set this parameter to DeleteRegistrantProfile.|
-|RegistrantProfileId|Long|Yes|ID of the domain name information template.|
+[OpenAPI Explorer automatically calculates the signature value. For your convenience, we recommend that you call this operation in OpenAPI Explorer. OpenAPI Explorer dynamically generates the sample code of the operation for different SDKs.](https://api.aliyun.com/#product=Domain&api=DeleteRegistrantProfile&type=RPC&version=2018-01-29)
 
-**Response parameters**
+## Request parameters
 
-|Name|Type|Description|
-|:---|:---|:----------|
-|RequestId|String|Unique request identifier.|
+|Parameter|Type|Required|Example|Description|
+|---------|----|--------|-------|-----------|
+|Action|String|Yes|DeleteRegistrantProfile|The operation that you want to perform. Set the value to **DeleteRegistrantProfile**. |
+|RegistrantProfileId|Long|Yes|3600000|The ID of the registrant profile to be deleted. You can call the QueryRegistrantProfiles operation to query the ID of a created registrant profile. For more information, see [QueryRegistrantProfiles](~~67701~~). |
+|Lang|String|No|en|The language of the error message to return. Valid values:
 
-**Error codes**
+ -   **zh**: Chinese
+-   **en**: English
 
-|Error code|Description| HTTP status code| Semantics|
-|:---------|:----------|:----------------|:---------|
-|ParameterIllegal|Parameter illegal.|400|Parameter error.|
-|NetworkIOError|Network IO Error.|400|Network I/O exception.|
-|ContactTemplateNotExist|ContactTemplateNotExist|400|The contact information template does not exist.|
+ Default value: **en**. |
+|UserClientIp|String|No|127.0.0.1|The IP address of the client that you use to delete the registrant profile. |
 
-## Examples {#section_l4n_kzb_b2b .section}
+## Response parameters
 
-**Request example**
+|Parameter|Type|Example|Description|
+|---------|----|-------|-----------|
+|RequestId|String|C50E41A0-09F1-4491-8DB8-AF55BD2D0CC8|The ID of the request. |
+
+## Examples
+
+Sample requests
 
 ```
-http://domain-intl.aliyuncs.com/?Action=DeleteRegistrantProfile
+http(s)://domain.aliyuncs.com/? Action=DeleteRegistrantProfile
 &RegistrantProfileId=3600000
-&<Public request parameters>
+&<Common request parameters>
 ```
 
-**Response example**
+Sample success responses
 
--   XML format
+`XML` format
 
-    ```
-    <? xml version='1.0' encoding='UTF-8'? >
-    <DeleteRegistrantProfileResponse>
-        <RequestId>C50E41A0-09F1-4491-8DB8-AF55BD2D0CC8</RequestId>
-    </DeleteRegistrantProfileResponse>
-    ```
+```
+<DeleteRegistrantProfileResponse>
+      <RequestId>C50E41A0-09F1-4491-8DB8-AF55BD2D0CC8</RequestId>
+</DeleteRegistrantProfileResponse>
+```
 
--   JSON format
+`JSON` format
 
-    ```
-    {
-      "RequestId": "0B22A572-0A57-4510-B233-4620D5DE33FE"
-    }
-    ```
+```
+{
+  "RequestId": "C50E41A0-09F1-4491-8DB8-AF55BD2D0CC8"
+}
+```
 
+## Error codes
+
+For a list of error codes, visit the [API Error Center](https://error-center.alibabacloud.com/status/product/Domain).
 
