@@ -1,91 +1,90 @@
-# DeleteEmailVerification {#concept_ur1_mjq_b2b .concept}
+# DeleteEmailVerification
 
-The DeleteEmailVerification API deletes verified email addresses. After a verified email address is deleted, it must be verified again.
+Deletes one or more verified email addresses.
 
-## Request parameters {#section_jtz_h4l_c2b .section}
+**Note:** After you delete a verified email address from your registrant information, you must verify the email address again if you need to add the email address to your registrant information.
 
-For more information about public request parameters, see [public parameters](reseller.en-US/API Reference (New)/Calling method/Public parameters.md#).
+## Debugging
 
-|Parameter|Type|Required|Description|
-|:--------|:---|:-------|:----------|
-|Action|String|Yes| API of the action, system required parameter. Set this parameter to DeleteEmailVerification.|
-|Email|String|Yes|Email address. Use commas \(,\) to separate multiple email addresses.|
-|Lang|String|No|Language of the information returned from the API. The enumerated values include zh \(Chinese\) and en  \(English\). The default value is en.|
+[OpenAPI Explorer automatically calculates the signature value. For your convenience, we recommend that you call this operation in OpenAPI Explorer. OpenAPI Explorer dynamically generates the sample code of the operation for different SDKs.](https://api.aliyun.com/#product=Domain&api=DeleteEmailVerification&type=RPC&version=2018-01-29)
 
-## Response parameters {#section_oyr_m4l_c2b .section}
+## Request parameters
 
-|Parameter|Type|Description|
-|:--------|:---|:----------|
-|RequestId|String|Unique request identifier.|
-|SuccessList|[SendResultType](#table_l15_q4l_c2b)|Delete the successful list.|
-|FailList|[SendResultType](#table_l15_q4l_c2b)|Delete the failure list.|
+|Parameter|Type|Required|Example|Description|
+|---------|----|--------|-------|-----------|
+|Action|String|Yes|DeleteEmailVerification|The operation that you want to perform. Set the value to **DeleteEmailVerification**. |
+|Email|String|Yes|test1@aliyun.com,test2@aliyun.com|The email address that you want to delete. Separate multiple email addresses with commas \(,\). |
+|Lang|String|No|en|The language of the error message to return. Valid values:
 
-|Parameter|Type|Description|
-|:--------|:---|:----------|
-|Email|String|Email address to be verified.|
-|Code|String|Return code.|
-|Message|String|Response message.|
+ -   **zh**: Chinese
+-   **en**: English
 
-## Error codes {#section_ecg_v4l_c2b .section}
+ Default value: **en**. |
+|UserClientIp|String|No|127.0.0.1|The IP address of the client that you use to delete one or more verified email addresses. |
 
-|Error code|Description| HTTP status code|Semantics|
-|:---------|:----------|:----------------|:--------|
-|ParameterIllegal|Parameter illegal.|400|Parameter error.|
-|Networkioerror|Network IO Error.|400|Network I/O exception.|
+## Response parameters
 
-## Examples {#section_bhn_bpl_c2b .section}
+|Parameter|Type|Example|Description|
+|---------|----|-------|-----------|
+|FailList|Array| |The information about the email address that failed to be deleted. |
+|Code|String|ParameterIllegall|The code returned for the request. |
+|Email|String|test1@aliyun.com|The email address that you attempted to delete. |
+|Message|String|Parameter error|The message returned for the request. |
+|SuccessList|Array| |The information about the email address that was deleted. |
+|Code|String|Success|The code returned for the request. |
+|Email|String|test2@aliyun.com|The email address that you attempted to delete. |
+|Message|String|Success|The message returned for the request. |
+|RequestId|String|7A3D0E4A-0D4B-4BD0-90D7-A61DF8DD26AE|The ID of the request. |
 
-**Request example**
+## Examples
+
+Sample requests
 
 ```
-http://domain-intl.aliyuncs.com/
-? Action=DeleteEmailVerification
+http(s)://domain.aliyuncs.com/? Action=DeleteEmailVerification
 &Email=test1@aliyun.com,test2@aliyun.com
-&<Public request parameters>
+&<Common request parameters>
 ```
 
-**Response example**
+Sample success responses
 
--   XML format
+`XML` format
 
-    ```
-    <? xml version='1.0' encoding='UTF-8'? >
-    <DeleteEmailVerificationResponse>
-        <FailList>
-            <SendResult>
-                <Email>test1@aliyun.com</Email>
-                <Message>Parameter error</Message>
-                <Code>ParameterIllegall</Code>
-            </SendResult>
-            <SendResult>
-                <Email>test2@aliyun.com</Email>
-                <Message>Parameter error</Message>
-                <Code>ParameterIllegall</Code>
-            </SendResult>
-        </FailList>
-        <RequestId>7A3D0E4A-0D4B-4BD0-90D7-A61DF8DD26AE</RequestId>
-        <SuccessList/>
-    </DeleteEmailVerificationResponse>
-    ```
+```
+<DeleteEmailVerificationResponse>
+  <failList>
+        <code>ParameterIllegall</code>
+        <email>test1@aliyun.com</email>
+        <message>Parameter error</message>
+  </failList>
+  <requestId>7A3D0E4A-0D4B-4BD0-90D7-A61DF8DD26AE</requestId>
+  <successList>
+        <email>test2@aliyun.com</email>
+  </successList>
+</DeleteEmailVerificationResponse>
+```
 
--   JSON format
+`JSON` format
 
-    ```
+```
+{
+  "failList": [
     {
-      "failList": [
-        {
-          "code": "ParameterIllegall",
-          "email": "test1@aliyun.com",
-          "message": "Parameter error"
-        }
-      ],
-      "requestId": "B862F011-5E61-4302-88BD-A4EAA5326140",
-      "successList": [
-        {
-          "email": "test2@aliyun.com"
-        }
-      ]
+      "code": "ParameterIllegall",
+      "email": "test1@aliyun.com",
+      "message": "Parameter error"
     }
-    ```
+  ],
+  "requestId": "7A3D0E4A-0D4B-4BD0-90D7-A61DF8DD26AE",
+  "successList": [
+    {
+      "email": "test2@aliyun.com"
+    }
+  ]
+}
+```
 
+## Error codes
+
+For a list of error codes, visit the [API Error Center](https://error-center.alibabacloud.com/status/product/Domain).
 
