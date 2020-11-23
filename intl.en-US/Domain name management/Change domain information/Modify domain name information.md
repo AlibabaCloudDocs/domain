@@ -4,7 +4,7 @@ If your domain name information such as the registrant email address or mobile p
 
 ## Background information
 
-Domain name information includes information of the registrant, administrator, billing contact, and technical contact. For more information about how to change the registrant, see [Transfer domain name ownership](/intl.en-US/Domain name management/Change domain information/Transfer domain name ownership.md). Follow the instructions in this topic to modify registrant information such as the address, email address, and mobile phone number.
+Domain name information includes information of the registrant, administrator, billing contact, and technical contact. If you need to transfer the domain name ownership or modify certificate information of the domain name registrant, see [Transfer domain name ownership](/intl.en-US/Domain name management/Change domain information/Transfer domain name ownership.md). Follow the instructions in this topic to modify registrant information such as the address, email address, and mobile phone number.
 
 Based on the [transfer policy](https://www.icann.org/resources/pages/transfer-policy-2016-06-01-en) issued by the Internet Corporation for Assigned Names and Numbers \(ICANN\), you cannot transfer a domain name from the current registrar within 60 days after you transfer the ownership of the domain name. If you need to transfer the domain name from Alibaba Cloud to another registrar within 60 days after you transfer the domain name ownership, select **Disable "Domain names cannot be transferred out of Alibaba Cloud within 60 days of successful modification"** when you modify domain name information. Otherwise, the transfer-out request will fail.
 
@@ -14,7 +14,7 @@ Based on the [transfer policy](https://www.icann.org/resources/pages/transfer-po
 
 2.  On the **Domain Names** page, find the domain name for which you want to modify information and click **Manage** in the **Action** column.
 
-    ![Modify domain name information 3](https://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/en-US/2525919951/p76671.png)
+    ![Modify domain name information](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/en-US/2525919951/p76671.png)
 
 3.  In the left-side navigation pane, click **Info Modification**.
 
