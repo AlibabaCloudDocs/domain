@@ -1,17 +1,25 @@
-# Enable the transfer prohibition lock {#concept_ztt_zv1_b2b .concept}
+# Enable the transfer prohibition lock
 
-## Introduction {#section_dxt_fw1_b2b .section}
+You can enable the transfer prohibition lock to prevent your domain name from being maliciously transferred from Alibaba Cloud.
 
-The transfer prohibition lock is a value-added domain name service that prevents unauthorized outbound domain name transfers. After the service is enabled, your domain name is put in the clientTransferProhibited status.
+The transfer prohibition lock is a value-added domain name service. You can enable it to prevent your domain name from being maliciously transferred.
 
-Because available domain name resources are getting increasingly scarce and the prices for premium domain names continue to soar, domain hijacking and other malicious activity is a serious concern and liability for businesses. It is therefore imperative that domain names are protected. This service effectively prevents domain names from being transferred from Alibaba Cloud and domain name registrant information from being modified without authorization. We recommend that you use this service to ensure your business security.
+If your domain name is registered by Alibaba Cloud, you can enable the transfer prohibition lock online at all times. After you enable the transfer prohibition lock,you can query the status of your domain name on the [WHOIS](https://www.alibabacloud.com/zh/whois) page. On the query result page, **Domain Status** is **clientTransferProhibited**.
 
-## Procedure {#section_ol4_gw1_b2b .section}
+## Procedure
 
-To set the domain name transfer prohibition lock service, follow these steps:
+1.  Log on to the [Alibaba Cloud Domains console](https://dc.console.aliyun.com/#/domain/list).
 
-1.  Log on to the [Domains console](https://dc.console.aliyun.com/#/domain/list).
-2.  Locate the domain name you want to protect, and then click **Manage**.
-3.  On the Basic Information page, click **Proxy and Security** from the left-side navigation pane.
-4.  Enable or disable the **Transfer prohibition lock**.
+2.  On the **Domain Name List** page, find the domain name for which you want to enable the transfer prohibition lock and click **Manage** in the **Action** column.
+
+    ![Transfer prohibition lock 03](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/en-US/9168929851/p77300.png)
+
+3.  In the left-side navigation pane, click **Security Settings**.
+
+4.  On the Security Settings page, click **Enable** for **Transfer prohibition lock**.
+
+    ![Transfer prohibition lock 04](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/en-US/9168929851/p77301.png)
+
+5.  Obtain the email verification code and complete the email verification to enable the transfer prohibition lock.
+
 
