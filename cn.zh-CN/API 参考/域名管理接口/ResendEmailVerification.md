@@ -1,91 +1,91 @@
-# ResendEmailVerification {#concept_dhd_zyk_c2b .concept}
+# ResendEmailVerification
 
-ResendEmailVerification：重新发送验证邮件。
+调用ResendEmailVerification接口重新发送验证邮件。
 
-## 请求参数 {#section_dbr_dzm_c2b .section}
+## 调试
 
-公共请求参数，详见[公共参数](intl.zh-CN/API 参考/调用方式/公共参数.md#)。
+[您可以在OpenAPI Explorer中直接运行该接口，免去您计算签名的困扰。运行成功后，OpenAPI Explorer可以自动生成SDK代码示例。](https://api.aliyun.com/#product=Domain&api=ResendEmailVerification&type=RPC&version=2018-01-29)
 
-|名称|类型|是否必须|描述|
-|:-|:-|:---|:-|
-|Action|String|是|操作接口名，系统规定参数，取值：ResendEmailVerification。|
-|Email|String|是|邮箱，多个使用（,）分隔。|
-|Lang|String|否|接口返回信息语言，枚举值范围：zh 中文；en 英文。默认为 en。|
+## 请求参数
 
-## 返回参数 {#section_zp1_3zm_c2b .section}
+|名称|类型|是否必选|示例值|描述|
+|--|--|----|---|--|
+|Action|String|是|ResendEmailVerification|系统规定参数，取值：**ResendEmailVerification**。 |
+|Email|String|是|test1@aliyun.com,test2@aliyun.com|待重新获取验证邮件的邮箱，多个邮箱之间使用英文逗号（,）隔开。 |
+|Lang|String|否|en|接口返回错误信息语言。取值：
 
-|名称|类型|描述|
-|:-|:-|:-|
-|RequestId|String|唯一请求识别码。|
-|SuccessList|[SendResultType](#table_ltc_lzm_c2b)|成功列表。|
-|FailList|SendResultType|失败列表。|
+ -   **zh**：中文。
+-   **en**：英文。
 
-|名称|类型|描述|
-|:-|:-|:-|
-|Email|String|验证邮箱|
-|Code|String|返回code|
-|Message|String|返回信息|
+ 默认值为**en**。 |
+|UserClientIp|String|否|127.0.0.1|用户IP，可设置为127.0.0.1。 |
 
-## 错误码 {#section_n1h_rzm_c2b .section}
+## 返回数据
 
-|错误代码|描述|HTTP状态码|语义|
-|:---|:-|------:|:-|
-|ParameterIllegal|Parameter illegal.|400|参数错误。|
-|NetworkIOError|Network IO Error.|400|网络I/O异常。|
+|名称|类型|示例值|描述|
+|--|--|---|--|
+|FailList|Array| |验证邮件发送失败列表。 |
+|Code|String|SendTokenQuotaExceeded|返回code。 |
+|Email|String|test1@aliyun.com|验证邮箱。 |
+|Message|String|The maximum number of attempts allowed to send the email verification link is exceeded.|返回信息。 |
+|SuccessList|Array| |验证邮件发送成功列表。 |
+|Code|String|Success|返回code。 |
+|Email|String|test2@aliyun.com|验证邮箱。 |
+|Message|String|Success|返回信息。 |
+|RequestId|String|0EA54E99-DB48-4CE3-A099-6ED8E451B8AC|请求ID。 |
 
-## 示例 {#section_mdg_tzm_c2b .section}
+## 示例
 
-**请求示例**
+请求示例
 
-``` {#codeblock_1up_271_ja1}
-http://domain-intl.aliyuncs.com/?Action=ResendEmailVerification
+```
+http(s)://domain.aliyuncs.com/?Action=ResendEmailVerification
 &Email=test1@aliyun.com,test2@aliyun.com
 &<公共请求参数>
 ```
 
-**返回示例**
+正常返回示例
 
--   XML示例
+`XML` 格式
 
-    ``` {#codeblock_mph_dpj_561}
-    <?xml version='1.0' encoding='UTF-8'?>
-    <ResendEmailVerificationResponse>
-        <FailList>
-            <SendResult>
-                <Email>test1@aliyun.com</Email>
-                <Message>The maximum number of attempts allowed to send the email verification link is exceeded.</Message>
-                <Code>SendTokenQuotaExceeded</Code>
-            </SendResult>
-            <SendResult>
-                <Email>test2@aliyun.com</Email>
-                <Message>The maximum number of attempts allowed to send the email verification link is exceeded.</Message>
-                <Code>SendTokenQuotaExceeded</Code>
-            </SendResult>
-        </FailList>
-        <RequestId>0EA54E99-DB48-4CE3-A099-6ED8E451B8AC</RequestId>
-        <SuccessList/>
-    </ResendEmailVerificationResponse>
-    ```
+```
+<ResendEmailVerificationResponse>
+  <failList>
+        <code>SendTokenQuotaExceeded</code>
+        <email>test1@aliyun.com</email>
+        <message>The maximum number of attempts allowed to send the email verification link is exceeded.</message>
+  </failList>
+  <failList>
+        <code>ParameterIllegall</code>
+        <email>test2@aliyun.com</email>
+        <message>Parameter error</message>
+  </failList>
+  <requestId>0EA54E99-DB48-4CE3-A099-6ED8E451B8AC</requestId>
+</ResendEmailVerificationResponse>
+```
 
--   JSON示例
+`JSON` 格式
 
-    ``` {#codeblock_ikt_dg4_3bz}
+```
+{
+  "failList": [
     {
-      "failList": [
-        {
-          "code": "SendTokenQuotaExceeded",
-          "email": "test1@aliyun.com",
-          "message": "The maximum number of attempts allowed to send the email verification link is exceeded."
-        },
-        {
-          "code": "ParameterIllegall",
-          "email": "test2@aliyun.com",
-          "message": "Parameter error"
-        }
-      ],
-      "requestId": "8D93B5EC-09D5-43C3-A5ED-AFBC6A98DDDF",
-      "successList": []
+      "code": "SendTokenQuotaExceeded",
+      "email": "test1@aliyun.com",
+      "message": "The maximum number of attempts allowed to send the email verification link is exceeded."
+    },
+    {
+      "code": "ParameterIllegall",
+      "email": "test2@aliyun.com",
+      "message": "Parameter error"
     }
-    ```
+  ],
+  "requestId": "0EA54E99-DB48-4CE3-A099-6ED8E451B8AC",
+  "successList": []
+}
+```
 
+## 错误码
+
+访问[错误中心](https://error-center.aliyun.com/status/product/Domain)查看更多错误码。
 
