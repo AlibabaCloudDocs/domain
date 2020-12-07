@@ -1,91 +1,90 @@
-# DeleteEmailVerification {#concept_ur1_mjq_b2b .concept}
+# DeleteEmailVerification
 
-DeleteEmailVerification：已经验证通过的邮箱，可进行删除；但删除后，该邮箱还需要重新进行验证。
+调用DeleteEmailVerification接口删除已经验证通过的邮箱。
 
-## 请求参数 {#section_jtz_h4l_c2b .section}
+**说明：** 删除后如需继续使用该邮箱，您需要重新完成邮箱验证。
 
-公共请求参数，详见[公共参数](intl.zh-CN/API 参考/调用方式/公共参数.md#)。
+## 调试
 
-|名称|类型|是否必须|描述|
-|:-|:-|:---|:-|
-|Action|String|是|操作接口名，系统规定参数，取值：DeleteEmailVerification。|
-|Email|String|是|邮箱，多个邮箱使用逗号（,）分隔。|
-|Lang|String|否|接口返回信息语言，枚举值范围：zh 中文；en 英文。默认为 en。|
+[您可以在OpenAPI Explorer中直接运行该接口，免去您计算签名的困扰。运行成功后，OpenAPI Explorer可以自动生成SDK代码示例。](https://api.aliyun.com/#product=Domain&api=DeleteEmailVerification&type=RPC&version=2018-01-29)
 
-## 返回参数 {#section_oyr_m4l_c2b .section}
+## 请求参数
 
-|名称|类型|描述|
-|:-|:-|:-|
-|RequestId|String|唯一请求识别码。|
-|SuccessList|[SendResultType](#table_l15_q4l_c2b)|删除成功列表。|
-|FailList|[SendResultType](#table_l15_q4l_c2b)|删除失败列表。|
+|名称|类型|是否必选|示例值|描述|
+|--|--|----|---|--|
+|Action|String|是|DeleteEmailVerification|系统规定参数，取值：**DeleteEmailVerification**。 |
+|Email|String|是|test1@aliyun.com,test2@aliyun.com|待删除的邮箱，多个邮箱之间使用英文逗号（,）隔开。 |
+|Lang|String|否|en|接口返回错误信息语言。取值：
 
-|名称|类型|描述|
-|:-|:-|:-|
-|Email|String|验证邮箱|
-|Code|String|返回code|
-|Message|String|返回信息|
+ -   **zh**：中文。
+-   **en**：英文。
 
-## 错误码 {#section_ecg_v4l_c2b .section}
+ 默认值为**en**。 |
+|UserClientIp|String|否|127.0.0.1|用户IP，可设置为127.0.0.1。 |
 
-|错误代码|描述|HTTP状态码|语义|
-|:---|:-|:------|:-|
-|ParameterIllegal|Parameter illegal.|400|参数错误。|
-|NetworkIOError|Network IO Error.|400|网络I/O异常。|
+## 返回数据
 
-## 示例 {#section_bhn_bpl_c2b .section}
+|名称|类型|示例值|描述|
+|--|--|---|--|
+|FailList|Array| |邮箱删除失败列表。 |
+|Code|String|ParameterIllegall|返回code。 |
+|Email|String|test1@aliyun.com|删除失败的邮箱。 |
+|Message|String|Parameter error|邮箱删除失败返回的信息。 |
+|SuccessList|Array| |邮箱删除成功列表。 |
+|Code|String|Success|返回code。 |
+|Email|String|test2@aliyun.com|删除成功的邮箱。 |
+|Message|String|Success|邮箱删除成功返回的信息。 |
+|RequestId|String|7A3D0E4A-0D4B-4BD0-90D7-A61DF8DD26AE|请求ID。 |
 
-**请求示例**
+## 示例
 
-``` {#codeblock_d6o_z5i_ydh}
-http://domain-intl.aliyuncs.com/
-?Action=DeleteEmailVerification
+请求示例
+
+```
+http(s)://domain.aliyuncs.com/?Action=DeleteEmailVerification
 &Email=test1@aliyun.com,test2@aliyun.com
 &<公共请求参数>
 ```
 
-**返回示例**
+正常返回示例
 
--   XML示例
+`XML` 格式
 
-    ``` {#codeblock_upc_dg6_4kz}
-    <?xml version='1.0' encoding='UTF-8'?>
-    <DeleteEmailVerificationResponse>
-        <FailList>
-            <SendResult>
-                <Email>test1@aliyun.com</Email>
-                <Message>Parameter error</Message>
-                <Code>ParameterIllegall</Code>
-            </SendResult>
-            <SendResult>
-                <Email>test2@aliyun.com</Email>
-                <Message>Parameter error</Message>
-                <Code>ParameterIllegall</Code>
-            </SendResult>
-        </FailList>
-        <RequestId>7A3D0E4A-0D4B-4BD0-90D7-A61DF8DD26AE</RequestId>
-        <SuccessList/>
-    </DeleteEmailVerificationResponse>
-    ```
+```
+<DeleteEmailVerificationResponse>
+  <failList>
+        <code>ParameterIllegall</code>
+        <email>test1@aliyun.com</email>
+        <message>Parameter error</message>
+  </failList>
+  <requestId>7A3D0E4A-0D4B-4BD0-90D7-A61DF8DD26AE</requestId>
+  <successList>
+        <email>test2@aliyun.com</email>
+  </successList>
+</DeleteEmailVerificationResponse>
+```
 
--   JSON示例
+`JSON` 格式
 
-    ``` {#codeblock_igp_2oy_sef}
+```
+{
+  "failList": [
     {
-      "failList": [
-        {
-          "code": "ParameterIllegall",
-          "email": "test1@aliyun.com",
-          "message": "Parameter error"
-        }
-      ],
-      "requestId": "B862F011-5E61-4302-88BD-A4EAA5326140",
-      "successList": [
-        {
-          "email": "test2@aliyun.com"
-        }
-      ]
+      "code": "ParameterIllegall",
+      "email": "test1@aliyun.com",
+      "message": "Parameter error"
     }
-    ```
+  ],
+  "requestId": "7A3D0E4A-0D4B-4BD0-90D7-A61DF8DD26AE",
+  "successList": [
+    {
+      "email": "test2@aliyun.com"
+    }
+  ]
+}
+```
 
+## 错误码
+
+访问[错误中心](https://error-center.alibabacloud.com/status/product/Domain)查看更多错误码。
 
