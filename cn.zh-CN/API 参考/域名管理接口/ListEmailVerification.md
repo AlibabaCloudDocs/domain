@@ -1,148 +1,137 @@
-# ListEmailVerification {#concept_k4m_njq_b2b .concept}
+# ListEmailVerification
 
-ListEmailVerification：分页查询自己账户下的邮箱验证列表。
+调用ListEmailVerification接口查询邮箱验证列表。
 
-## 请求参数 {#section_bl4_fll_c2b .section}
+## 调试
 
-公共请求参数，详见[公共参数](intl.zh-CN/API 参考/调用方式/公共参数.md#)。
+[您可以在OpenAPI Explorer中直接运行该接口，免去您计算签名的困扰。运行成功后，OpenAPI Explorer可以自动生成SDK代码示例。](https://api.aliyun.com/#product=Domain&api=ListEmailVerification&type=RPC&version=2018-01-29)
 
-|名称|类型|是否必须|描述|
-|:-|:-|:---|:-|
-|Action|String|是|操作接口名，系统规定参数，取值：ListEmailVerification。|
-|PageNum|Integer|是|分页页码。|
-|PageSize|Integer|是|分页大小。|
-|BeginCreateTime|Long|否|验证日期范围查询开始时间，UTC时间1970年1月1日0点距离现在的毫秒数。|
-|EndCreateTime|Long|否|验证日期范围查询结束时间，UTC时间1970年1月1日0点距离现在的毫秒数。|
-|Email|String|否|待查询验证的邮箱。|
-|VerificationStatus|Integer|否|验证状态，枚举值：0 等待验证；1 验证成功。|
-|Lang|String|否|接口返回信息语言，枚举值范围：zh 中文；en 英文。默认为 en。|
+## 请求参数
 
-## 返回参数 {#section_5eb_6y3_fm7 .section}
+|名称|类型|是否必选|示例值|描述|
+|--|--|----|---|--|
+|Action|String|是|ListEmailVerification|系统规定参数。取值：ListEmailVerification。 |
+|Email|String|否|82106\*\*\*\*@qq.com|待查询的邮箱地址，每次仅可上传一个邮箱。 |
+|VerificationStatus|Integer|否|1|邮箱验证状态。取值：
 
-|名称|类型|描述|
-|:-|:-|:-|
-|RequestId|String|唯一请求识别码。|
-|TotalItemNum|Integer|域名总数。|
-|CurrentPageNum|Integer|当前页码。|
-|TotalPageNum|Integer|总页数。|
-|PageSize|Integer|分页大小。|
-|PrePage|Boolean|是否有上一页。|
-|NextPage|Boolean|是否有下一页。|
-|Data|[EmailVerificationType](#table_tsy_4ll_c2b)|邮箱验证列表。|
+ -   **0**：等待验证。
+-   **1**：验证成功。 |
+|BeginCreateTime|Long|否|1522080000000|查询创建邮箱验证的开始时间，计算方式为UTC时间1970年1月1日0点距离现在的毫秒数。 |
+|EndCreateTime|Long|否|1522080000000|查询创建邮箱验证的结束时间，计算方式为UTC时间1970年1月1日0点距离现在的毫秒数。 |
+|PageSize|Integer|否|500|域名列表分页的大小，默认值为**0**，最大值为**5000**，可根据自身需求设置。 |
+|PageNum|Integer|否|1|域名列表分页的页码，默认值为**0**，可根据自身需求进行设置。 |
+|Lang|String|否|en|接口返回错误信息语言。取值：
 
-|名称|类型|描述|
-|:-|:-|:-|
-|GmtCreate|String|创建时间|
-|GmtModified|String|更新时间|
-|Email|String|验证邮箱|
-|UserId|String|用户ID|
-|EmailVerificationNo|String|邮箱验证编号|
-|TokenSendTime|String|邮箱验证Token发送时间|
-|VerificationStatus|Integer|邮箱验证状态。枚举值：0 等待验证；1 验证成功|
-|VerificationTime|String|邮箱验证确认时间|
-|SendIp|String|邮箱验证发送IP|
-|ConfirmIp|String|邮箱验证确认IP|
+ -   **zh**：中文。
+-   **en**：英文。
 
-## 错误码 {#section_gn7_x2t_0np .section}
+ 默认值为**en**。 |
+|UserClientIp|String|否|127.0.0.1|用户IP，可设置为**127.0.0.1**。 |
 
-|错误代码|描述|HTTP状态码|语义|
-|:---|:-|:------|:-|
-|ParameterIllegal|Parameter illegal.|400|参数错误。|
-|NetworkIOError|Network IO Error.|400|网络I/O异常。|
+## 返回数据
 
-## 示例 {#section_sff_1ml_c2b .section}
+|名称|类型|示例值|描述|
+|--|--|---|--|
+|CurrentPageNum|Integer|1|当前页码。 |
+|Data|Array of EmailVerification| |邮箱验证列表。 |
+|ConfirmIp|String|127.0.0.1|完成邮箱验证的电脑IP地址。 |
+|Email|String|test1@aliyun.com|进行验证的邮箱地址。 |
+|EmailVerificationNo|String|00000a21fd374da99d9c95b48500000|邮箱验证编号（默认为系统自动生成的流水号）。 |
+|GmtCreate|String|Dec 25,2017 03:38:46|数据库记录的创建时间。 |
+|GmtModified|String|Dec 25,2017 03:41:11|数据库记录的更新时间。 |
+|SendIp|String|127.0.0.1|用户发起邮件验证的IP地址。 |
+|TokenSendTime|String|Dec 25,2017 03:38:46|邮箱验证Token的发送时间。 |
+|UserId|String|0000|用户ID。 |
+|VerificationStatus|Integer|1|邮箱验证状态，取值：
 
-**请求示例**
+ -   **0**：等待验证。
+-   **1**：验证成功。 |
+|VerificationTime|String|Dec 25,2017 03:41:11|完成邮箱验证的具体时间。 |
+|NextPage|Boolean|false|是否有下一页。 |
+|PageSize|Integer|500|分页的大小。 |
+|PrePage|Boolean|false|是否有上一页。 |
+|TotalPageNum|Integer|1|总页数。 |
+|TotalItemNum|Integer|2|域名总记录数。 |
+|RequestId|String|78C60CC3-FF0A-44E2-989A-DDE0597791C3|唯一请求识别码。 |
 
-``` {#codeblock_mj4_7a6_kaw}
-http://domain-intl.aliyuncs.com/
-?Action=ListEmailVerification
-&PageNum=1
-&PageSize=1
+## 示例
+
+请求示例
+
+```
+http(s)://domain.aliyuncs.com/?Action=ListEmailVerification
 &<公共请求参数>
 ```
 
-**返回示例**
+正常返回示例
 
--   XML示例
+`XML` 格式
 
-    ``` {#codeblock_afx_8ni_pht}
-    <?xml version='1.0' encoding='UTF-8'?>
-    <ListEmailVerificationResponse>
-        <Data>
+```
+<ListEmailVerificationResponse>
+      <Data>
             <EmailVerification>
-                <ConfirmIp>127.0.0.1</ConfirmIp>
-                <TokenSendTime>Dec 25,2017 03:38:46</TokenSendTime>
-                <Email>test1@aliyun.com</Email>
-                <VerificationStatus>1</VerificationStatus>
-                <SendIp>127.0.0.1</SendIp>
-                <VerificationTime>Dec 25,2017 03:41:11</VerificationTime>
-                <EmailVerificationNo>00000a21fd374da99d9c95b48500000</EmailVerificationNo>
-                <UserId>0000</UserId>
-                <GmtCreate>Dec 25,2017 03:38:46</GmtCreate>
-                <GmtModified>Dec 25,2017 03:41:11</GmtModified>
+                  <ConfirmIp>127.0.0.1</ConfirmIp>
+                  <TokenSendTime>Dec 25,2017 03:38:46</TokenSendTime>
+                  <Email>test1@aliyun.com</Email>
+                  <VerificationStatus>1</VerificationStatus>
+                  <SendIp>127.0.0.1</SendIp>
+                  <VerificationTime>Dec 25,2017 03:41:11</VerificationTime>
+                  <EmailVerificationNo>00000a21fd374da99d9c95b48500000</EmailVerificationNo>
+                  <UserId>0000</UserId>
+                  <GmtCreate>Dec 25,2017 03:38:46</GmtCreate>
+                  <GmtModified>Dec 25,2017 03:41:11</GmtModified>
             </EmailVerification>
             <EmailVerification>
-                <ConfirmIp>127.0.0.1</ConfirmIp>
-                <TokenSendTime>Dec 25,2017 03:35:22</TokenSendTime>
-                <Email>test2@aliyun.com</Email>
-                <VerificationStatus>1</VerificationStatus>
-                <SendIp>127.0.0.1</SendIp>
-                <VerificationTime>Dec 25,2017 03:36:57</VerificationTime>
-                <EmailVerificationNo>0000021fd374da99d9c95b48500000</EmailVerificationNo>
-                <UserId>0000</UserId>
-                <GmtCreate>Dec 25,2017 03:32:40</GmtCreate>
-                <GmtModified>Dec 25,2017 03:36:57</GmtModified>
+                  <ConfirmIp>127.0.0.1</ConfirmIp>
+                  <TokenSendTime>Dec 25,2017 03:35:22</TokenSendTime>
+                  <Email>test2@aliyun.com</Email>
+                  <VerificationStatus>1</VerificationStatus>
+                  <SendIp>127.0.0.1</SendIp>
+                  <VerificationTime>Dec 25,2017 03:36:57</VerificationTime>
+                  <EmailVerificationNo>0000021fd374da99d9c95b48500000</EmailVerificationNo>
+                  <UserId>0000</UserId>
+                  <GmtCreate>Dec 25,2017 03:32:40</GmtCreate>
+                  <GmtModified>Dec 25,2017 03:36:57</GmtModified>
             </EmailVerification>
-        </Data>
-        <TotalItemNum>2</TotalItemNum>
-        <PageSize>500</PageSize>
-        <CurrentPageNum>1</CurrentPageNum>
-        <RequestId>4BF41EC0-C147-4F88-8B3D-D569AF5C3E8B</RequestId>
-        <PrePage>false</PrePage>
-        <TotalPageNum>1</TotalPageNum>
-        <NextPage>false</NextPage>
-    </ListEmailVerificationResponse>
-    ```
+      </Data>
+      <TotalItemNum>2</TotalItemNum>
+      <PageSize>500</PageSize>
+      <CurrentPageNum>1</CurrentPageNum>
+      <RequestId>4BF41EC0-C147-4F88-8B3D-D569AF5C3E8B</RequestId>
+      <PrePage>false</PrePage>
+      <TotalPageNum>1</TotalPageNum>
+      <NextPage>false</NextPage>
+</ListEmailVerificationResponse>
+```
 
--   JSON示例
+`JSON` 格式
 
-    ``` {#codeblock_3h5_i6w_vrw}
-    {
-      "currentPageNum": 1,
-      "data": [
-        {
-          "confirmIp": "127.0.0.1",
-          "email": "test1@aliyun.com",
-          "emailVerificationNo": "00000a21fd374da99d9c95b48500000",
-          "gmtCreate": "Dec 25,2017 03:38:46",
-          "gmtModified": "Dec 25,2017 03:41:11",
-          "sendIp": "127.0.0.1",
-          "tokenSendTime": "Dec 25,2017 03:38:46",
-          "userId": "0000",
-          "verificationStatus": 1,
-          "verificationTime": "Dec 25,2017 03:41:11"
-        },
-        {
-          "confirmIp": "127.0.0.1",
-          "email": "test2@aliyun.com",
-          "emailVerificationNo": "0000021fd374da99d9c95b48500000",
-          "gmtCreate": "Dec 25,2017 03:32:40",
-          "gmtModified": "Dec 25,2017 03:36:57",
-          "sendIp": "127.0.0.1",
-          "tokenSendTime": "Dec 25,2017 03:35:22",
-          "userId": "0000",
-          "verificationStatus": 1,
-          "verificationTime": "Dec 25,2017 03:36:57"
-        }
-      ],
-      "nextPage": false,
-      "pageSize": 500,
-      "prePage": false,
-      "requestId": "09D3DA75-B3B5-480B-9100-92DC43919B46",
-      "totalItemNum": 2,
-      "totalPageNum": 1
-    }
-    ```
+```
+{
+	"PrePage": false,
+	"CurrentPageNum": 1,
+	"PageSize": 500,
+	"RequestId": "78C60CC3-FF0A-44E2-989A-DDE0597791C3",
+	"TotalPageNum": 1,
+	"Data": [
+		{
+			"VerificationStatus": 0,
+			"GmtCreate": "2020-08-07 15:34:18",
+			"Email": "821067279@qq.com",
+			"EmailVerificationNo": "c8b3ede2e65742478eb8216ebf94b62a",
+			"UserId": "1406926474064770",
+			"GmtModified": "2020-08-07 15:54:09",
+			"SendIp": "127.0.0.1",
+			"TokenSendTime": "2020-08-07 15:54:09"
+		}
+	],
+	"TotalItemNum": 1,
+	"NextPage": false
+}
+```
 
+## 错误码
+
+访问[错误中心](https://error-center.aliyun.com/status/product/Domain)查看更多错误码。
 
