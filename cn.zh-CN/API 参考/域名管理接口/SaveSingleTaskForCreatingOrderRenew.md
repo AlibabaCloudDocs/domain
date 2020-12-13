@@ -1,65 +1,81 @@
-# SaveSingleTaskForCreatingOrderRenew {#concept_tqk_lzk_c2b .concept}
+# SaveSingleTaskForCreatingOrderRenew
 
-提交域名续费任务，任务执行结果请通过[QueryTaskDetailList](intl.zh-CN/API 参考/域名管理接口/QueryTaskDetailList.md#)接口来查询。
+调用SaveSingleTaskForCreatingOrderRenew提交域名续费任务。
 
-## 请求参数 {#section_o2t_zwn_c2b .section}
+## API描述
 
-公共请求参数，详见[公共参数](intl.zh-CN/API 参考/调用方式/公共参数.md#)。
+任务执行结果请通过[QueryTaskDetailList](~~67710~~)接口查询。
 
-|名称|类型|是否必须|描述|
-|:-|:-|:---|:-|
-|Action|String|是|操作接口名，系统规定参数，取值：SaveSingleTaskForCreatingOrderRenew。|
-|DomainName|String|是|域名。|
-|CurrentExpirationDate|Long|是|域名当前到期时间，UTC时间1970年1月1日0点距离域名当前到期时间的毫秒数。|
-|SubscriptionDuration|Integer|是|续费年限。|
-|Lang|String|否|接口返回信息语言，枚举值范围：zh 中文；en 英文。默认为 en。|
+## 调试
 
-## 返回参数 {#section_q5v_dxn_c2b .section}
+[您可以在OpenAPI Explorer中直接运行该接口，免去您计算签名的困扰。运行成功后，OpenAPI Explorer可以自动生成SDK代码示例。](https://api.aliyun.com/#product=Domain&api=SaveSingleTaskForCreatingOrderRenew&type=RPC&version=2018-01-29)
 
-|名称|类型|描述|
-|:-|:-|:-|
-|RequestId|String|唯一请求识别码。|
-|TaskNo|String|任务编号。|
+## 请求参数
 
-## 错误码 {#section_fg2_gxn_c2b .section}
+|名称|类型|是否必选|示例值|描述|
+|--|--|----|---|--|
+|Action|String|是|SaveSingleTaskForCreatingOrderRenew|系统规定参数。取值：**SaveSingleTaskForCreatingOrderRenew**。 |
+|CurrentExpirationDate|Long|是|0000|域名当前的到期时间，计算方式为UTC时间1970年1月1日0点距离域名当前到期时间的毫秒数。 |
+|DomainName|String|是|Aliyun.com|需要续费的域名。 |
+|SubscriptionDuration|Integer|是|1|续费年限值，范围：**1**年~**10**年。 |
+|UserClientIp|String|否|127.0.0.1|用户IP，可设置为**127.0.0.1**。 |
+|Lang|String|否|en|接口返回错误信息语言。取值：
 
-|错误代码|描述|HTTP状态码|语义|
-|:---|:-|:------|:-|
-|ParameterIllegal|Parameter illegal.|400|参数错误。|
-|NetworkIOError|Network IO Error.|400|网络I/O异常。|
-|TaskIsBeingProcessed|An operation is being processed. Please try again later.|400|该域名存在正在处理中的操作，请稍后再试。|
+ -   **zh**：中文。
+-   **en**：英文。
 
-## 示例 {#section_gnb_kxn_c2b .section}
+ 默认为**en**。 |
+|CouponNo|String|否|123123|代金券编号。 |
+|UseCoupon|Boolean|否|false|是否使用代金券。取值：
 
-**请求示例**
+ -   **false**：不使用。
+-   **true**：使用。 |
+|PromotionNo|String|否|123132|优惠券编号。 |
+|UsePromotion|Boolean|否|false|是否使用优惠券。取值：
 
-``` {#codeblock_he6_5at_16o}
-http://domain-intl.aliyuncs.com/?Action=SaveSingleTaskForCreatingOrderRenew
-&DomainName=test.com
+ -   **false**：不使用。
+-   **true**：使用。 |
+
+## 返回数据
+
+|名称|类型|示例值|描述|
+|--|--|---|--|
+|RequestId|String|40F46D3D-F4F3-4CCB-AC30-2DD20E32E528|请求ID。 |
+|TaskNo|String|3cb1adc3-20e8-44ae-9e76-e812fa6fc9d8|任务编号。 |
+
+## 示例
+
+请求示例
+
+```
+http(s)://[Endpoint]/?Action=SaveSingleTaskForCreatingOrderRenew
 &CurrentExpirationDate=0000
+&DomainName=test.com
 &SubscriptionDuration=1
 &<公共请求参数>
 ```
 
-**返回示例**
+正常返回示例
 
--   XML示例
+`XML` 格式
 
-    ``` {#codeblock_zl1_i7h_hhs}
-    <?xml version='1.0' encoding='UTF-8'?>
-    <SaveSingleTaskForCreatingOrderRenewResponse>
-        <TaskNo>3cb1adc3-20e8-44ae-9e76-e812fa6fc9d8</TaskNo>
-        <RequestId>40F46D3D-F4F3-4CCB-AC30-2DD20E32E528</RequestId>
-    </SaveSingleTaskForCreatingOrderRenewResponse>
-    ```
+```
+<SaveSingleTaskForCreatingOrderRenewResponse>
+      <TaskNo>3cb1adc3-20e8-44ae-9e76-e812fa6fc9d8</TaskNo>
+      <RequestId>40F46D3D-F4F3-4CCB-AC30-2DD20E32E528</RequestId>
+</SaveSingleTaskForCreatingOrderRenewResponse>
+```
 
--   JSON示例
+`JSON` 格式
 
-    ``` {#codeblock_4xz_x0s_d29}
-    {
-      "requestId": "D9422F19-3C86-44FA-B5F7-036E89F3904F",
-      "taskNo": "9f7a509f-f347-4430-969b-52ed6d23e58f"
-    }
-    ```
+```
+{
+  "requestId": "40F46D3D-F4F3-4CCB-AC30-2DD20E32E528",
+  "taskNo": "9f7a509f-f347-4430-969b-52ed6d23e58f"
+}
+```
 
+## 错误码
+
+访问[错误中心](https://error-center.aliyun.com/status/product/Domain)查看更多错误码。
 
