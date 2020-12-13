@@ -1,43 +1,48 @@
-# SaveTaskForUpdatingRegistrantInfoByRegistrantProfileID {#concept_dqp_t4r_b2b .concept}
+# SaveTaskForUpdatingRegistrantInfoByRegistrantProfileID
 
-通过信息模板ID提交修改注册联系人信息任务，任务执行结果请通过[QueryTaskDetailList](cn.zh-CN/API 参考/域名管理接口/QueryTaskDetailList.md#)接口来查询。修改后注册联系人信息和模板信息一致，如果域名是强制实名认证域名，修改成功后域名会变为实名认证成功状态。
+调用SaveTaskForUpdatingRegistrantInfoByRegistrantProfileID通过信息模板编号提交修改注册联系人信息任务。
 
-## 请求参数 {#section_emv_dpr_b2b .section}
+## API描述
 
-公共请求参数，详见[公共参数](cn.zh-CN/API 参考/调用方式/公共参数.md#)。
+任务执行结果请通过[QueryTaskDetailList](~~67710~~)接口查询。修改后注册联系人信息和模板信息一致，如果域名是强制实名认证域名，修改成功后域名会变为实名认证成功状态。
 
-|名称|类型|是否必须|描述|
-|:-|:-|:---|:-|
-|Action|String|是|操作接口名，系统规定参数，取值：SaveTaskForUpdatingRegistrantInfoByRegistrantProfileID。|
-|DomainName|[DomainListType](#table_bfl_hpr_b2b)|是|域名列表。|
-|RegistrantProfileId|Long|是|信息模板ID。|
-|TransferOutProhibited|Boolean|可选|是否添加禁止转出限制，表示所有者修改后是否限制域名60天转出。不传此参数默认不限制。|
+## 调试
 
-|名称|类型|描述|
-|:-|:-|:-|
-|DomainName|String|域名|
+[您可以在OpenAPI Explorer中直接运行该接口，免去您计算签名的困扰。运行成功后，OpenAPI Explorer可以自动生成SDK代码示例。](https://api.aliyun.com/#product=Domain&api=SaveTaskForUpdatingRegistrantInfoByRegistrantProfileID&type=RPC&version=2018-01-29)
 
-## 返回参数 {#section_klx_qpr_b2b .section}
+## 请求参数
 
-|名称|类型|描述|
-|:-|:-|:-|
-|RequestId|String|唯一请求识别码。|
-|TaskNo|String|任务编号。|
+|名称|类型|是否必选|示例值|描述|
+|--|--|----|---|--|
+|Action|String|是|SaveTaskForUpdatingRegistrantInfoByRegistrantProfileID|系统规定参数。取值：**SaveTaskForUpdatingRegistrantInfoByRegistrantProfileID**。 |
+|DomainName.N|RepeatList|是|Aliyun.com|域名列表，多个域名时使用**list**方式传递。域名列表可通过[QueryDomainList](~~69362~~)接口获取。 |
+|RegistrantProfileId|Long|是|1|信息模板编号。您可以通过[QueryRegistrantProfiles](~~67701~~)接口查询信息模板编号。 |
+|TransferOutProhibited|Boolean|是|false|是否添加禁止转出限制，表示所有者修改后是否限制域名60天转出。取值：
 
-## 错误码 {#section_elz_xpr_b2b .section}
+ -   **false**：不添加。
+-   **true**：添加。
 
-|错误代码|描述|HTTP状态码|语义|
-|:---|:-|:------|:-|
-|ParameterIllegal|Parameter illegal.|400|参数错误。|
-|NetworkIOError|Network IO Error.|400|网络I/O异常。|
-|contactTemplateRealNamedNotExist|The Registrant Profile completed Real-name verification does not exist.|400|域名实名认证的联系人信息模板不存在。|
-|TaskIsBeingProcessed|An operation is being processed. Please try again later.|400|该域名存在正在处理中的操作，请稍后再试。|
+ 默认值为**false**。 |
+|Lang|String|否|en|接口返回错误信息语言。取值：
 
-## 示例 {#section_ks1_fqr_b2b .section}
+ -   **zh**：中文。
+-   **en**：英文。
 
-**请求示例**
+ 默认为**en**。 |
+|UserClientIp|String|否|127.0.0.1|用户IP，可以设置为**127.0.0.1**。 |
 
-``` {#codeblock_im1_jp1_3mi}
+## 返回数据
+
+|名称|类型|示例值|描述|
+|--|--|---|--|
+|RequestId|String|40F46D3D-F4F3-4CCB-AC30-2DD20E32E528|请求ID。 |
+|TaskNo|String|3cb1adc3-20e8-44ae-9e76-e812fa6fc9d8|任务编号。 |
+
+## 示例
+
+请求示例
+
+```
 http://domain.aliyuncs.com/?Action=SaveTaskForUpdatingRegistrantInfoByRegistrantProfileID
 &ContactTemplateId=1
 &DomainName.1=test.com
@@ -46,25 +51,27 @@ http://domain.aliyuncs.com/?Action=SaveTaskForUpdatingRegistrantInfoByRegistrant
 &<公共请求参数>
 ```
 
-**返回示例**
+正常返回示例
 
--   XML示例
+`XML` 格式
 
-    ``` {#codeblock_rt2_b3y_37h}
-    <?xml version='1.0' encoding='UTF-8'?>
-    <SaveTaskForUpdatingRegistrantInfoByRegistrantProfileIDResponse>
-        <TaskNo>3cb1adc3-20e8-44ae-9e76-e812fa6fc9d8</TaskNo>
-        <RequestId>40F46D3D-F4F3-4CCB-AC30-2DD20E32E528</RequestId>
-    </SaveTaskForUpdatingRegistrantInfoByRegistrantProfileIDResponse>
-    ```
+```
+<SaveTaskForUpdatingRegistrantInfoByRegistrantProfileIDResponse>
+      <TaskNo>3cb1adc3-20e8-44ae-9e76-e812fa6fc9d8</TaskNo>
+      <RequestId>40F46D3D-F4F3-4CCB-AC30-2DD20E32E528</RequestId>
+</SaveTaskForUpdatingRegistrantInfoByRegistrantProfileIDResponse>
+```
 
--   JSON示例
+`JSON` 格式
 
-    ``` {#codeblock_ced_u9q_90z}
-    {    
-      "TaskNo": "3cb1adc3-20e8-44ae-9e76-e812fa6fc9d8",
-      "RequestId": "40F46D3D-F4F3-4CCB-AC30-2DD20E32E528"
-    }
-    ```
+```
+{    
+  "TaskNo": "3cb1adc3-20e8-44ae-9e76-e812fa6fc9d8",
+  "RequestId": "40F46D3D-F4F3-4CCB-AC30-2DD20E32E528"
+}
+```
 
+## 错误码
+
+访问[错误中心](https://error-center.aliyun.com/status/product/Domain)查看更多错误码。
 
