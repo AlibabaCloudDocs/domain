@@ -1,76 +1,84 @@
-# FuzzyMatchDomainSensitiveWord {#reference_qnm_clr_5fb .reference}
+# FuzzyMatchDomainSensitiveWord
 
-FuzzyMatchDomainSensitiveWord：根据传入参数检查是否包含敏感词。
+调用FuzzyMatchDomainSensitiveWord检查域名是否包含敏感词。
 
-## 请求参数 {#section_ott_bmr_5fb .section}
+## 调试
 
-公共请求参数，详见 [公共参数](cn.zh-CN/API 参考/调用方式/公共参数.md#)。
+[您可以在OpenAPI Explorer中直接运行该接口，免去您计算签名的困扰。运行成功后，OpenAPI Explorer可以自动生成SDK代码示例。](https://api.aliyun.com/#product=Domain&api=FuzzyMatchDomainSensitiveWord&type=RPC&version=2018-01-29)
 
-|名称|类型|是否必须|描述|
-|:-|:-|:---|:-|
-|Action|String|是|操作接口名，系统规定参数，取值：FuzzyMatchDomainSensitiveWord。|
-|Keyword|String|是|关键字。|
+## 请求参数
 
-## 返回参数 {#section_iqv_1nr_5fb .section}
+|名称|类型|是否必选|示例值|描述|
+|--|--|----|---|--|
+|Action|String|是|FuzzyMatchDomainSensitiveWord|系统规定参数。取值：**FuzzyMatchDomainSensitiveWord**。 |
+|Keyword|String|是|xxx\*\*.cn|域名关键字（除域名后缀外包含的词语），多个域名关键字之间使用英文逗号（,）分隔。 |
+|Lang|String|否|en|接口返回错误信息的语言。取值范围：
 
-|名称|类型|描述|
-|:-|:-|:-|
-|RequestId|String|唯一请求识别码。|
-|Keyword|String|传入的关键字。|
-|Exist|Boolean|是否包含敏感词。|
-|MatchedSentiveWords|List|匹配结果详情，当 Exist 为 false 时是空。|
-|MatchedSentiveWord|Object|匹配结果详情对象。|
-|Word|String|批配到的敏感词。|
+ -   **zh**：中文。
+-   **en**：英文。
 
-## 错误码 {#section_vsj_pnr_5fb .section}
+ 默认为**en**。 |
+|UserClientIp|String|否|127.0.0.1|用户IP，可设置为**127.0.0.1**。 |
 
-对于所有接口的通用性错误，请参考 [错误代码表](cn.zh-CN/API 参考/附录/错误代码表.md#)。
+## 返回数据
 
-|错误代码|描述|HTTP状态码|语义|
-|:---|:-|:------|:-|
-|Failed|Query failed.|400|查询失败 。|
-|Busy|Server is busy, please try again later.|400|系统忙。|
-|InvaildParameter|The parameter is invaild.|400|非法参数 。|
+|名称|类型|示例值|描述|
+|--|--|---|--|
+|Exist|Boolean|true|域名是否包含敏感词。取值：
 
-## 示例 {#section_dx4_3qr_5fb .section}
+ -   **true**：含敏感词。
+-   **false**：不含敏感词。 |
+|Keyword|String|xxx\*\*.cn|传入的域名关键字。 |
+|MatchedSentiveWords|Array of MatchedSensitiveWord| |匹配到域名中包含敏感词的结果详情。当**Exist**参数的取值为**false**时，匹配结果为空。 |
+|MatchedSensitiveWord| | | |
+|Word|String|xxx|匹配到域名中包含的敏感词。 |
+|RequestId|String|D15F91FD-0B34-4E48-8CBF-EFA5D2A31586|请求ID。 |
 
-**请求示例**
+## 示例
 
-``` {#codeblock_37i_iaq_tg8}
-http://domain-intl.aliyuncs.com/Action=FuzzyMatchDomainSensitiveWord
-&Keyword=abc.com&<公共请求参数>
+请求示例
+
+```
+http(s)://domain.aliyuncs.com/?Action=FuzzyMatchDomainSensitiveWord
+&Keyword=xxx**.cn
+&<公共请求参数>
 ```
 
-**返回示例**
+正常返回示例
 
--   XML示例
+`XML` 格式
 
-``` {#codeblock_zsu_mj9_8e0}
-<FuzzyMatchDomainSensitiveWord>
-    <RequestId>BA7A4FD4-EB9A-4A20-BB0C-9AEB15634DC1</RequestId>
-    <Keyword>abc.com</Keyword>
-    <Exist>true</Exist>
-    <MatchedSentiveWords>
-        <MatchedSensitiveWord>
-            <Word>ab<Word/>
-        </MatchedSensitiveWord>
-    </MatchedSentiveWords>
-</FuzzyMatchDomainSensitiveWord>
+```
+<FuzzyMatchDomainSensitiveWordResponse>
+      <MatchedSentiveWords>
+            <MatchedSensitiveWord>
+                  <Word>xxx</Word>
+            </MatchedSensitiveWord>
+      </MatchedSentiveWords>
+      <Keyword>xxx**.cn</Keyword>
+      <RequestId>D15F91FD-0B34-4E48-8CBF-EFA5D2A31586</RequestId>
+      <Exist>true</Exist>
+</FuzzyMatchDomainSensitiveWordResponse>
 ```
 
--   JSON示例
+`JSON` 格式
 
-``` {#codeblock_rj8_oe7_bf4}
+```
 {
-    "RequestId": "BA7A4FD4-EB9A-4A20-BB0C-9AEB15634DC1",
-    "DomainName": "abc.com",
-    "Exist": true,
-    "MatchedSentiveWords": [
-        MatchedSentiveWord:{
-            "Word":"ab"
-        }
-    ]
+	"MatchedSentiveWords": {
+		"MatchedSensitiveWord": [
+			{
+				"Word": "xxx"
+			}
+		]
+	},
+	"Keyword": "xxx**.cn",
+	"RequestId": "D15F91FD-0B34-4E48-8CBF-EFA5D2A31586",
+	"Exist": true
 }
 ```
 
+## 错误码
+
+访问[错误中心](https://error-center.aliyun.com/status/product/Domain)查看更多错误码。
 
