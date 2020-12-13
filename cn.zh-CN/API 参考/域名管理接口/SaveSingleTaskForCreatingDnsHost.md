@@ -1,70 +1,71 @@
-# SaveSingleTaskForCreatingDnsHost {#concept_lny_jzk_c2b .concept}
+# SaveSingleTaskForCreatingDnsHost
 
-提交单个创建dnshost任务，任务执行结果请通过[查询任务详情](intl.zh-CN/API 参考/域名管理接口/QueryTaskDetailList.md#)接口来查询。
+调用SaveSingleTaskForCreatingDnsHost提交单个创建dnshost任务。
 
-## 请求参数 {#section_tlq_vtn_c2b .section}
+## API描述
 
-公共请求参数，详见[公共参数](intl.zh-CN/API 参考/调用方式/公共参数.md#)。
+任务执行结果请通过[QueryTaskDetailList](~~67710~~)接口查询。
 
-|名称|类型|是否必须|描述|
-|:-|:-|:---|:-|
-|Action|String|是|操作接口名，系统规定参数，取值：SaveSingleTaskForCreatingDnsHost。|
-|InstanceId|String|是|域名实例编号，可通过查询域名列表接口（[QueryDomainList](intl.zh-CN/API 参考/域名管理接口/QueryDomainList.md#)）获得。|
-|DnsName|String|是|例如：“dns1”。|
-|Ips|[IpListType](#table_nfd_d5n_c2b)|是|IP地址列表。|
-|Lang|String|否|接口返回错误信息语言，枚举值范围：zh 中文，en 英文。默认为 en。|
+## 调试
 
-|名称|类型|描述|
-|:-|:-|:-|
-|ip|String|IP地址|
+[您可以在OpenAPI Explorer中直接运行该接口，免去您计算签名的困扰。运行成功后，OpenAPI Explorer可以自动生成SDK代码示例。](https://api.aliyun.com/#product=Domain&api=SaveSingleTaskForCreatingDnsHost&type=RPC&version=2018-01-29)
 
-## 返回参数 {#section_wbh_f5n_c2b .section}
+## 请求参数
 
-|名称|类型|描述|
-|:-|:-|:-|
-|RequestId|String|唯一请求识别码。|
-|TaskNo|String|任务编号。|
+|名称|类型|是否必选|示例值|描述|
+|--|--|----|---|--|
+|Action|String|是|SaveSingleTaskForCreatingDnsHost|系统规定参数。取值：**SaveSingleTaskForCreatingDnsHost**。 |
+|DnsName|String|是|dns1|DNS名称。 |
+|InstanceId|String|是|S1234567890|域名实例编号，可通过查询域名列表接口[QueryDomainList](~~69362~~)获得。 |
+|Ip.N|RepeatList|是|218.xx.xx.236|IP地址列表，最多可填写13个，多个IP时使用**list**方式传入。 |
+|Lang|String|否|en|接口返回错误信息语言。取值：
 
-## 错误码 {#section_kdd_k5n_c2b .section}
+ -   **zh**：中文。
+-   **en**：英文。
 
-|错误代码|描述|HTTP状态码|语义|
-|:---|:-|:------|:-|
-|ParameterIllegal|Parameter illegal.|400|参数错误。|
-|NetworkIOError|Network IO Error.|400|网络I/O异常。|
-|TaskIsBeingProcessed|An operation is being processed. Please try again later.|400|该域名存在正在处理中的操作，请稍后再试。|
+ 默认为**en**。 |
+|UserClientIp|String|否|127.0.0.1|用户IP，可以设置为**127.0.0.1**。 |
 
-## 示例 {#section_ff5_n5n_c2b .section}
+## 返回数据
 
-**请求示例**
+|名称|类型|示例值|描述|
+|--|--|---|--|
+|RequestId|String|0F1B3547-BE50-4206-8F78-9540FFB85BC1|唯一请求识别码。 |
+|TaskNo|String|e9b8e8b4-7334-4548-9cec-c30b6891f292|任务编号。 |
 
-``` {#codeblock_8tz_tsw_tqv}
-http://domain-intl.aliyuncs.com/
-?Action=SaveSingleTaskForCreatingDnsHost
-&DnsName=ns3
-&Ip.2=185.27.134.201
-&Ip.1=218.83.159.236
+## 示例
+
+请求示例
+
+```
+http(s)://[Endpoint]/?Action=SaveSingleTaskForCreatingDnsHost
+&DnsName=dns1
+&InstanceId=S1234567890
+&Ip.1=218.xx.xx.236
 &<公共请求参数>
 ```
 
-**返回示例**
+正常返回示例
 
--   XML示例
+`XML` 格式
 
-    ``` {#codeblock_07p_ykz_pir}
-    <?xml version='1.0' encoding='UTF-8'?>
-    <SaveSingleTaskForCreatingDnsHostResponse>
-    <TaskNo>e9b8e8b4-7334-4548-9cec-c30b6891f292</TaskNo>
-    <RequestId>0F1B3547-BE50-4206-8F78-9540FFB85BC1</RequestId>
-    </SaveSingleTaskForCreatingDnsHostResponse>
-    ```
+```
+<SaveSingleTaskForCreatingDnsHostResponse>
+  <TaskNo>e9b8e8b4-7334-4548-9cec-c30b6891f292</TaskNo>
+  <RequestId>0F1B3547-BE50-4206-8F78-9540FFB85BC1</RequestId>
+</SaveSingleTaskForCreatingDnsHostResponse>
+```
 
--   JSON示例
+`JSON` 格式
 
-    ``` {#codeblock_ph7_k0p_t29}
-    {
-      "requestId": "0F1B3547-BE50-4206-8F78-9540FFB85BC1",
-      "taskNo": "e9b8e8b4-7334-4548-9cec-c30b6891f292"
-    }
-    ```
+```
+{
+  "requestId": "0F1B3547-BE50-4206-8F78-9540FFB85BC1",
+  "taskNo": "e9b8e8b4-7334-4548-9cec-c30b6891f292"
+}
+```
 
+## 错误码
+
+访问[错误中心](https://error-center.aliyun.com/status/product/Domain)查看更多错误码。
 
