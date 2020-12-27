@@ -1,74 +1,73 @@
-# SaveBatchTaskForModifyingDomainDns {#concept_cwr_dzk_c2b .concept}
+# SaveBatchTaskForModifyingDomainDns
 
-The SaveBatchTaskForModifyingDomainDns API submits bulk DNS modification tasks. You can use the [QueryTaskDetailList](intl.en-US/API Reference (New)/Domain management/QueryTaskDetailList.md#) API to query the task execution result.
+Submits a task for changing the domain name system \(DNS\) servers of multiple domain names at a time.
 
-## Request parameters {#section_dq5_t3n_c2b .section}
+You can call the [QueryTaskDetailList](~~67710~~)operation to query the running result of the task.
 
-For more information about public request parameters, see [Public parameters](intl.en-US/API Reference (New)/Calling method/Public parameters.md#).
+## Debugging
 
-|Parameter|Type|Required|Description|
-|:--------|:---|:-------|:----------|
-|Action|String|Yes|API of the action, system required parameter. Set this parameter to SaveBatchTaskForModifyingDomainDns.|
-|DomainName|[DomainListType](#table_otg_v3n_c2b)|Yes|Domain name list.|
-|AliyunDns|Boolean|Yes|Whether to change the domain name to Alibaba Cloud DNS.|
-|DomainNameServer|[DnsListType](#table_x31_y3n_c2b)|No|DNS list \(required if AliyunDns is set to false\).|
-|Lang|String|No| Language of the error message returned from the API. The enumerated values include zh \(Chinese\) and en \(English\).  The default value is en.|
+[OpenAPI Explorer automatically calculates the signature value. For your convenience, we recommend that you call this operation in OpenAPI Explorer. OpenAPI Explorer automatically generates the sample code of the operation for different SDKs.](https://api.aliyun.com/#product=Domain&api=SaveBatchTaskForModifyingDomainDns&type=RPC&version=2018-01-29)
 
-|Parameter|Type|Description|
-|:--------|:---|:----------|
-|DomainName|String|Domain name.|
+## Request parameters
 
-|Parameter|Type|Description|
-|:--------|:---|:----------|
-|DNS|String|DNS information.|
+|Parameter|Type|Required|Example|Description|
+|---------|----|--------|-------|-----------|
+|Action|String|Yes|SaveBatchTaskForModifyingDomainDns|The operation that you want to perform. Set the value to **SaveBatchTaskForModifyingDomainDns**. |
+|AliyunDns|Boolean|Yes|false|Specifies whether to change the DNS server to the Alibaba Cloud DNS server. Valid values:
 
-## Response parameters {#section_xhw_fjn_c2b .section}
+ -   **true**: yes
+-   **false**: no |
+|DomainName.N|RepeatList|Yes|test1.com|The domain name whose DNS server you want to change. |
+|DomainNameServer.N|RepeatList|No|ns1.test.com|The DNS servers that you want to change. This parameter is required only when **AliyunDns** is set to **false**. |
+|Lang|String|No|en|The language of the error message returned. Valid values:
 
-|Parameter|Type|Description|
-|:--------|:---|:----------|
-|RequestId|String|Unique request identifier.|
-|TaskNo|String|Task ID.|
+ -   **zh**: Chinese
+-   **en**: English
 
-## Error codes {#section_nwj_3jn_c2b .section}
+ Default value: **en**. |
+|UserClientIp|String|No|127.0.0.1|The IP address of the client that is used to submit the task. Set the value to **127.0.0.1**. |
 
-|Error code|Description| HTTP status code|Semantics|
-|:---------|:----------|:----------------|:--------|
-|ParameterIllegal|Parameter illegal.|400|Parameter error.|
-|NetworkIOError|Network IO Error.|400|Network I/O exception.|
+## Response parameters
 
-## Examples {#section_dfv_jjn_c2b .section}
+|Parameter|Type|Example|Description|
+|---------|----|-------|-----------|
+|RequestId|String|6A862A8A-E7AB-4C4E-8946-A74122D9CC4B|The ID of the request. |
+|TaskNo|String|35fb2fb7-d4d6-4478-9408-22cb63696b86|The ID of the task that was submitted. |
 
-**Request example**
+## Examples
+
+Sample requests
 
 ```
-http://domain-intl.aliyuncs.com/
-? Action=SaveBatchTaskForModifyingDomainDns
+http://domain.aliyuncs.com/?Action=SaveBatchTaskForModifyingDomainDns
 &AliyunDns=false
-&DomainName. 1=test1.com
-&DomainName. 2=test2.com
-&DomainNameServer. 1=ns1.test.com
-&DomainNameServer. 2=ns2.test.com
-&<Public request parameters>
+&DomainName.1=test1.com
+&DomainName.2=test2.com
+&DomainNameServer.1=ns1.test.com
+&DomainNameServer.2=ns2.test.com
+&<Common request parameters>
 ```
 
-**Response example**
+Sample success responses
 
--   XML format
+`XML` format
 
-    ```
-    <? xml version='1.0' encoding='UTF-8'? >
-    <SaveBatchTaskForModifyingDomainDnsResponse>
-    <TaskNo>35fb2fb7-d4d6-4478-9408-22cb63696b86</TaskNo>
-    <RequestId>6A862A8A-E7AB-4C4E-8946-A74122D9CC4B</RequestId></SaveBatchTaskForModifyingDomainDnsResponse>
-    ```
+```
+<SaveBatchTaskForModifyingDomainDnsResponse>
+  <TaskNo>35fb2fb7-d4d6-4478-9408-22cb63696b86</TaskNo>
+  <RequestId>6A862A8A-E7AB-4C4E-8946-A74122D9CC4B</RequestId></SaveBatchTaskForModifyingDomainDnsResponse>
+```
 
--   JSON format
+`JSON` format
 
-    ```
-    {
-      "requestId": "689C17B3-6AE0-45FB-8E41-4491A02C9999",
-      "taskNo": "fce12087-6c9f-4dcd-92df-d3829b7f19bc"
-    }
-    ```
+```
+{
+  "requestId": "689C17B3-6AE0-45FB-8E41-4491A02C9999",
+  "taskNo": "fce12087-6c9f-4dcd-92df-d3829b7f19bc"
+}
+```
 
+## Error codes
+
+For a list of error codes, visit the [API Error Center](https://error-center.alibabacloud.com/status/product/Domain).
 
