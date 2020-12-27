@@ -1,69 +1,81 @@
-# VerifyContactField {#concept_phf_nrp_b2b .concept}
+# VerifyContactField
 
-The VerifyContactField API verifies domain name contact information.
+Verifies the information of a domain name contact. Whether some parameters are required is subject to the requirements of the relevant domain name registry.
 
-## Request parameters {#section_g1j_n5q_b2b .section}
+## Debugging
 
-|Parameter|Type|Required|Sample value|Description|
-|:--------|:---|:-------|:-----------|:----------|
-|Address|String|No|Rd. xitucheng|Address.|
-|City|String|No|Bei jing|City.|
-|Country|String|No|CN|Country code, such as CN or US.|
-|Email|String|No|test@test.com|Email.|
-|Lang|String|No|en|Language of the information returned by the API, which has the following enumerated values: zh \(Chinese\) and en \(English\). The default value is en.|
-|PostalCode|String|No|10000|Postal code.|
-|Province|String|No|Bei jing|Province.|
-|RegistrantName|String|No|zhang san|Contact name.|
-|RegistrantOrganization|String|No|zhang san|Registrant’s name.|
-|RegistrantType|String|No|1|Registrant type, with the following enumerated values: 1 : Individual. 2: Enterprise.|
-|TelArea|String|No|86|Country dialing code.|
-|TelExt|String|No|01|Extension number.|
-|Telephone|string|No|13800000000|Phone number.|
-|UserClientIp|String|No|127.0.0.1|User IP address.|
-|ZhAddress|String|No|Xitu Road|Chinese address.|
-|Zhcity|string|No|Beijing|Chinese city.|
-|ZhProvince|String|No|Beijing|Chinese province.|
-|ZhRegistrantName|String|No|ZhangSan|Chinese contact name.|
-|ZhRegistrantOrganization|String|No|ZhangSan|Chinese registrant’s name.|
+[OpenAPI Explorer automatically calculates the signature value. For your convenience, we recommend that you call this operation in OpenAPI Explorer. OpenAPI Explorer automatically generates the sample code of the operation for different SDKs.](https://api.aliyun.com/#product=Domain&api=VerifyContactField&type=RPC&version=2018-01-29)
 
-## Response parameters {#section_u3g_bvq_b2b .section}
+## Request parameters
 
-|Parameter|Type|Sample value|Description|
-|:--------|:---|:-----------|:----------|
-|RequestId|String|ABAC3BAC-FCFA-4DAE-B47C-FA4105CB07C6|The unique request ID.|
+|Parameter|Type|Required|Example|Description|
+|---------|----|--------|-------|-----------|
+|Action|String|Yes|VerifyContactField|The operation that you want to perform. Set the value to **VerifyContactField**. |
+|Province|String|No|Beijing|The province where the domain name contact is located, in English. |
+|TelArea|String|No|86|The international telephone code of the country or region where the domain name contact is located. For example, the international telephone code of China is **86**. |
+|Telephone|String|No|13800000000|The phone number of the domain name contact. |
+|City|String|No|Beijing|The city where the domain name contact is located, in English. |
+|RegistrantOrganization|String|No|Zhang San|The English name of the domain name registrant. |
+|Country|String|No|CN|The code of the country or region where the domain name contact is located, such as **CN**and **US**. |
+|RegistrantName|String|No|Zhang San|The English name of the domain name contact. |
+|Address|String|No|Rd. Xitucheng|The address of the domain name contact, in English. |
+|Email|String|No|test@test.com|The email address of the domain name contact. |
+|PostalCode|String|No|10000|The postal code of the region where the domain name contact is located. |
+|ZhProvince|String|No|北京|The province where the contact is located, in Chinese.
 
-## Examples {#section_uc2_21r_b2b .section}
+**Note:** This parameter applies only to the Alibaba Cloud China site \(aliyun.com\). |
+|RegistrantType|String|No|1|The type of the domain name registrant. Valid values:
 
-**Request example**
+-   **1**: individual
+-   **2**: enterprise |
+|TelExt|String|No|01|The extension number of the phone number of the domain name contact. |
+|ZhRegistrantOrganization|String|No|张三|The Chinese name of the domain name registrant.
+
+**Note:** This parameter applies only to the Alibaba Cloud China site \(aliyun.com\). |
+|ZhRegistrantName|String|No|张三|The Chinese name of the domain name contact.
+
+**Note:** This parameter applies only to the Alibaba Cloud China site \(aliyun.com\). |
+|DomainName|String|No|Aliyun.com|The domain name whose contact information you want to verify. |
+|ZhAddress|String|No|西土城路|The address of the domain name contact, in Chinese.
+
+**Note:** This parameter applies only to the Alibaba Cloud China site \(aliyun.com\). |
+|ZhCity|String|No|北京市|The city where the domain name contact is located, in Chinese.
+
+**Note:** This parameter applies only to the Alibaba Cloud China site \(aliyun.com\). |
+|Lang|String|No|en|The language of the error message returned. Valid values:
+
+-   **zh**: Chinese
+-   **en**: English
+
+Default value: **en**. |
+|UserClientIp|String|No|127.0.0.1|The IP address of the client that is used to verify the information of the domain name contact. Set the value to **127.0.0.1**. |
+
+## Response parameters
+
+|Parameter|Type|Example|Description|
+|---------|----|-------|-----------|
+|RequestId|String|ABAC3BAC-FCFA-4DAE-B47C-FA4105CB07C6|The ID of the request. |
+
+## Examples
+
+Sample requests
 
 ```
-/? Action=VerifyContactField
-&Address=Rd. xitucheng
-&City=Bei jing
-&Country=CN
-&Email=test@test.com
-&PostalCode=10000
-&Province=Bei jing
-&RegistrantName=zhang san
-&RegistrantOrganization=zhang san
-&RegistrantType=1
-&TelArea=86
-&Telephone=13800000000
-&TelExt=01
-&<Public request parameter>
+http(s)://domain.aliyuncs.com/?Action=VerifyContactField
+&<Common request parameters>
 ```
 
-**Normal response example**
+Sample success responses
 
--   XML format
+`XML` format
 
-    ```
-    <VerifyContactFieldResponse>
-      <RequestId>30EEA1A7-3C86-471B-BFD8-5AF13CBE0CD3</RequestId>
-    </VerifyContactFieldResponse>
-    ```
+```
+<VerifyContactFieldResponse>
+    <RequestId>ABAC3BAC-FCFA-4DAE-B47C-FA4105CB07C6</RequestId>
+</VerifyContactFieldResponse>
+```
 
--   JSON format
+`JSON` format
 
 ```
 {
@@ -71,29 +83,7 @@ The VerifyContactField API verifies domain name contact information.
 }
 ```
 
+## Error codes
 
-**Abnormal response example**
-
--   XML format
-
-    ```
-    <Error>
-      <RequestId>EA6A415C-01CE-480E-82D1-BE90AF0DC8A8</RequestId>
-      <HostId>domain.aliyuncs.com</HostId>
-      <Code>ParameterIllegall</Code>
-      <Message>Incorrect format. Make sure that the city is correct</Message>
-    </Error>
-    ```
-
--   JSON format
-
-    ```
-    {
-        "Code":"ParameterIllegall",
-        "HostId":"domain.aliyuncs.com",
-        "Message":"Format error, make sure the city is correct",
-        "RequestId":"FCC08834-C2D3-4F2E-BE58-45E96A64298C"
-    }
-    ```
-
+For a list of error codes, visit the [API Error Center](https://error-center.alibabacloud.com/status/product/Domain).
 
