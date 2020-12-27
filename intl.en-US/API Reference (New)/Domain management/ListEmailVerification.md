@@ -1,148 +1,137 @@
-# ListEmailVerification {#concept_k4m_njq_b2b .concept}
+# ListEmailVerification
 
-ListEmailVerification: queries the list of email address verification tasks under the current account and returns the results by page.
+Queries verified and to-be-verified email addresses.
 
-## Request parameters {#section_bl4_fll_c2b .section}
+## Debugging
 
-For more information about public request parameters, see [Public parameters](intl.en-US/API Reference (New)/Calling method/Public parameters.md#).
+[OpenAPI Explorer automatically calculates the signature value. For your convenience, we recommend that you call this operation in OpenAPI Explorer. OpenAPI Explorer automatically generates the sample code of the operation for different SDKs.](https://api.aliyun.com/#product=Domain&api=ListEmailVerification&type=RPC&version=2018-01-29)
 
-|Parameter|Type|Required|Description|
-|:--------|:---|:-------|:----------|
-|Action|String|Yes|API of the action, system required parameter. Set this parameter to ListEmailVerification.|
-|PageNum|Integer|Yes| Page number.|
-|PageSize|Integer|Yes|The page size.|
-|BeginCreateTime|Long|No|Start time of the period in which the email addresses are verified, expressed by the number of milliseconds between the start time and the UTC time 00:00 on January 1, 1970. Currently, only query by day is supported.|
-|EndCreateTime|Long|No|End time of the period in which the email addresses are verified, expressed by the number of milliseconds between the end time and the UTC time 00:00 on January 1, 1970. Currently, only query by day is supported.|
-|Email|String|No|Email address to be verified.|
-|VerificationStatus|Integer|No|Verification status. The enumerated values include: 0: waiting for verification; 1: successfully verified.|
-|Lang|String|No|Language of the information returned from the API. The enumerated values include zh \(Chinese\) and en \(English\). The default value is en.|
+## Request parameters
 
-## Response parameters { .section}
+|Parameter|Type|Required|Example|Description|
+|---------|----|--------|-------|-----------|
+|Action|String|Yes|ListEmailVerification|The operation that you want to perform. Set the value to ListEmailVerification. |
+|Email|String|No|82106\*\*\*\*@qq.com|The email address that you want to query. You can upload one email address every time. |
+|VerificationStatus|Integer|No|1|The verification status of the email address. Valid values:
 
-|Parameter|Type|Description|
-|:--------|:---|:----------|
-|RequestId|String|Unique request identifier.|
-|TotalItemNum|Integer|Total number of domain names.|
-|CurrentPageNum|Integer|Current page number.|
-|TotalPageNum|Integer|Total number of pages.|
-|PageSize|Integer|The page size.|
-|PrePage|Boolean|Whether the previous page exists|
-|NextPage|Boolean|Whether the next page exists.|
-|Data|[Emailverificationtype](#table_tsy_4ll_c2b)|List of email address verification tasks.|
+ -   **0**: The email address is waiting to be verified.
+-   **1**: The email address is verified. |
+|BeginCreateTime|Long|No|1522080000000|The time when the email address verification task was created. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since the epoch time January 1, 1970, 00:00:00 UTC. |
+|EndCreateTime|Long|No|1522080000000|The time when the email address verification task was ended. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since the epoch time January 1, 1970, 00:00:00 UTC. |
+|PageSize|Integer|No|500|The number of entries to return on each page. Default value: **0**. Maximum value: **5000**. You can specify this parameter based on your business requirements. |
+|PageNum|Integer|No|1|The number of the page to return. Default value: **0**. You can specify this parameter based on your business requirements. |
+|Lang|String|No|en|The language of the error message returned. Valid values:
 
-|Parameter|Type|Description|
-|:--------|:---|:----------|
-|GmtCreate|String|Creation time.|
-|GmtModified|String|Update time.|
-|Email|String|Email address to be verified.|
-|UserId|String| User ID.|
-|EmailVerificationNo|String| Email address verification ID.|
-|TokenSendTime|String|Time to send the email address verification token.|
-|VerificationStatus|Integer|Email address verification status. The enumerated values include: 0: Waiting for verification; 1: Successfully verified.|
-|VerificationTime|String|Email address verification time.|
-|SendIp|String|IP address that sends the verification email.|
-|ConfirmIp|String|IP address used to confirm email address verification.|
+ -   **zh**: Chinese
+-   **en**: English
 
-## Error codes { .section}
+ Default value: **en**. |
+|UserClientIp|String|No|127.0.0.1|The IP address of the client that is used for the query. Set the value to **127.0.0.1**. |
 
-|Error code|Description| HTTP status code|Meaning|
-|:---------|:----------|:----------------|:------|
-|ParameterIllegal|Parameter illegal.|400|Parameter error.|
-|NetworkIOError|Network IO Error.|400|Network I/O exception.|
+## Response parameters
 
-## Examples {#section_sff_1ml_c2b .section}
+|Parameter|Type|Example|Description|
+|---------|----|-------|-----------|
+|CurrentPageNum|Integer|1|The page number of the returned page. |
+|Data|Array of EmailVerification| |The verified and to-be-verified email addresses returned. |
+|ConfirmIp|String|127.0.0.1|The IP address of the client whose email address is verified. |
+|Email|String|test1@aliyun.com|The email address that is verified. |
+|EmailVerificationNo|String|00000a21fd374da99d9c95b48500000|The ID of the email address that is verified. The ID is automatically generated by the system. |
+|GmtCreate|String|Dec 25,2017 03:38:46|The creation time of the record in the database. |
+|GmtModified|String|Dec 25,2017 03:41:11|The update time of the record in the database. |
+|SendIp|String|127.0.0.1|The IP address of the client from which the email address verification is initiated. |
+|TokenSendTime|String|Dec 25,2017 03:38:46|The time when the email verification token was sent. |
+|UserId|String|0000|The ID of the user account. |
+|VerificationStatus|Integer|1|The verification status of the email address. Valid values:
 
-**Request example**
+ -   **0**: The email address is waiting to be verified.
+-   **1**: The email address is verified. |
+|VerificationTime|String|Dec 25,2017 03:41:11|The time when the email address verification was ended. |
+|NextPage|Boolean|false|Indicates whether the current page is followed by another page. |
+|PageSize|Integer|500|The number of entries returned per page. |
+|PrePage|Boolean|false|Indicates whether the current page follows another page. |
+|TotalPageNum|Integer|1|The total number of pages returned. |
+|TotalItemNum|Integer|2|The total number of domain names recorded. |
+|RequestId|String|78C60CC3-FF0A-44E2-989A-DDE0597791C3|The ID of the request. |
+
+## Examples
+
+Sample requests
 
 ```
-http://domain-intl.aliyuncs.com/
-? Action=ListEmailVerification
-&PageNum=1
-&PageSize=1
-&<Public request parameters>
+http(s)://domain.aliyuncs.com/? Action=ListEmailVerification
+&<Common request parameters>
 ```
 
-**Response example**
+Sample success responses
 
--   XML format
+`XML` format
 
-    ```
-    <? xml version='1.0' encoding='UTF-8'? >
-    <ListEmailVerificationResponse>
-        <Data>
+```
+<ListEmailVerificationResponse>
+      <Data>
             <EmailVerification>
-                <ConfirmIp>127.0.0.1</ConfirmIp>
-                <TokenSendTime>Dec 25,2017 03:38:46</TokenSendTime>
-                <Email>test1@aliyun.com</Email>
-                <VerificationStatus>1</VerificationStatus>
-                <SendIp>127.0.0.1</SendIp>
-                <VerificationTime>Dec 25,2017 03:41:11</VerificationTime>
-                <EmailVerificationNo>00000a21fd374da99d9c95b48500000</EmailVerificationNo>
-                <UserId>0000</UserId>
-                <GmtCreate>Dec 25,2017 03:38:46</GmtCreate>
-                <GmtModified>Dec 25,2017 03:41:11</GmtModified>
+                  <ConfirmIp>127.0.0.1</ConfirmIp>
+                  <TokenSendTime>Dec 25,2017 03:38:46</TokenSendTime>
+                  <Email>test1@aliyun.com</Email>
+                  <VerificationStatus>1</VerificationStatus>
+                  <SendIp>127.0.0.1</SendIp>
+                  <VerificationTime>Dec 25,2017 03:41:11</VerificationTime>
+                  <EmailVerificationNo>00000a21fd374da99d9c95b48500000</EmailVerificationNo>
+                  <UserId>0000</UserId>
+                  <GmtCreate>Dec 25,2017 03:38:46</GmtCreate>
+                  <GmtModified>Dec 25,2017 03:41:11</GmtModified>
             </EmailVerification>
             <EmailVerification>
-                <ConfirmIp>127.0.0.1</ConfirmIp>
-                <TokenSendTime>Dec 25,2017 03:35:22</TokenSendTime>
-                <Email>test2@aliyun.com</Email>
-                <VerificationStatus>1</VerificationStatus>
-                <SendIp>127.0.0.1</SendIp>
-                <VerificationTime>Dec 25,2017 03:36:57</VerificationTime>
-                <EmailVerificationNo>0000021fd374da99d9c95b48500000</EmailVerificationNo>
-                <UserId>0000</UserId>
-                <GmtCreate>Dec 25,2017 03:32:40</GmtCreate>
-                <GmtModified>Dec 25,2017 03:36:57</GmtModified>
+                  <ConfirmIp>127.0.0.1</ConfirmIp>
+                  <TokenSendTime>Dec 25,2017 03:35:22</TokenSendTime>
+                  <Email>test2@aliyun.com</Email>
+                  <VerificationStatus>1</VerificationStatus>
+                  <SendIp>127.0.0.1</SendIp>
+                  <VerificationTime>Dec 25,2017 03:36:57</VerificationTime>
+                  <EmailVerificationNo>0000021fd374da99d9c95b48500000</EmailVerificationNo>
+                  <UserId>0000</UserId>
+                  <GmtCreate>Dec 25,2017 03:32:40</GmtCreate>
+                  <GmtModified>Dec 25,2017 03:36:57</GmtModified>
             </EmailVerification>
-        </Data>
-        <TotalItemNum>2</TotalItemNum>
-        <PageSize>500</PageSize>
-        <CurrentPageNum>1</CurrentPageNum>
-        <RequestId>4BF41EC0-C147-4F88-8B3D-D569AF5C3E8B</RequestId>
-        <PrePage>false</PrePage>
-        <TotalPageNum>1</TotalPageNum>
-        <NextPage>false</NextPage>
-    </ListEmailVerificationResponse>
-    ```
+      </Data>
+      <TotalItemNum>2</TotalItemNum>
+      <PageSize>500</PageSize>
+      <CurrentPageNum>1</CurrentPageNum>
+      <RequestId>4BF41EC0-C147-4F88-8B3D-D569AF5C3E8B</RequestId>
+      <PrePage>false</PrePage>
+      <TotalPageNum>1</TotalPageNum>
+      <NextPage>false</NextPage>
+</ListEmailVerificationResponse>
+```
 
--   JSON format
+`JSON` format
 
-    ```
-    {
-      "currentPageNum": 1,
-      "data": [
-        {
-          "confirmIp": "127.0.0.1",
-          "email": "test1@aliyun.com",
-          "emailVerificationNo": "00000a21fd374da99d9c95b48500000",
-          "gmtCreate": "Dec 25,2017 03:38:46",
-          "gmtModified": "Dec 25,2017 03:41:11",
-          "sendIp": "127.0.0.1",
-          "tokenSendTime": "Dec 25,2017 03:38:46",
-          "userId": "0000",
-          "verificationStatus": 1,
-          "verificationTime": "Dec 25,2017 03:41:11"
-        },
-        {
-          "confirmIp": "127.0.0.1",
-          "email": "test2@aliyun.com",
-          "emailVerificationNo": "0000021fd374da99d9c95b48500000",
-          "gmtCreate": "Dec 25,2017 03:32:40",
-          "gmtModified": "Dec 25,2017 03:36:57",
-          "sendIp": "127.0.0.1",
-          "tokenSendTime": "Dec 25,2017 03:35:22",
-          "userId": "0000",
-          "verificationStatus": 1,
-          "verificationTime": "Dec 25,2017 03:36:57"
-        }
-      ],
-      "nextPage": false,
-      "pageSize": 500,
-      "prePage": false,
-      "requestId": "09D3DA75-B3B5-480B-9100-92DC43919B46",
-      "totalItemNum": 2,
-      "totalPageNum": 1
-    }
-    ```
+```
+{
+	"PrePage": false,
+	"CurrentPageNum": 1,
+	"PageSize": 500,
+	"RequestId": "78C60CC3-FF0A-44E2-989A-DDE0597791C3",
+	"TotalPageNum": 1,
+	"Data": [
+		{
+			"VerificationStatus": 0,
+			"GmtCreate": "2020-08-07 15:34:18",
+			"Email": "821067279@qq.com",
+			"EmailVerificationNo": "c8b3ede2e65742478eb8216ebf94b62a",
+			"UserId": "1406926474064770",
+			"GmtModified": "2020-08-07 15:54:09",
+			"SendIp": "127.0.0.1",
+			"TokenSendTime": "2020-08-07 15:54:09"
+		}
+	],
+	"TotalItemNum": 1,
+	"NextPage": false
+}
+```
 
+## Error codes
+
+For a list of error codes, visit the [API Error Center](https://error-center.alibabacloud.com/status/product/Domain).
 
