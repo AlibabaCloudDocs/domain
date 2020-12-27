@@ -1,71 +1,81 @@
-# SaveBatchTaskForCreatingOrderRedeem {#concept_p44_1zk_c2b .concept}
+# SaveBatchTaskForCreatingOrderRedeem
 
-The SaveBatchTaskForCreatingOrderRedeem API submits bulk domain name redemption tasks. You can use the [QueryTaskDetailList](intl.en-US/API Reference (New)/Domain management/QueryTaskDetailList.md#) API to query the task execution result.
+Submits a task for redeeming multiple domain names.
 
-## Request parameters {#section_zmv_kcn_c2b .section}
+You can call the [QueryTaskDetailList](~~67710~~) operation to query the running result of the task.
 
-For more information about public request parameters, see [Public parameters](intl.en-US/API Reference (New)/Calling method/Public parameters.md#).
+## Debugging
 
-|Parameter|Type|Required|Description|
-|:--------|:---|:-------|:----------|
-|Action|String|Yes|API of the action, system required parameter. Set this parameter to SaveBatchTaskForCreatingOrderRedeem.|
-|OrderRedeemParam|[OrderRedeemParamType](#table_zxj_pcn_c2b)|Yes| List of subtasks.|
-|Lang|String|No|Language of the information returned from the API. The enumerated values include zh \(Chinese\) and en \(English\). The default value is en.|
+[OpenAPI Explorer automatically calculates the signature value. For your convenience, we recommend that you call this operation in OpenAPI Explorer. OpenAPI Explorer automatically generates the sample code of the operation for different SDKs.](https://api.aliyun.com/#product=Domain&api=SaveBatchTaskForCreatingOrderRedeem&type=RPC&version=2018-01-29)
 
-|Parameter|Type|Required|Description|
-|:--------|:---|:-------|:----------|
-|DomainName|String|Yes|Domain name.|
-|CurrentExpirationDate|Long|Yes|Current expiration time of the domain name, expressed by the number of milliseconds between the expiration time and the UTC time 00:00 on January 1, 1970.|
+## Request parameters
 
-## Response parameters {#section_yfp_1dn_c2b .section}
+|Parameter|Type|Required|Example|Description|
+|---------|----|--------|-------|-----------|
+|Action|String|Yes|SaveBatchTaskForCreatingOrderRedeem|The operation that you want to perform. Set the value to **SaveBatchTaskForCreatingOrderRedeem**. |
+|UsePromotion|Boolean|No|false|Specifies whether to use coupons. Valid values:
 
-|Parameter|Type|Description|
-|:--------|:---|:----------|
-|RequestId|String|Unique request identifier.|
-|TaskNo|String|Task ID.|
+ -   **false**: Coupons are not used.
+-   **true**: Coupons are used. |
+|PromotionNo|String|No|123213123|The ID of the coupon that you want to use. |
+|OrderRedeemParam.N.DomainName|String|No|Aliyun.com|The domain name that you want to redeem. If you want to redeem multiple domain names, specify this parameter by using a domain name list. You can call the [QueryDomainList](~~69362~~) to query the domain name list. |
+|OrderRedeemParam.N.CurrentExpirationDate|Long|No|000000|The time when the domain name expires. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since the epoch time January 1, 1970, 00:00:00 UTC. |
+|UseCoupon|Boolean|No|false|Specifies whether to use vouchers. Valid values:
 
-## Error codes {#section_fs1_2dn_c2b .section}
+ -   **false**: Vouchers are not used.
+-   **true**: Vouchers are used. |
+|CouponNo|String|No|123123|The ID of the voucher that you want to use. |
+|Lang|String|No|en|The language of the error message returned. Valid values:
 
-|Error code|Description|HTTP status code|Semantics|
-|:---------|:----------|:---------------|:--------|
-|ParameterIllegal|Parameter illegal.|400|Parameter error.|
-|NetworkIOError|Network IO Error.|400|Network I/O exception.|
+ -   **zh**: Chinese
+-   **en**: English
 
-## Examples {#section_csc_hdn_c2b .section}
+ Default value: **en**. |
+|UserClientIp|String|No|127.0.0.1|The IP address of the client that is used to submit the task. Set the value to **127.0.0.1**. |
 
-**Request example**
+## Response parameters
+
+|Parameter|Type|Example|Description|
+|---------|----|-------|-----------|
+|RequestId|String|F51977F9-2B40-462B-BCCD-CF5BB1E9DB56|The ID of the request. |
+|TaskNo|String|d3babb0a-c939-4c25-8c65-c47b65f5492a|The ID of the task that was submitted. |
+
+## Examples
+
+Sample requests
 
 ```
-http://domain-intl.aliyuncs.com/
-? Action=SaveBatchTaskForCreatingOrderRedeem
-&OrderRedeemParam. 1. DomainName=test1.com
-&OrderRedeemParam. 1. CurrentExpirationDate=000000
-&OrderRedeemParam. 2. DomainName=test2.com
-&OrderRedeemParam. 2. CurrentExpirationDate=000000
-&OrderRedeemParam. 3. DomainName=test3.com
-&OrderRedeemParam. 3. CurrentExpirationDate=000000
-&<Public request parameters>
+http://domain.aliyuncs.com/?Action=SaveBatchTaskForCreatingOrderRedeem
+&OrderRedeemParam.1.DomainName=test1.com
+&OrderRedeemParam.1.CurrentExpirationDate=000000
+&OrderRedeemParam.2.DomainName=test2.com
+&OrderRedeemParam.2.CurrentExpirationDate=000000
+&OrderRedeemParam.3.DomainName=test3.com
+&OrderRedeemParam.3.CurrentExpirationDate=000000
+&<Common request parameters>
 ```
 
-**Response example**
+Sample success responses
 
--   XML format
+`XML` format
 
-    ```
-    <? xml version='1.0' encoding='UTF-8'? >
-    <SaveBatchTaskForCreatingOrderRedeemResponse>
-        <TaskNo>d3babb0a-c939-4c25-8c65-c47b65f5492a</TaskNo>
-        <RequestId>F51977F9-2B40-462B-BCCD-CF5BB1E9DB56</RequestId>
-    </SaveBatchTaskForCreatingOrderRedeemResponse>
-    ```
+```
+<SaveBatchTaskForCreatingOrderRedeemResponse>
+      <TaskNo>d3babb0a-c939-4c25-8c65-c47b65f5492a</TaskNo>
+      <RequestId>F51977F9-2B40-462B-BCCD-CF5BB1E9DB56</RequestId>
+</SaveBatchTaskForCreatingOrderRedeemResponse>
+```
 
--   JSON format
+`JSON` format
 
-    ```
-    {    
-      "TaskNo": "d3babb0a-c939-4c25-8c65-c47b65f5492a",
-      "RequestId": "F51977F9-2B40-462B-BCCD-CF5BB1E9DB56"
-    }
-    ```
+```
+{    
+  "TaskNo": "d3babb0a-c939-4c25-8c65-c47b65f5492a",
+  "RequestId": "F51977F9-2B40-462B-BCCD-CF5BB1E9DB56"
+}
+```
 
+## Error codes
+
+For a list of error codes, visit the [API Error Center](https://error-center.alibabacloud.com/status/product/Domain).
 
