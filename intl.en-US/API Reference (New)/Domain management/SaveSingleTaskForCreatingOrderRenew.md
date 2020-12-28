@@ -1,65 +1,81 @@
-# SaveSingleTaskForCreatingOrderRenew {#concept_tqk_lzk_c2b .concept}
+# SaveSingleTaskForCreatingOrderRenew
 
-The SaveSingleTaskForCreatingOrderRenew API submits a domain name renewal task. You can use the QueryTaskDetailList API to query the task execution result.
+Submits a task for renewing a domain name.
 
-## Request parameters {#section_o2t_zwn_c2b .section}
+## Description
 
-For more information about public request parameters, see [Public parameters](intl.en-US/API Reference (New)/Calling method/Public parameters.md#).
+You can call the [QueryTaskDetailList](~~67710~~)operation to query the running result of the task.
 
-|Parameter|Type|Required|Description|
-|:--------|:---|:-------|:----------|
-|Action|String|Yes|API of the action, system required parameter. Set this parameter to SaveSingleTaskForCreatingOrderRenew.|
-|DomainName|String|Yes|Domain name.|
-|CurrentExpirationDate|Long|Yes|Current expiration time of the domain name, expressed by the number of milliseconds between the expiration time and the UTC time 00:00 on January 1, 1970.|
-|SubscriptionDuration|Integer|Yes|Renewal period, in years.|
-|Lang|String|No| Language of the information returned from the API. The enumerated values include zh \(Chinese\) and en \(English\). The default value is en.|
+## Debugging
 
-## Response parameters {#section_q5v_dxn_c2b .section}
+[OpenAPI Explorer automatically calculates the signature value. For your convenience, we recommend that you call this operation in OpenAPI Explorer. OpenAPI Explorer automatically generates the sample code of the operation for different SDKs.](https://api.aliyun.com/#product=Domain&api=SaveSingleTaskForCreatingOrderRenew&type=RPC&version=2018-01-29)
 
-|Parameter|Type|Description|
-|:--------|:---|:----------|
-|RequestId|String|Unique request identifier.|
-|TaskNo|String|Task ID.|
+## Request parameters
 
-## Error codes {#section_fg2_gxn_c2b .section}
+|Parameter|Type|Required|Example|Description|
+|---------|----|--------|-------|-----------|
+|Action|String|Yes|SaveSingleTaskForCreatingOrderRenew|The operation that you want to perform. Set the value to **SaveSingleTaskForCreatingOrderRenew**. |
+|CurrentExpirationDate|Long|Yes|0000|The time when the domain name expires. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since the epoch time January 1, 1970, 00:00:00 UTC. |
+|DomainName|String|Yes|Aliyun.com|The domain name that you want to renew. |
+|SubscriptionDuration|Integer|Yes|1|The renewal duration. Valid values: **1** to **10**. Unit: year. |
+|UserClientIp|String|No|127.0.0.1|The IP address of the client that is used to submit the task. Set the value to **127.0.0.1**. |
+|Lang|String|No|en|The language of the error message returned. Valid values:
 
-|Error code|Description| HTTP status code|Semantics|
-|:---------|:----------|:----------------|:--------|
-|ParameterIllegal|Parameter illegal.|400|Parameter error.|
-|NetworkIOError|Network IO Error.|400|Network I/O exception.|
-|TaskIsBeingProcessed|An operation is being processed. Please try again later.|400|An action is being processed for the domain name. Try again later.|
+-   **zh**: Chinese
+-   **en**: English
 
-## Examples {#section_gnb_kxn_c2b .section}
+Default value: **en**. |
+|CouponNo|String|No|123123|The ID of the voucher that you want to use. |
+|UseCoupon|Boolean|No|false|Specifies whether to use vouchers. Valid values:
 
-**Request example**
+-   **false**: Vouchers are not used.
+-   **true**: Vouchers are used. |
+|PromotionNo|String|No|123132|The ID of the coupon that you want to use. |
+|UsePromotion|Boolean|No|false|Specifies whether to use coupons. Valid values:
+
+-   **false**: Coupons are not used.
+-   **true**: Coupons are used. |
+
+## Response parameters
+
+|Parameter|Type|Example|Description|
+|---------|----|-------|-----------|
+|RequestId|String|40F46D3D-F4F3-4CCB-AC30-2DD20E32E528|The ID of the request. |
+|TaskNo|String|3cb1adc3-20e8-44ae-9e76-e812fa6fc9d8|The ID of the task that was submitted. |
+
+## Examples
+
+Sample requests
 
 ```
-http://domain-intl.aliyuncs.com/?Action=SaveSingleTaskForCreatingOrderRenew
-&DomainName=test.com
+http(s)://[Endpoint]/?Action=SaveSingleTaskForCreatingOrderRenew
 &CurrentExpirationDate=0000
+&DomainName=test.com
 &SubscriptionDuration=1
-&<Public request parameters>
+&<Common request parameters>
 ```
 
-**Response example**
+Sample success responses
 
--   XML format
+`XML` format
 
-    ```
-    <? xml version='1.0' encoding='utf-8'? >
-    <SaveSingleTaskForCreatingOrderRenewResponse>
-        <TaskNo>3cb1adc3-20e8-44ae-9e76-e812fa6fc9d8</TaskNo>
-        <RequestId>40F46D3D-F4F3-4CCB-AC30-2DD20E32E528</RequestId>
-    </SaveSingleTaskForCreatingOrderRenewResponse>
-    ```
+```
+<SaveSingleTaskForCreatingOrderRenewResponse>
+      <TaskNo>3cb1adc3-20e8-44ae-9e76-e812fa6fc9d8</TaskNo>
+      <RequestId>40F46D3D-F4F3-4CCB-AC30-2DD20E32E528</RequestId>
+</SaveSingleTaskForCreatingOrderRenewResponse>
+```
 
--   JSON format
+`JSON` format
 
-    ```
-    {
-      "requestId": "D9422F19-3C86-44FA-B5F7-036E89F3904F",
-      "taskNo": "9f7a509f-f347-4430-969b-52ed6d23e58f"
-    }
-    ```
+```
+{
+  "requestId": "40F46D3D-F4F3-4CCB-AC30-2DD20E32E528",
+  "taskNo": "9f7a509f-f347-4430-969b-52ed6d23e58f"
+}
+```
 
+## Error codes
+
+For a list of error codes, visit the [API Error Center](https://error-center.alibabacloud.com/status/product/Domain).
 
