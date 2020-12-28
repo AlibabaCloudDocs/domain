@@ -1,88 +1,72 @@
-# CheckTransferInFeasibility {#concept_srq_nyk_c2b .concept}
+# CheckTransferInFeasibility
 
-CheckTransferInFeasibility: verifies that the domain name can be transferred in.
+Checks whether a domain name can be transferred to Alibaba Cloud.
 
-## Request parameters {#section_dbg_3nl_c2b .section}
+## Debugging
 
-|Parameters|Type|Required|Sample value|Description|
-|:---------|:---|:-------|:-----------|:----------|
-|DomainName|String|Yes|test.com|Domain name.|
-|Lang|String|No|en|Language of the error message returned by the API, which has the following enumerated values: zh \(Chinese\) and en \(English\). The default value is en.|
-|TransferAuthorizationCode|String|No|test|Transfer authorization code.|
-|UserClientIp|String|No|127.0.0.1|User IP address.|
+[OpenAPI Explorer automatically calculates the signature value. For your convenience, we recommend that you call this operation in OpenAPI Explorer. OpenAPI Explorer automatically generates the sample code of the operation for different SDKs.](https://api.aliyun.com/#product=Domain&api=CheckTransferInFeasibility&type=RPC&version=2018-01-29)
 
-## Response parameters {#section_q2n_lnl_c2b .section}
+## Request parameters
 
-|Parameters|Type|Sample value|Description|
-|:---------|:---|:-----------|:----------|
-|RequestId|String|FC0D6B89-2353-4D64-BD80-6606A7DBD7C1|The unique request ID.|
-|CanTransfer|Boolean|false|Whether the domain name can be transferred in.|
-|Code|String|CheckTransferResult.DomainTransferProhibited|Error code returned when the domain name cannot be transferred in.|
-|Message|String|This domain name is in transfer prohibited status, so it cannot be transferred. You can contact your original registrar to change its status.|Description of the error that does not allow the domain name transfer.|
-|ProductId|String|2a|Product ID.|
+|Parameter|Type|Required|Example|Description|
+|---------|----|--------|-------|-----------|
+|Action|String|Yes|CheckTransferInFeasibility|The operation that you want to perform. Set the value to **CheckTransferInFeasibility**. |
+|DomainName|String|Yes|Aliyun.com|The domain name that you want to check. |
+|TransferAuthorizationCode|String|No|test|The key that is used to transfer the domain name to Alibaba Cloud. |
+|Lang|String|No|en|The language of the error message returned. Valid values:
 
-## Examples {#section_of5_373_b2b .section}
+-   **zh**: Chinese
+-   **en**: English
 
-**Request example**
+Default value: **en**. |
+|UserClientIp|String|No|127.0.0.1|The IP address of the client that is used for the check. Set the value to **127.0.0.1**. |
+
+## Response parameters
+
+|Parameter|Type|Example|Description|
+|---------|----|-------|-----------|
+|CanTransfer|Boolean|false|Indicates whether the domain name can be transferred to Alibaba Cloud. Valid values:
+
+-   **true**: The domain name can be transferred to Alibaba Cloud.
+-   **false**: The domain name cannot be transferred to Alibaba Cloud. |
+|Code|String|CheckTransferResult.DomainTransferProhibited|The error code that the system returned when the domain name cannot be transferred to Alibaba Cloud. |
+|Message|String|This domain name is in transfer prohibited status, so it cannot be transferred. You can contact your original registrar to change its status.|The error message that the system returned when the domain name cannot be transferred to Alibaba Cloud. |
+|ProductId|String|2a|The ID of the Domains service. |
+|RequestId|String|FC0D6B89-2353-4D64-BD80-6606A7DBD7C1|The ID of the request. |
+
+## Examples
+
+Sample requests
 
 ```
-/? Action=CheckTransferInFeasibility
+http(s)://[Endpoint]/?Action=CheckTransferInFeasibility
 &DomainName=test.com
-&TransferAuthorizationCode=test
-&<Public request parameter>
+&<Common request parameters>
 ```
 
-**Normal response example**
+Sample success responses
 
--   XML format
+`XML` format
 
-    ```
-    <CheckTransferInFeasibilityResponse>
-      <RequestId>60D2283F-36EA-46D4-A38D-15B5A2C455E3</RequestId>
-      <CanTransfer>true</CanTransfer>
-      <ProductId>2a</ProductId>
-    </CheckTransferInFeasibilityResponse>
-    ```
+```
+<CheckTransferInFeasibilityResponse>
+    <RequestId>60D2283F-36EA-46D4-A38D-15B5A2C455E3</RequestId>
+    <CanTransfer>true</CanTransfer>
+    <ProductId>2a</ProductId>
+</CheckTransferInFeasibilityResponse>
+```
 
--   JSON format
+`JSON` format
 
-    ```
-    {
-        "CanTransfer":true,
-        "ProductId":"2a",
-        "RequestId":"CE82EB4C-882D-430B-A908-E0BECFC35025"
-    }
-    ```
+```
+{
+    "CanTransfer":true,
+    "ProductId":"2a",
+    "RequestId":"CE82EB4C-882D-430B-A908-E0BECFC35025"
+}
+```
 
+## Error codes
 
-**Abnormal response example**
-
--   XML format
-
-    ```
-    <Error>
-      <RequestId>390373FE-12C8-40F2-A906-AEEB5525CE54</RequestId>
-      <HostId>domain.aliyuncs.com</HostId>
-      <Code>MissingDomainName</Code>
-      <Message>DomainName is mandatory for this action.</Message>
-      <Recommend><![ CDATA[https://error-center.aliyun.com/status/search?Keyword=MissingDomainName&source=PopGw]]></Recommend>
-    </Error>
-    ```
-
--   JSON format
-
-    ```
-    {
-        "Code": "missingdomainname ",
-        "HostId":"domain.aliyuncs.com",
-        "Message":"DomainName is mandatory for this action.",
-        "Recommend":"https://error-center.aliyun.com/status/search?Keyword=MissingDomainName&source=PopGw",
-        "RequestId":"F931CD4D-9EF6-4DDC-AFBD-A1C026B97133"
-    }
-    ```
-
-
-## Error codes {#section_nwb_373_b2b .section}
-
-[See error codes of this product.](intl.en-US/API Reference (New)/Appendix/Error code table.md#).
+For a list of error codes, visit the [API Error Center](https://error-center.alibabacloud.com/status/product/Domain).
 
