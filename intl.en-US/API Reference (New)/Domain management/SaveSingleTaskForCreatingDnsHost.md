@@ -1,70 +1,71 @@
-# SaveSingleTaskForCreatingDnsHost {#concept_lny_jzk_c2b .concept}
+# SaveSingleTaskForCreatingDnsHost
 
-The SaveSingleTaskForCreatingDnsHost API submits a task of creating a DNS host. You can use the [QueryTaskDetailList](intl.en-US/API Reference (New)/Domain management/QueryTaskDetailList.md#) API to query the task execution result.
+Submits a task for creating a domain name system \(DNS\) server.
 
-## Request parameters {#section_tlq_vtn_c2b .section}
+## Description
 
-For more information about public request parameters, see [Public parameters](intl.en-US/API Reference (New)/Calling method/Public parameters.md#).
+You can call the [QueryTaskDetailList](~~67710~~)operation to query the running result of the task.
 
-|Parameter|Type|Required|Description|
-|:--------|:---|:-------|:----------|
-|Action|String|Yes|API of the action, system required parameter. Set this parameter to SaveSingleTaskForCreatingDnsHost.|
-|InstanceId|String|Yes|Instance ID. You can query it by calling [QueryDomainList](intl.en-US/API Reference (New)/Domain management/QueryDomainList.md#).|
-|DnsName|String|Yes|For example: dns1 ".|
-|Ips|[IpListType](#table_nfd_d5n_c2b)|Yes|IP address list.|
-|Lang|String|No|Language of the error message returned from the API. The enumerated values include zh \(Chinese\) and en \(English\). The default value is en.|
+## Debugging
 
-|Parameter|Type|Description|
-|:--------|:---|:----------|
-|ip|String|IP address.|
+[OpenAPI Explorer automatically calculates the signature value. For your convenience, we recommend that you call this operation in OpenAPI Explorer. OpenAPI Explorer automatically generates the sample code of the operation for different SDKs.](https://api.aliyun.com/#product=Domain&api=SaveSingleTaskForCreatingDnsHost&type=RPC&version=2018-01-29)
 
-## Response parameters {#section_wbh_f5n_c2b .section}
+## Request parameters
 
-|Parameter|Type|Description|
-|:--------|:---|:----------|
-|RequestId|String|Unique request identifier.|
-|TaskNo|String|Task ID.|
+|Parameter|Type|Required|Example|Description|
+|---------|----|--------|-------|-----------|
+|Action|String|Yes|SaveSingleTaskForCreatingDnsHost|The operation that you want to perform. Set the value to **SaveSingleTaskForCreatingDnsHost**. |
+|DnsName|String|Yes|dns1|The name of the DNS server. |
+|InstanceId|String|Yes|S1234567890|The instance ID of the domain name. You can call the [QueryDomainList](~~69362~~)operation to query the instance ID. |
+|Ip.N|RepeatList|Yes|218.xx.xx.236|The IP addresses of the DNS servers. You can specify a maximum of 13 IP addresses. If you want to specify multiple IP addresses, specify this parameter by using an IP address **list**. |
+|Lang|String|No|en|The language of the error message returned. Valid values:
 
-## Error codes {#section_kdd_k5n_c2b .section}
+-   **zh**: Chinese
+-   **en**: English
 
-|Error code|Description|HTTP status code|Semantics|
-|:---------|:----------|:---------------|:--------|
-|ParameterIllegal|Parameter illegal.|400|Parameter error|
-|NetworkIOError|Network IO Error.|400|Network I/O exception.|
-|TaskIsBeingProcessed|An operation is being processed. Please try again later.|400|An action is being processed for the domain name. Try again later.|
+Default value: **en**. |
+|UserClientIp|String|No|127.0.0.1|The IP address of the client that is used to submit the task. Set the value to **127.0.0.1**. |
 
-## Examples {#section_ff5_n5n_c2b .section}
+## Response parameters
 
-**Request example**
+|Parameter|Type|Example|Description|
+|---------|----|-------|-----------|
+|RequestId|String|0F1B3547-BE50-4206-8F78-9540FFB85BC1|The ID of the request. |
+|TaskNo|String|e9b8e8b4-7334-4548-9cec-c30b6891f292|The ID of the task that was submitted. |
+
+## Examples
+
+Sample requests
 
 ```
-http://domain-intl.aliyuncs.com/
-? Action=SaveSingleTaskForCreatingDnsHost
-&DnsName=ns3
-&Ip. 2=185.27.134.201
-&Ip. 1=218.83.159.236
-&<Public request parameters>
+http(s)://[Endpoint]/?Action=SaveSingleTaskForCreatingDnsHost
+&DnsName=dns1
+&InstanceId=S1234567890
+&Ip.1=218.xx.xx.236
+&<Common request parameters>
 ```
 
-**Response example**
+Sample success responses
 
--   XML format
+`XML` format
 
-    ```
-    <? xml version='1.0' encoding='UTF-8'? >
-    <SaveSingleTaskForCreatingDnsHostResponse>
-    <TaskNo>e9b8e8b4-7334-4548-9cec-c30b6891f292</TaskNo>
-    <RequestId>0F1B3547-BE50-4206-8F78-9540FFB85BC1</RequestId>
-    </SaveSingleTaskForCreatingDnsHostResponse>
-    ```
+```
+<SaveSingleTaskForCreatingDnsHostResponse>
+  <TaskNo>e9b8e8b4-7334-4548-9cec-c30b6891f292</TaskNo>
+  <RequestId>0F1B3547-BE50-4206-8F78-9540FFB85BC1</RequestId>
+</SaveSingleTaskForCreatingDnsHostResponse>
+```
 
--   JSON format
+`JSON` format
 
-    ```
-    {
-      "requestId": "0F1B3547-BE50-4206-8F78-9540FFB85BC1",
-      "taskNo": "e9b8e8b4-7334-4548-9cec-c30b6891f292"
-    }
-    ```
+```
+{
+  "requestId": "0F1B3547-BE50-4206-8F78-9540FFB85BC1",
+  "taskNo": "e9b8e8b4-7334-4548-9cec-c30b6891f292"
+}
+```
 
+## Error codes
+
+For a list of error codes, visit the [API Error Center](https://error-center.alibabacloud.com/status/product/Domain).
 
