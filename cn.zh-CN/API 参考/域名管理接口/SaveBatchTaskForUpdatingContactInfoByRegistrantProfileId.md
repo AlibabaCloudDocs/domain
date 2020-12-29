@@ -1,73 +1,84 @@
-# SaveBatchTaskForUpdatingContactInfoByRegistrantProfileId {#concept_ytw_gzk_c2b .concept}
+# SaveBatchTaskForUpdatingContactInfoByRegistrantProfileId
 
-提交批量域名信息修改任务，任务执行结果请通过[QueryTaskDetailList](cn.zh-CN/API 参考/域名管理接口/QueryTaskDetailList.md#)接口来查询。
+调用SaveBatchTaskForUpdatingContactInfoByRegistrantProfileId提交批量域名信息修改任务。
 
-## 请求参数 {#section_jy3_wnn_c2b .section}
+## API描述
 
-公共请求参数，详见[公共参数](cn.zh-CN/API 参考/调用方式/公共参数.md#)。
+任务执行结果请通过[QueryTaskDetailList](~~67710~~)接口查询。
 
-|名称|类型|是否必须|描述|
-|:-|:-|:---|:-|
-|Action|String|是|操作接口名，系统规定参数，取值：SaveBatchTaskForUpdatingContactInfoByRegistrantProfileId。|
-|DomainName|[DomainListType](#table_prl_b4n_c2b)|是|域名列表。|
-|RegistrantProfileId|Long|是|信息模板编号。|
-|ContactType|String|是|联系人类型，枚举值范围：registrant；admin；billing；tech。|
-|TransferOutProhibited|Boolean|可选|是否添加禁止转出限制，此参数只对ContactType=registrant情况下起作用，表示持有者修改后是否限制域名60天转出。默认为false，不限制转出。|
-|Lang|String|否|接口返回错误信息语言，枚举值范围：zh 中文；en 英文。默认为 en。|
+## 调试
 
-|名称|类型|描述|
-|:-|:-|:-|
-|DomainName|String|域名|
+[您可以在OpenAPI Explorer中直接运行该接口，免去您计算签名的困扰。运行成功后，OpenAPI Explorer可以自动生成SDK代码示例。](https://api.aliyun.com/#product=Domain&api=SaveBatchTaskForUpdatingContactInfoByRegistrantProfileId&type=RPC&version=2018-01-29)
 
-## 返回参数 {#section_dqs_d4n_c2b .section}
+## 请求参数
 
-|名称|类型|描述|
-|:-|:-|:-|
-|RequestId|String|唯一请求识别码。|
-|TaskNo|String|任务编号。|
+|名称|类型|是否必选|示例值|描述|
+|--|--|----|---|--|
+|Action|String|是|SaveBatchTaskForUpdatingContactInfoByRegistrantProfileId|操作接口名，系统规定参数，取值：**SaveBatchTaskForUpdatingContactInfoByRegistrantProfileId**。 |
+|ContactType|String|是|registrant|需要修改的联系人类型。取值：
 
-## 错误码 {#section_ukb_34n_c2b .section}
+ -   **registrant**：域名持有者。
+-   **admin**：管理者。
+-   **billing**：付费者。
+-   **tech**：技术者。 |
+|DomainName.N|RepeatList|是|example.com|域名。如需传入多个域名，请使用**list**方式传入。 |
+|RegistrantProfileId|Long|是|1|信息模板编号。
 
-|错误代码|描述|HTTP状态码|语义|
-|:---|:-|:------|:-|
-|ParameterIllegal|Parameter illegal.|400|参数错误。|
-|NetworkIOError|Network IO Error.|400|网络I/O异常。|
-|DomainNotExist|The domain name does not exist.|400|域名不存在。|
-|TaskIsBeingProcessed|An operation is being processed. Please try again later.|400|该域名存在正在处理中的操作，请稍后再试。|
+ 信息模板创建成功后由系统自动生成，您可以调用[QueryRegistrantProfiles](~~67701~~)接口查询信息模板编号。 |
+|TransferOutProhibited|Boolean|否|true|是否添加禁止转出限制，此参数只在**ContactType**的参数值为**registrant**的情况下有效，表示持有者修改后是否限制域名60天转出。取值：
 
-## 示例 {#section_tg4_m4n_c2b .section}
+ -   **false**：不转出。
+-   **true**：转出。
 
-**请求示例**
+ 默认值为**false**。 |
+|Lang|String|否|en|接口返回错误信息语言。取值：
 
-``` {#codeblock_7r4_fnu_03m}
-http://domain.aliyuncs.com/?Action=SaveBatchTaskForUpdatingContactInfoByRegistrantProfileId
-&RegistrantProfileId=1
-&DomainName.1=alibabacloud.com
-&DomainName.2=aliyun.com
+ -   **zh**：中文。
+-   **en**：英文。
+
+ 默认为**en**。 |
+|UserClientIp|String|否|127.0.0.1|用户IP，可设置为**127.0.0.1**。 |
+
+## 返回数据
+
+|名称|类型|示例值|描述|
+|--|--|---|--|
+|RequestId|String|EDC28FEC-6BE0-4583-95BC-test|唯一请求识别码。 |
+|TaskNo|String|880f1579-be51-4dd3-a69d-test|任务编号。 |
+
+## 示例
+
+请求示例
+
+```
+http(s)://[Endpoint]/?Action=SaveBatchTaskForUpdatingContactInfoByRegistrantProfileId
 &ContactType=registrant
-&TransferOutProhibited=true
+&DomainName.1=alibabacloud.com
+&RegistrantProfileId=1
 &<公共请求参数>
 ```
 
-**返回示例**
+正常返回示例
 
--   XML示例
+`XML` 格式
 
-    ``` {#codeblock_cyg_kgq_757}
-    <?xml version='1.0' encoding='UTF-8'?>
-    <SaveBatchTaskForUpdatingContactInfoByRegistrantProfileIdResponse>
-        <TaskNo>880f1579-be51-4dd3-a69d-test</TaskNo>
-        <RequestId>EDC28FEC-6BE0-4583-95BC-test</RequestId>
-    </SaveBatchTaskForUpdatingContactInfoByRegistrantProfileIdResponse>
-    ```
+```
+<SaveBatchTaskForUpdatingContactInfoByRegistrantProfileIdResponse>
+      <TaskNo>880f1579-be51-4dd3-a69d-test</TaskNo>
+      <RequestId>EDC28FEC-6BE0-4583-95BC-test</RequestId>
+</SaveBatchTaskForUpdatingContactInfoByRegistrantProfileIdResponse>
+```
 
--   JSON示例
+`JSON` 格式
 
-    ``` {#codeblock_kuk_w4b_ule}
-    {
-      "requestId": "464AF466-CA8E-43A8-B61D-test",
-      "taskNo": "65de2165-ca09-491f-9fe0-test"
-    }
-    ```
+```
+{
+  "requestId": "EDC28FEC-6BE0-4583-95BC-test",
+  "taskNo": "880f1579-be51-4dd3-a69d-test"
+}
+```
 
+## 错误码
+
+访问[错误中心](https://error-center.aliyun.com/status/product/Domain)查看更多错误码。
 
