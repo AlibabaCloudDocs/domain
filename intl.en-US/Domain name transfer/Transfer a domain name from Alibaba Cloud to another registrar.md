@@ -8,9 +8,12 @@ You can transfer a domain name from Alibaba Cloud to another registrar. The tran
 
 ## Rules on transferring a domain name from Alibaba Cloud
 
-A domain name can be transferred to another registrar regardless of the real-name verification status of the domain name, such as verified, not verified, or failed. However, the transfer process must comply with the rules described in the following table.
+A domain name can be transferred to another registrar regardless of the real-name verification status of the domain name However, the transfer process must comply with the rules described in the following table.
 
-**Note:** If your domain name uses Alibaba Cloud Domain Name System \(DNS\) servers, you must change the DNS servers to those of the new registrar before the transfer. Otherwise, your domain name cannot be resolved.
+**Note:**
+
+-   If your domain name uses Alibaba Cloud Domain Name System \(DNS\) servers, you must change the DNS servers to those of the new registrar before the transfer. Otherwise, your domain name cannot be resolved.
+-   If your domain name was registered with or transferred to Alibaba Cloud before 2016, the contact information may be incomplete because the domain name registry used an earlier version of the registration system at that time. In this case, you must first supplement the required information by transferring the ownership of the domain name and then submit a transfer-out request to obtain the transfer key.
 
 |Rule|Description|
 |----|-----------|
@@ -33,16 +36,16 @@ A domain name can be transferred to another registrar regardless of the real-nam
 
     3.  In the left-side navigation pane, click **Domain Transfer-Out**.
 
-    4.  Check the email address specified for **Registrant Email** and click **Next**.
+    4.  Check the email address specified for the **Registrant Email** parameter and click **Next**.
 
-        **Note:** The email address of your registrant must be valid because the transfer key for the domain name is sent to this email address. If the email address specified for **Registrant Email** is invalid, click **Change Email** next to **Registrant Email** to change the email address.
+        **Note:** The email address of your registrant must be valid because the transfer key for the domain name is sent to this email address. If the email address specified for the **Registrant Email** parameter is invalid, click **Change Email** next to **Registrant Email** to change the email address.
 
-    5.  Obtain and enter the **Email Verification Code**, and then click **Next**.
+    5.  Obtain and enter the verification code in the **Email Verification Code** field, and then click **Next**.
 
-        **Note:** For system stability and security purposes, Alibaba Cloud takes about one minute to send the transfer key to the email address that you specified. You can obtain the transfer key in the email.
+        **Note:** For system stability and security purposes, Alibaba Cloud requires about 1 minute to send the transfer key to the email address that you specified. You can obtain the transfer key in the email.
 
-        -   If no transfer key is received, you can click **Resend Transfer Code** to request the transfer key again.
-        -   If the email address is invalid, you can click **Registrant Email** to change the email address.
+        -   If no transfer key is received, you can click **Get Verification Code** again to request the transfer key.
+        -   If the email address is invalid, you can click **Change Email** to change the email address.
 2.  Submit a transfer-in request in the system of the new registrar.
 
     1.  Submit a transfer-in request and provide the transfer key as required by the new registrar.
