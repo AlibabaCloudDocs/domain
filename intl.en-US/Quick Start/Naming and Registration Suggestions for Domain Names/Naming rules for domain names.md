@@ -1,6 +1,11 @@
 # Naming rules for domain names
 
-Domain names with different suffixes may be subject to different naming rules. You must follow the corresponding domain naming rules to register a domain name and pass the domain name review. This topic describes the naming rules for Chinese domain names, English domain names, and special domain names. You can study the corresponding rules based on your business requirements and plan your domain name.
+Domain names with different suffixes may be subject to different naming rules. You must follow the corresponding naming rules to register a domain name and pass the domain name review. This topic describes the naming rules for Chinese domain names, English domain names, and special domain names. You can study the corresponding rules based on your business requirements and plan your domain name.
+
+**Note:**
+
+-   If the domain name contains a special word that indicates China, such as "中国", "国家", "中华", and "全国", it must be registered by the corresponding trademark holder of an organization. Individuals or non-trademark holder organizations cannot apply to register the domain name without prior authorization.
+-   If the domain name contains prohibited characters that are stipulated by the Measures for the Administration of Internet Domain Names of China, the domain name cannot be registered or pass the domain name review in mainland China. In this case, you must transfer the domain name to a registrar outside mainland China.
 
 ## Naming rules for Chinese domain names
 
@@ -13,7 +18,6 @@ A Chinese domain name must comply with the following rules:
 -   The domain name cannot contain consecutive hyphens \(--\) or only one hyphen \(-\). A hyphen \(-\) cannot be placed at the beginning or end of a domain name.
 -   The Punycode for the domain name cannot exceed 63 characters in length.
 -   Some domain names do not support Chinese characters, such as .com.cn, .net.cn, and .org.cn domain names.
--   If the domain name contains a special word that indicates China, such as "中国", "国家", "中华", and "全国", it must be registered by the corresponding trademark holder of an organization. Individuals or non-trademark holder organizations cannot apply to register the domain name without prior authorization.
 
 ## Naming rules for English domain names
 
@@ -22,7 +26,6 @@ An English domain name must comply with the following rules:
 -   The domain name can contain letters, digits, and hyphens \(-\). The letters are not case-sensitive. It cannot contain spaces or special characters, such as exclamation points \(!\), dollar signs \($\), ampersands \(&\), and question marks \(?\).
 -   The domain name cannot contain consecutive hyphens \(--\) or only one hyphen \(-\). A hyphen \(-\) cannot be placed at the beginning or end of a domain name.
 -   The domain name cannot exceed 63 characters in length.
--   If the domain name contains a special word that indicates China, such as "中国", "国家", "中华", and "全国", it must be registered by the corresponding trademark holder of an organization. Individuals or non-trademark holder organizations cannot apply to register the domain name without prior authorization.
 
 ## Naming rules for .中国, .cn, .公司, and .网络 domain names
 
