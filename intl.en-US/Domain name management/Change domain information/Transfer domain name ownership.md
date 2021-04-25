@@ -39,6 +39,14 @@ For example, the office location is changed from Xihu District, Hangzhou, Zhejia
 
 
 |Modify domain name information|[Modify domain name information](/intl.en-US/Domain name management/Change domain information/Modify domain name information.md)|
+|The registrant of a domain name remains the same, but the domain name is transferred to another Alibaba Cloud account.|-   Multiple domain names that were previously managed by different Alibaba Cloud accounts are transferred to a single Alibaba Cloud account for unified management.
+-   The domain name was previously managed by a specific Alibaba Cloud account. After domain name trading, it is transferred to the Alibaba Cloud account of the buyer.
+
+**Note:** If the individual who performs real-name verification for the domain name changes after the domain name is transferred to the destination Alibaba Cloud account, the ownership of the domain name must be transferred.
+
+
+|Transfer the domain name to another Alibaba Cloud account|-   Online transfer
+-   Offline transfer |
 
 ## Review time
 
@@ -46,7 +54,7 @@ When the ownership of a domain name is being transferred to a new registrant, th
 
 -   Transfer the ownership of multiple domain names by using a registrant profile that has passed real-name verification:
     -   Non-CNNIC domain names: The verification process can be completed within a short period of time. CNNIC is the abbreviation of China Internet Network Information Center.
-    -   CNNIC domain names such as .cn: If you transfer the ownership of a CNNIC domain name by using a registrant profile that has passed real-name verification, little information and few materials are required for review. However, CNNIC still reviews the domain name information and real-name verification materials. The review process usually takes three to five business days.
+    -   CNNIC domain names such as .cn, .中国, .公司, and .网络: If you transfer the ownership of a CNNIC domain name by using a registrant profile that has passed real-name verification, little information and few materials are required for review. However, CNNIC still reviews the domain name information and real-name verification materials. The review process usually takes three to five business days.
 -   Transfer the ownership of a single domain name by using a registrant profile that has passed real-name verification:
 
     After you select a registrant profile that has passed real-name verification, you must still enter your certificate number and upload materials for real-name verification to transfer the ownership. The review process usually takes three to five business days.
@@ -68,7 +76,7 @@ The following materials are required to transfer the ownership of both individua
 
 1.  Log on to the [Domains console](https://dc.console.aliyun.com/?spm=a2c1d.8251217.1002.19.7e29eef5kAnBeP#/domain/list).
 
-2.  On the **Domain Names** page, click the domain name for which you want to transfer the ownership to go to the **Basic Information** page.
+2.  On the **Domain Name List** page, click the domain name for which you want to transfer the ownership to go to the **Basic Information** page.
 
     ![Transfer 2](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/en-US/1448017951/p76529.png)
 
