@@ -1,6 +1,8 @@
 # How do I troubleshoot the failures to access a website by using its domain name?
 
-This topic describes common causes for failures to access a website by using its domain name and how you can resolve these issues.
+This topic describes the common causes for failures to access a website by using its domain name and shows you how to resolve these issues.
+
+**Note:** If you failed to access your website, we recommend that you use the domain name detection tool provided by Alibaba Cloud to check the domain name first. For more information, see [t14347.md\#]().
 
 -   [Failed to access a website because the domain name has expired](#section_ulx_wmd_b2b)
 -   [Failed to access a website because the domain name has expired and requires renewal](#section_r4w_hnd_b2b)
@@ -16,7 +18,7 @@ This topic describes common causes for failures to access a website by using its
 
     Solution: Log on to the Alibaba Cloud Domains console by using the Alibaba Cloud account to which the domain name belongs, and renew the domain name. For more information, see [Renew a domain name](/intl.en-US/Domain name management/Renew domain names/Renew a domain name.md).
 
--   Cause 2: The domain name has been renewed after it expired, but the local DNS cache has not been refreshed. As a result, the domain name resolution is not working.
+-   Cause 2: The domain name has been renewed after it expired, but the on-premises DNS cache has not been refreshed. As a result, the domain name resolution is not working.
 
     Solution: Clear the browser cache or use another browser.
 
