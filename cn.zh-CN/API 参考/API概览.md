@@ -90,11 +90,11 @@
 |[SaveSingleTaskForDeletingDnsHost](/cn.zh-CN/API 参考/域名管理接口/SaveSingleTaskForDeletingDnsHost.md)|提交删除DnsHost任务|
 |[QueryDomainRealNameVerificationInfo](/cn.zh-CN/API 参考/域名管理接口/QueryDomainRealNameVerificationInfo.md)|查询域名实名认证资料|
 |[SubmitOperationAuditInfo]()|提交自助业务审核信息|
-|[SubmitOperationCredentials]()|提交自助业务待审核的证件资料|
-|[GetOperationOssUploadPolicy]()|获取审核资料的存储信息|
-|[QueryOperationAuditInfoList]()|查询自助业务的审核记录列表|
-|[QueryOperationAuditInfoDetail]()|查询自助业务的审核记录详情|
-|[CancelOperationAudit]()|取消自助业务审核|
+|[SubmitOperationCredentials](/cn.zh-CN/API 参考/域名管理接口/SubmitOperationCredentials.md)|提交自助业务待审核的证件资料|
+|[GetOperationOssUploadPolicy](/cn.zh-CN/API 参考/域名管理接口/GetOperationOssUploadPolicy.md)|获取审核资料的存储信息|
+|[QueryOperationAuditInfoList](/cn.zh-CN/API 参考/域名管理接口/QueryOperationAuditInfoList.md)|查询自助业务的审核记录列表|
+|[QueryOperationAuditInfoDetail](/cn.zh-CN/API 参考/域名管理接口/QueryOperationAuditInfoDetail.md)|查询自助业务的审核记录详情|
+|[CancelOperationAudit](/cn.zh-CN/API 参考/域名管理接口/CancelOperationAudit.md)|取消自助业务审核|
 
 ## 信息模板接口
 
