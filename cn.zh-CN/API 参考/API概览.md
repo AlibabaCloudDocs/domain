@@ -89,7 +89,7 @@
 |[CancelTask](/cn.zh-CN/API 参考/域名管理接口/CancelTask.md)|取消进行中的任务|
 |[SaveSingleTaskForDeletingDnsHost](/cn.zh-CN/API 参考/域名管理接口/SaveSingleTaskForDeletingDnsHost.md)|提交删除DnsHost任务|
 |[QueryDomainRealNameVerificationInfo](/cn.zh-CN/API 参考/域名管理接口/QueryDomainRealNameVerificationInfo.md)|查询域名实名认证资料|
-|[SubmitOperationAuditInfo]()|提交自助业务审核信息|
+|[SubmitOperationAuditInfo](/cn.zh-CN/API 参考/域名管理接口/SubmitOperationAuditInfo.md)|提交自助业务审核信息|
 |[SubmitOperationCredentials](/cn.zh-CN/API 参考/域名管理接口/SubmitOperationCredentials.md)|提交自助业务待审核的证件资料|
 |[GetOperationOssUploadPolicy](/cn.zh-CN/API 参考/域名管理接口/GetOperationOssUploadPolicy.md)|获取审核资料的存储信息|
 |[QueryOperationAuditInfoList](/cn.zh-CN/API 参考/域名管理接口/QueryOperationAuditInfoList.md)|查询自助业务的审核记录列表|
