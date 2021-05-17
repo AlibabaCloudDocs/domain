@@ -15,15 +15,14 @@
 |名称|类型|是否必选|示例值|描述|
 |--|--|----|---|--|
 |Action|String|是|SaveSingleTaskForCreatingDnsHost|系统规定参数。取值：**SaveSingleTaskForCreatingDnsHost**。 |
-|DnsName|String|是|dns1|DNS名称。 |
-|InstanceId|String|是|S1234567890|域名实例编号，可通过查询域名列表接口[QueryDomainList](~~69362~~)获得。 |
-|Ip.N|RepeatList|是|218.xx.xx.236|IP地址列表，最多可填写13个，多个IP时使用**list**方式传入。 |
+|InstanceId|String|是|S1234567890|域名实例编号，可通过查询域名列表接口[QueryDomainList](~~67712~~)获得。 |
 |Lang|String|否|en|接口返回错误信息语言。取值：
 
  -   **zh**：中文。
 -   **en**：英文。
 
  默认为**en**。 |
+|DnsName|String|是|dns1|DNS名称。 |
 |UserClientIp|String|否|127.0.0.1|用户IP，可以设置为**127.0.0.1**。 |
 
 ## 返回数据
@@ -47,21 +46,27 @@ http(s)://[Endpoint]/?Action=SaveSingleTaskForCreatingDnsHost
 
 正常返回示例
 
-`XML` 格式
+`XML`格式
 
 ```
+HTTP/1.1 200 OK
+Content-Type:application/xml
+
 <SaveSingleTaskForCreatingDnsHostResponse>
-  <TaskNo>e9b8e8b4-7334-4548-9cec-c30b6891f292</TaskNo>
-  <RequestId>0F1B3547-BE50-4206-8F78-9540FFB85BC1</RequestId>
+<TaskNo>e9b8e8b4-7334-4548-9cec-c30b6891f292</TaskNo>
+<RequestId>0F1B3547-BE50-4206-8F78-9540FFB85BC1</RequestId>
 </SaveSingleTaskForCreatingDnsHostResponse>
 ```
 
-`JSON` 格式
+`JSON`格式
 
 ```
+HTTP/1.1 200 OK
+Content-Type:application/json
+
 {
-  "requestId": "0F1B3547-BE50-4206-8F78-9540FFB85BC1",
-  "taskNo": "e9b8e8b4-7334-4548-9cec-c30b6891f292"
+  "requestId" : "0F1B3547-BE50-4206-8F78-9540FFB85BC1",
+  "taskNo" : "e9b8e8b4-7334-4548-9cec-c30b6891f292"
 }
 ```
 
