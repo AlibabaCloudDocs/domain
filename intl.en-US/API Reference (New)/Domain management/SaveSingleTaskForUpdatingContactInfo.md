@@ -21,7 +21,7 @@ You can call the [QueryTaskDetailList](~~67710~~) operation to query the task ex
 -   **tech** |
 |DomainName|String|Yes|test.com|The domain name whose information you want to modify. |
 |RegistrantProfileId|Long|Yes|1|The ID of the registrant profile. |
-|AddTransferLock|Boolean|No|false|Specifies whether to enable transfer prohibition. This parameter is valid only when the value of the**ContactType** parameter is**registrant**. It specifies whether the domain name can be transferred out within 60 days after the registrant information is modified. Default value:**false** \(no transfer prohibition\). |
+|AddTransferLock|Boolean|No|false|Specifies whether to enable transfer prohibition. This parameter is valid only when the value of the **ContactType** parameter is **registrant**. It specifies whether the domain name can be transferred out within 60 days after the registrant information is modified. Default value:**false** \(no transfer prohibition\). |
 |InstanceId|String|No|S123456789|The instance ID of the domain name. |
 |Lang|String|No|en|The language of the error message to return. Valid values:
 
