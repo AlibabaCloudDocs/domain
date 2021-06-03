@@ -23,7 +23,7 @@ You can call the [AcknowledgeTaskResult](~~69366~~) operation to query the runni
 -   **3**: The task fails to be run. |
 |InstanceId|String|No|S20181T0WLI85212|The instance ID of the domain name.
 
-The system automatically generates the instance ID after a registrant profile is created. You can call the [QueryRegistrantProfiles](~~67701~~)operation to query the ID of a created registrant profile. |
+The system automatically generates the instance ID after a registrant profile is created. You can call the [QueryRegistrantProfiles](~~67701~~) operation to query the ID of a created registrant profile. |
 |TaskNo|String|No|75addb07-28a3-450e-b5ec-test|The ID of the task. |
 |DomainName|String|No|example.com|The domain name. |
 |Lang|String|No|en|The language in which the system returns the error message. Valid values:
