@@ -227,8 +227,6 @@ Solution: If the real-name verification of a .cn domain name fails because its n
 
 Problem description: During the real-name verification, materials fail to be uploaded in the **Upload File** step, and a message that indicates that **the image format must be JPG or BMP and the image size must be in the range of 55 KB to 1 MB** appears.
 
-![Image format not supported](../images/p175256.png)
-
 Possible cause: The size or format of the image to be uploaded does not meet the requirements. The image must be of the JPG or BMP format.
 
 Solution: Check whether the size of the uploaded image is 55 KB to 1 MB and whether the image format is JPG or BMP. If the uploaded image does not meet the requirements, use a third-party drawing tool \(such as the drawing software that comes with the operating system\) to convert the image format or resize the image. Do not directly modify the image suffix. Otherwise, the upload fails because the system cannot recognize the modified image.
@@ -236,8 +234,6 @@ Solution: Check whether the size of the uploaded image is 55 KB to 1 MB and whet
 ## Material upload failure due to invalid file format
 
 Problem description: During the real-name verification, materials fail to be uploaded in the **Upload File** page, and a message that indicates that **the file format is invalid** appears.
-
-![File format not supported](../images/p175255.png)
 
 Possible cause: The image format is not supported. Only the JPG and BMP formats are supported. The image suffix may be directly modified.
 
