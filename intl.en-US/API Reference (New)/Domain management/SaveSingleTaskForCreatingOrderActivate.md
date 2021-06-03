@@ -35,13 +35,13 @@ You can call the [QueryTaskDetailList](~~67710~~) operation to query the running
 |ZhRegistrantName|String|No|Test|The Chinese name of the domain name contact.
 
 **Note:** This parameter applies only to the Domains service at the Alibaba Cloud China site \(aliyun.com\). This parameter is valid and required only when the **RegistrantProfileId**parameter is not specified. Otherwise, the domain name fails to be registered. |
-|ZhProvince|String|No|北京|The province where the domain name registrant is located, in Chinese.
+|ZhProvince|String|No|Beijing|The province where the domain name registrant is located, in Chinese.
 
 **Note:** This parameter applies only to the Domains service at the Alibaba Cloud China site \(aliyun.com\). This parameter is valid and required only when the **RegistrantProfileId**parameter is not specified. Otherwise, the domain name fails to be registered. |
-|ZhCity|String|No|北京市|The city where the domain name registrant is located, in Chinese.
+|ZhCity|String|No|Beijing City|The city where the domain name registrant is located, in Chinese.
 
 **Note:** This parameter applies only to the Domains service at the Alibaba Cloud China site \(aliyun.com\). This parameter is valid and required only when the **RegistrantProfileId**parameter is not specified. Otherwise, the domain name fails to be registered. |
-|ZhAddress|String|No|朝阳区|The address of the domain name registrant, in Chinese.
+|ZhAddress|String|No|Chaoyang District|The address of the domain name registrant, in Chinese.
 
 **Note:** This parameter applies only to the Domains service at the Alibaba Cloud China site \(aliyun.com\). This parameter is valid and required only when the **RegistrantProfileId**parameter is not specified. Otherwise, the domain name fails to be registered. |
 |RegistrantOrganization|String|No|ce shi|The English name of the domain name registrant.
