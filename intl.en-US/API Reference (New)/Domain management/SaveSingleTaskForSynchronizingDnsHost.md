@@ -1,62 +1,67 @@
-# SaveSingleTaskForSynchronizingDnsHost {#concept_jtb_nzr_b2b .concept}
+# SaveSingleTaskForSynchronizingDnsHost
 
-The SaveSingleTaskForSynchronizingDnsHost API submits a DNS host synchronization task. This API can be used to handle problems of missing and inconsistent DNS hosts. You can use the [QueryTaskDetailList](intl.en-US/API Reference (New)/Domain management/QueryTaskDetailList.md#) API to query the task execution result.
+Submits a task to synchronize DNS host information. This operation can be used to handle problems such as missing and inconsistent DNS hosts.
 
-## Request parameters {#section_pgv_rzr_b2b .section}
+You can call the [QueryTaskDetailList](~~67710~~) operation to query the task execution result.
 
-For more information about public request parameters, see [Public parameters](intl.en-US/API Reference (New)/Calling method/Public parameters.md#).
+## Debugging
 
-|Parameter|Type|Required|Description|
-|:--------|:---|:-------|:----------|
-|Action|String|Yes|API of the action, system required parameter. Set this parameter to SaveSingleTaskForSynchronizingDnsHost.|
-|InstanceId|String|Yes| Instance ID. You can query it by using [QueryDomainList](intl.en-US/API Reference (New)/Domain management/QueryDomainList.md#) API.|
-|Lang|String|No|Language of the error message returned from the API. The enumerated values include zh \(Chinese\) and en \(English\). The default value is en.|
+[OpenAPI Explorer automatically calculates the signature value. For your convenience, we recommend that you call this operation in OpenAPI Explorer. OpenAPI Explorer dynamically generates the sample code of the operation for different SDKs.](https://api.aliyun.com/#product=Domain&api=SaveSingleTaskForSynchronizingDnsHost&type=RPC&version=2018-01-29)
 
-## Return parameters { .section}
+## Request parameters
 
-|Parameter|Type|Description|
-|:--------|:---|:----------|
-|RequestId|String|The unique request ID.|
-|TaskNo|String| Task ID.|
+|Parameter|Type|Required|Example|Description|
+|---------|----|--------|-------|-----------|
+|Action|String|Yes|SaveSingleTaskForSynchronizingDnsHost|The operation that you want to perform. Set the value to **SaveSingleTaskForSynchronizingDnsHost**. |
+|InstanceId|String|Yes|ST2017120814571100001303|The instance ID corresponding to the domain name for which you want to synchronize DNS host information. You can call the QueryDomainList operation to query the instance ID. |
+|Lang|String|No|en|The language of the error message to return. Valid values:
 
-## Error codes { .section}
+-   **zh:** Chinese
+-   **en:** English
 
-|Error code|Description|HTTP status code |Semantics|
-|:---------|:----------|:----------------|:--------|
-|ParameterIllegal|Parameter illegal.|400| Parameter error.|
-|NetworkIOError|Network IO Error.|400|Network I/O exception.|
-|TaskIsBeingProcessed|An operation is being processed. Please try again later.|400|An action is being processed for the domain name. Try again later.|
+Default value:**en**. |
+|UserClientIp|String|No|127.0.0.1|The IP address of the client. |
 
-## Examples {#section_vxj_j1s_b2b .section}
+## Response parameters
 
-**Request example**
+|Parameter|Type|Example|Description|
+|---------|----|-------|-----------|
+|RequestId|String|0F1B3547-BE50-4206-8F78-9540FFB85BC1|The ID of the request. |
+|TaskNo|String|e9b8e8b4-7334-4548-9cec-c30b6891f292|The ID of the task that was submitted. |
+
+## Examples
+
+Sample requests
 
 ```
-http://domain-intl.aliyuncs.com/
-? Action=SaveSingleTaskForSynchronizingDnsHost
+
+http(s)://[Endpoint]/? Action=SaveSingleTaskForSynchronizingDnsHost
 &InstanceId=ST2017120814571100001303
-&<Public request parameters>
+&<Common request parameters>
+
 ```
 
-**Response example**
+Sample success responses
 
--   XML format
+`XML` format
 
-    ```
-    <? xml version='1.0' encoding='UTF-8'? >
-    <SaveSingleTaskForSynchronizingDnsHostResponse>
-    <TaskNo>e9b8e8b4-7334-4548-9cec-c30b6891f292</TaskNo>
-    <RequestId>0F1B3547-BE50-4206-8F78-9540FFB85BC1</RequestId>
-    </SaveSingleTaskForSynchronizingDnsHostResponse>
-    ```
+```
+<SaveSingleTaskForSynchronizingDnsHostResponse>
+  <TaskNo>e9b8e8b4-7334-4548-9cec-c30b6891f292</TaskNo>
+  <RequestId>0F1B3547-BE50-4206-8F78-9540FFB85BC1</RequestId>
+</SaveSingleTaskForSynchronizingDnsHostResponse>
+```
 
--   JSON format
+`JSON` format
 
-    ```
-    {
-      "requestId": "0F1B3547-BE50-4206-8F78-9540FFB85BC1",
-      "taskNo": "e9b8e8b4-7334-4548-9cec-c30b6891f292"
-    }
-    ```
+```
+{
+	"requestId":"0F1B3547-BE50-4206-8F78-9540FFB85BC1",
+	"taskNo":"e9b8e8b4-7334-4548-9cec-c30b6891f292"
+}
+```
 
+## Error codes
+
+For a list of error codes, visit the [API Error Center](https://error-center.alibabacloud.com/status/product/Domain).
 
