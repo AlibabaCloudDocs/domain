@@ -2,7 +2,7 @@
 
 Submits a task to enable the transfer prohibition lock for a domain name.
 
-You can call the[QueryTaskDetailList](~~67710~~) operation to query the task execution result.
+You can call the [QueryTaskDetailList](~~67710~~) operation to query the task execution result.
 
 ## Debugging
 
