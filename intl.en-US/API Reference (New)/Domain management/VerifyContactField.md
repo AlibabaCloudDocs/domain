@@ -21,7 +21,7 @@ Verifies the information of a domain name contact. Whether some parameters are r
 |Address|String|No|Rd. Xitucheng|The address of the domain name contact, in English. |
 |Email|String|No|test@test.com|The email address of the domain name contact. |
 |PostalCode|String|No|10000|The postal code of the region where the domain name contact is located. |
-|ZhProvince|String|No|北京|The province where the contact is located, in Chinese.
+|ZhProvince|String|No|Beijing|The province where the contact is located, in Chinese.
 
 **Note:** This parameter applies only to the Alibaba Cloud China site \(aliyun.com\). |
 |RegistrantType|String|No|1|The type of the domain name registrant. Valid values:
@@ -29,17 +29,17 @@ Verifies the information of a domain name contact. Whether some parameters are r
 -   **1**: individual
 -   **2**: enterprise |
 |TelExt|String|No|01|The extension number of the phone number of the domain name contact. |
-|ZhRegistrantOrganization|String|No|张三|The Chinese name of the domain name registrant.
+|ZhRegistrantOrganization|String|No|Zhang San|The Chinese name of the domain name registrant.
 
 **Note:** This parameter applies only to the Alibaba Cloud China site \(aliyun.com\). |
-|ZhRegistrantName|String|No|张三|The Chinese name of the domain name contact.
+|ZhRegistrantName|String|No|Zhang San|The Chinese name of the domain name contact.
 
 **Note:** This parameter applies only to the Alibaba Cloud China site \(aliyun.com\). |
 |DomainName|String|No|Aliyun.com|The domain name whose contact information you want to verify. |
-|ZhAddress|String|No|西土城路|The address of the domain name contact, in Chinese.
+|ZhAddress|String|No|Xitucheng Road|The address of the domain name contact, in Chinese.
 
 **Note:** This parameter applies only to the Alibaba Cloud China site \(aliyun.com\). |
-|ZhCity|String|No|北京市|The city where the domain name contact is located, in Chinese.
+|ZhCity|String|No|Beijing City|The city where the domain name contact is located, in Chinese.
 
 **Note:** This parameter applies only to the Alibaba Cloud China site \(aliyun.com\). |
 |Lang|String|No|en|The language of the error message returned. Valid values:
