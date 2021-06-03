@@ -2,7 +2,7 @@
 
 Submits a task for creating the delegation signer \(DS\) record of a domain name.
 
-You can call the [QueryTaskDetailList](~~67710~~)operation to query the running result of the task.
+You can call the [QueryTaskDetailList](~~67710~~) operation to query the running result of the task.
 
 ## Debugging
 
