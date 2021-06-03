@@ -2,7 +2,7 @@
 
 According to the regulations issued by the China Internet Network Information Center \(CNNIC\), all domain name holders must submit real, accurate, and complete information of registered domain names. Otherwise, the domain name will be canceled. Therefore, you must submit the required materials and pass the real-name verification after you register a .cn domain name. The verification process includes real-name verification of the registrant and a review of the naming of the domain name.
 
-**Note:** The registrars at the Alibaba Cloud international site \(alibabacloud.com\) are registrars outside China. You cannot apply for an ICP filing for a domain name registered at the Alibaba Cloud international site \(alibabacloud.com\). If you want to deploy your services such as websites inmainland China, you must register your domain name and complete the ICP filing for your website at the Alibaba Cloud China site. Otherwise, your website may be inaccessible inmainland China.
+**Note:** The registrars at the Alibaba Cloud International site \(alibabacloud.com\) are registrars outside China. You cannot apply for an ICP filing for a domain name registered at the Alibaba Cloud International site \(alibabacloud.com\). If you want to deploy your services such as websites in mainland China, you must register your domain name and complete the ICP filing for your website at the Alibaba Cloud China site \(aliyun.com\). Otherwise, your website may be inaccessible in mainland China.
 
 ## Individual registrants
 
@@ -26,7 +26,7 @@ The following table lists the materials required to complete real-name verificat
 -   Do not modify the content of the identity document in any way. If the format of the image is not supported, **do not directly change the file name extension**. Instead, you can use an image editor to convert the image to the JPG or BMP format.
 -   To facilitate the verification process, we recommend that you submit a scanned copy of your resident identity card.
 
-**Note:** If submission fails after you have entered the information and uploaded the materials for real-name verification, see [Real-name verification failures and workarounds](/intl.en-US/Real-name authentication for domains/Real-name verification failures and workarounds.md) to troubleshoot the issue.
+**Note:** If submission fails after you have entered the information and uploaded the materials for real-name verification, see [Real-name verification failures and solutions](/intl.en-US/Real-name authentication for domains/Real-name verification failures and solutions.md) to troubleshoot the issue.
 
 For more information about the real-name verification materials required for individual registrants, see [Examples of real-name verification information for individual registrants](/intl.en-US/Real-name authentication for domains/Real-name authentication examples/Examples of real-name verification information for individual registrants.md).
 
@@ -53,7 +53,7 @@ Organization registrants, such as enterprises, foundations, and schools, which r
 -   Do not modify the content of the identity document in any way. If the format of the image is not supported, **do not directly change the file name extension**. Instead, you can use an image editor to convert the image to the JPG or BMP format.
 -   If you use a newly issued certificate for real-name verification, the verification may fail. We recommend that you request real-name verification 10 calendar days after the certificate is issued.
 
-**Note:** If submission fails after you have entered the information and uploaded the materials for real-name verification, see [Real-name verification failures and workarounds](/intl.en-US/Real-name authentication for domains/Real-name verification failures and workarounds.md) to troubleshoot the issue.
+**Note:** If submission fails after you have entered the information and uploaded the materials for real-name verification, see [Real-name verification failures and solutions](/intl.en-US/Real-name authentication for domains/Real-name verification failures and solutions.md) to troubleshoot the issue.
 
 For more information about real-name verification materials required for organization registrants, see [Examples of real-name verification information for organization registrants](/intl.en-US/Real-name authentication for domains/Real-name authentication examples/Examples of real-name verification information for organization registrants.md).
 
