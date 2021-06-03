@@ -29,7 +29,7 @@ Based on the [transfer policy](https://www.icann.org/resources/pages/transfer-po
 
 **Scenario: The information of an internationalized domain name changes or is invalid.**
 
-Based on the[WHOIS Data Reminder Policy](https://whois.icann.org/en/whois-data-reminder-policy-wdrp) of ICANN and the domain name registration agreement, Alibaba Cloud, as a domain name registrar, will send a notification email to the domain name registrant when the registration information is updated. Check the domain name information in a timely manner. If you find that the domain name information has changed or is invalid, update the domain name information as soon as possible to ensure that your domain name information is correct.
+Based on the [WHOIS Data Reminder Policy](https://whois.icann.org/en/whois-data-reminder-policy-wdrp) of ICANN and the domain name registration agreement, Alibaba Cloud, as a domain name registrar, will send a notification email to the domain name registrant when the registration information is updated. Check the domain name information in a timely manner. If you find that the domain name information has changed or is invalid, update the domain name information as soon as possible to ensure that your domain name information is correct.
 
 **Impact of not updating domain name information promptly**
 
