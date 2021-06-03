@@ -2,7 +2,7 @@
 
 Submits a task for changing the domain name system \(DNS\) servers of multiple domain names at a time.
 
-You can call the [QueryTaskDetailList](~~67710~~)operation to query the running result of the task.
+You can call the [QueryTaskDetailList](~~67710~~) operation to query the running result of the task.
 
 ## Debugging
 
@@ -15,16 +15,16 @@ You can call the [QueryTaskDetailList](~~67710~~)operation to query the running 
 |Action|String|Yes|SaveBatchTaskForModifyingDomainDns|The operation that you want to perform. Set the value to **SaveBatchTaskForModifyingDomainDns**. |
 |AliyunDns|Boolean|Yes|false|Specifies whether to change the DNS server to the Alibaba Cloud DNS server. Valid values:
 
- -   **true**: yes
+-   **true**: yes
 -   **false**: no |
 |DomainName.N|RepeatList|Yes|test1.com|The domain name whose DNS server you want to change. |
 |DomainNameServer.N|RepeatList|No|ns1.test.com|The DNS servers that you want to change. This parameter is required only when **AliyunDns** is set to **false**. |
 |Lang|String|No|en|The language of the error message returned. Valid values:
 
- -   **zh**: Chinese
+-   **zh**: Chinese
 -   **en**: English
 
- Default value: **en**. |
+Default value: **en**. |
 |UserClientIp|String|No|127.0.0.1|The IP address of the client that is used to submit the task. Set the value to **127.0.0.1**. |
 
 ## Response parameters
