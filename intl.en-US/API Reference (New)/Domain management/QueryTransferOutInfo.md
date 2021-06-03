@@ -1,96 +1,82 @@
-# QueryTransferOutInfo {#concept_my3_yyk_c2b .concept}
+# QueryTransferOutInfo
 
-The QueryTransferOutInfo API queries outbound domain name transfer information.
+Queries the transfer-out information of a domain name.
 
-## Request parameters {#section_c3t_cym_c2b .section}
+## Debugging
 
-|Parameters|Type|Required|Sample value|Description|
-|:---------|:---|:-------|:-----------|:----------|
-|DomainName|String|Yes|test.com|Domain name.|
-|Lang|String|No|en|Language of the error message returned by the API, which has the following enumerated values: zh\(Chinese\) and en \(English\). The default value is en.|
-|UserClientIp|String|No|127.0.0.1|User IP address.|
+[OpenAPI Explorer automatically calculates the signature value. For your convenience, we recommend that you call this operation in OpenAPI Explorer. OpenAPI Explorer dynamically generates the sample code of the operation for different SDKs.](https://api.aliyun.com/#product=Domain&api=QueryTransferOutInfo&type=RPC&version=2018-01-29)
 
-## Response parameters {#section_iv5_391_c2b .section}
+## Request parameters
 
-|Parameters|Type|Sample value|Description|
-|:---------|:---|:-----------|:----------|
-|RequestId|String|BBEC5A50-DFDF-482E-8343-B4EB0105E055|The unique request ID.|
-|Status|Integer|8|Transfer status, with the following enumerated values:-   1: Verify mobile phone.
--   2: Verify email.
--   3: Obtained transfer authorization code.
--   4: Transfer in progress \(received registry transfer request\).
--   5: Transfer successful.
--   8: Transfer failed.
+|Parameter|Type|Required|Example|Description|
+|---------|----|--------|-------|-----------|
+|Action|String|Yes|QueryTransferOutInfo|The operation that you want to perform. Set the value to **QueryTransferOutInfo**. |
+|DomainName|String|Yes|test.com|The domain name whose transfer-out information you want to query. |
+|Lang|String|No|en|The language of the error message to return. Valid values:
 
-|
-|Email|String|test@test.com|Address to which the transfer authorization code email is sent.|
-|TransferAuthorizationCodeSendDate|String|2018-04-13 19:57:56|Transfer authorization code retrieval time.|
-|ExpirationDate|String|2018-04-13 19:57:56|Time when the obtained transfer authorization code expires.|
-|PendingRequestDate|String|2018-04-13 19:57:56|Time when the registry transfer out request was received.|
-|ResultCode|String|clientRejected|Code indicating the reason the transfer failed.|
-|ResultMsg|String|Transfer out rejected|Description of the reason the transfer failed.|
+-   **zh:** Chinese
+-   **en:** English
 
-## Examples {#section_of5_391_b2b .section}
+Default value:**en**. |
+|UserClientIp|String|No|127.0.0.1|The IP address of the client. |
 
-**Request example**
+## Response parameters
+
+|Parameter|Type|Example|Description|
+|---------|----|-------|-----------|
+|Email|String|test@test.com|The email address to which the transfer key was sent. |
+|ExpirationDate|String|2018-04-13 19:57:56|The time when the transfer key expired. |
+|PendingRequestDate|String|2018-04-13 19:57:56|The time when the registry transfer request was received. |
+|RequestId|String|BBEC5A50-DFDF-482E-8343-B4EB0105E055|The ID of the request. |
+|ResultCode|String|clientRejected|The error code that indicates the reason why the transfer failed. |
+|ResultMsg|String|Transfer out rejected|The error message that indicates the reason why the transfer failed. |
+|Status|Integer|8|The transfer status. Valid values:
+
+-   **1:**verifying the mobile phone.
+-   **2:**verifying the email address.
+-   **3:** The transfer key is obtained.
+-   **4:**transferring \(The registry transfer request is received.\)
+-   **5:**transfer successful.
+-   **8:**transfer failed. |
+|TransferAuthorizationCodeSendDate|String|2018-04-13 19:57:56|The time when the transfer key was obtained. |
+
+## Examples
+
+Sample requests
 
 ```
-/? Action=QueryTransferOutInfo
+
+http(s)://[Endpoint]/? Action=QueryTransferOutInfo
 &DomainName=test.com
-&<Public request parameter>
+&<Common request parameters>
+
 ```
 
-**Normal return example**
+Sample success responses
 
--   XML format
+`XML` format
 
-    ```
-    <QueryTransferOutInfoResponse>
-      <Status>3</Status>
-      <RequestId>6F23B2C0-0355-4685-BB39-342956C5118B</RequestId>
-      <TransferAuthorizationCodeSendDate>2018-03-29 19:57:56</TransferAuthorizationCodeSendDate>
-      <ExpirationDate>2018-04-13 19:57:56</ExpirationDate>
-    </QueryTransferOutInfoResponse>
-    ```
+```
+<QueryTransferOutInfoResponse>
+    <Status>3</Status>
+    <RequestId>6F23B2C0-0355-4685-BB39-342956C5118B</RequestId>
+    <TransferAuthorizationCodeSendDate>2018-03-29 19:57:56</TransferAuthorizationCodeSendDate>
+    <ExpirationDate>2018-04-13 19:57:56</ExpirationDate>
+</QueryTransferOutInfoResponse>
+```
 
--   JSON format
+`JSON` format
 
-    ```
-    {
-        "ExpirationDate":"2018-04-13 19:57:56",
-        "RequestId":"BBEC5A50-DFDF-482E-8343-B4EB0105E055",
-        "Status":3,
-        "TransferAuthorizationCodeSendDate":"2018-03-29 19:57:56"
-    }
-    ```
+```
+{
+	"Status":3,
+	"RequestId":"BBEC5A50-DFDF-482E-8343-B4EB0105E055",
+	"TransferAuthorizationCodeSendDate":"2018-03-29 19:57:56",
+	"ExpirationDate":"2018-04-13 19:57:56"
+}
+```
 
+## Error codes
 
-**Abnormal response example**
-
--   XML format
-
-    ```
-    <Error>
-      <RequestId>8A7F0039-FB78-47B3-82F2-3FFEFC878A89</RequestId>
-      <HostId>domain.aliyuncs.com</HostId>
-      <Code>DomainNotExist</Code>
-      <Message>The domain name does not exist.</Message>
-    </Error>
-    ```
-
--   JSON format
-
-    ```
-    {
-        "Code":"DomainNotExist",
-        "HostId":"domain.aliyuncs.com",
-        "Message":"The domain name does not exist.",
-        "RequestId":"DF5F9400-374F-4C25-9D2C-6FB928D00E50"
-    }
-    ```
-
-
-## Error code {#section_nwb_391_b2b .section}
-
-[See error codes of this product](intl.en-US/API Reference (New)/Appendix/Error code table.md#).
+For a list of error codes, visit the [API Error Center](https://error-center.alibabacloud.com/status/product/Domain).
 
