@@ -13,7 +13,7 @@ Deletes multiple registrant profiles at a time.
 |Action|String|Yes|DeleteContactTemplates|The operation that you want to perform. Set the value to DeleteContactTemplates. |
 |RegistrantProfileIds|String|Yes|1234567|The IDs of the registrant profiles to be deleted.
 
- The system automatically generates an ID after a registrant profile is created. You can call the [QueryRegistrantProfiles](~~67701~~)operation to query the ID of a created registrant profile. |
+The system automatically generates an ID after a registrant profile is created. You can call the [QueryRegistrantProfiles](~~67701~~) operation to query the ID of a created registrant profile. |
 |UserClientIp|String|No|127.0.0.1|The IP address of the client that is used to delete registrant profiles. Set the value to **127.0.0.1**. |
 
 ## Response parameters
