@@ -33,7 +33,7 @@ Queries the domain names within your account by page.
 
 **Note:** If this parameter is not specified, the default value is **DESC**. |
 |DomainName|String|No|test.com|The domain name that you want to search for. |
-|DomainGroupId|String|No|123456|The ID of the domain name group. You can call the [QueryDomainGroupList](~~69362~~)operation to query the ID. |
+|DomainGroupId|String|No|123456|The ID of the domain name group. You can call the [QueryDomainGroupList](~~69362~~) operation to query the ID. |
 |OrderKeyType|String|No|RegistrationDate|The sorting rule of the domain names. Valid values:
 
 -   **RegistrationDate**: The domain names are sorted by registration time.
