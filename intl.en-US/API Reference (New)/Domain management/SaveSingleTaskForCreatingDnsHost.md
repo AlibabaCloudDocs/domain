@@ -4,7 +4,7 @@ Submits a task for creating a domain name system \(DNS\) server.
 
 ## Description
 
-You can call the [QueryTaskDetailList](~~67710~~)operation to query the running result of the task.
+You can call the [QueryTaskDetailList](~~67710~~) operation to query the running result of the task.
 
 ## Debugging
 
@@ -16,7 +16,7 @@ You can call the [QueryTaskDetailList](~~67710~~)operation to query the running 
 |---------|----|--------|-------|-----------|
 |Action|String|Yes|SaveSingleTaskForCreatingDnsHost|The operation that you want to perform. Set the value to **SaveSingleTaskForCreatingDnsHost**. |
 |DnsName|String|Yes|dns1|The name of the DNS server. |
-|InstanceId|String|Yes|S1234567890|The instance ID of the domain name. You can call the [QueryDomainList](~~69362~~)operation to query the instance ID. |
+|InstanceId|String|Yes|S1234567890|The instance ID of the domain name. You can call the [QueryDomainList](~~69362~~) operation to query the instance ID. |
 |Ip.N|RepeatList|Yes|218.xx.xx.236|The IP addresses of the DNS servers. You can specify a maximum of 13 IP addresses. If you want to specify multiple IP addresses, specify this parameter by using an IP address **list**. |
 |Lang|String|No|en|The language of the error message returned. Valid values:
 
