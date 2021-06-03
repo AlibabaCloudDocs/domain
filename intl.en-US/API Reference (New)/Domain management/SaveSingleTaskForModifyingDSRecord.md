@@ -31,7 +31,7 @@ You can call the [QueryTaskDetailList](~~67710~~) operation to query the executi
 -   **253:** Private algorithm
 -   **254:** Private algorithm OID |
 |Digest|String|Yes|f58fa917424383934c7b0cf1a90f61d692745680fa06f5ecdbe0924e86de9598|The value of the digest. |
-|DigestType|Integer|Yes|2|The type of the digest algorithm. For more information, see[DS Resource Record \(RR\) Type Digest Algorithms](https://www.iana.org/assignments/ds-rr-types/ds-rr-types.xhtml). Valid values:
+|DigestType|Integer|Yes|2|The type of the digest algorithm. For more information, see [DS Resource Record \(RR\) Type Digest Algorithms](https://www.iana.org/assignments/ds-rr-types/ds-rr-types.xhtml). Valid values:
 
 -   **1:** SHA-1
 -   **2:** SHA-256
