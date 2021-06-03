@@ -1,63 +1,72 @@
-# SaveSingleTaskForTransferProhibitionLock {#concept_ff5_mxr_b2b .concept}
+# SaveSingleTaskForTransferProhibitionLock
 
-The SaveSingleTaskForTransferProhibitionLock API submits a transfer prohibition lock task. You can use the [QueryTaskDetailList](intl.en-US/API Reference (New)/Domain management/QueryTaskDetailList.md#) API to query the task execution result.
+Submits a task to enable the transfer prohibition lock for a domain name.
 
-## Request parameters {#section_ltc_5xr_b2b .section}
+You can call the[QueryTaskDetailList](~~67710~~) operation to query the task execution result.
 
-For more information about public request parameters, see [Public parameters](intl.en-US/API Reference (New)/Calling method/Public parameters.md#).
+## Debugging
 
-|Parameter|Type|Required|Description|
-|:--------|:---|:-------|:----------|
-|Action|String|Yes|API of the action, system required parameter. Set this parameter to SaveSingleTaskForTransferProhibitionLock.|
-|DomainName|String|Yes|Domain name.|
-|Status|Boolean|Yes|Whether the lock is enabled. The value true indicates that the lock is enabled, and the value false indicates that the lock is disabled.|
-|Lang|String|No|Language of the information returned from the API. The enumerated values include zh \(Chinese\) and en \(English\). The default value is en.|
+[OpenAPI Explorer automatically calculates the signature value. For your convenience, we recommend that you call this operation in OpenAPI Explorer. OpenAPI Explorer dynamically generates the sample code of the operation for different SDKs.](https://api.aliyun.com/#product=Domain&api=SaveSingleTaskForTransferProhibitionLock&type=RPC&version=2018-01-29)
 
-## Response parameters {#section_fk4_tyr_b2b .section}
+## Request parameters
 
-|Parameter|Type|Description|
-|:--------|:---|:----------|
-|RequestId|String|Unique request identifier|
-|TaskNo|String|Task ID.|
+|Parameter|Type|Required|Example|Description|
+|---------|----|--------|-------|-----------|
+|Action|String|Yes|SaveSingleTaskForTransferProhibitionLock|The operation that you want to perform. Set the value to **SaveSingleTaskForTransferProhibitionLock**. |
+|DomainName|String|Yes|test1.com|The domain name for which you want to enable the transfer prohibition lock. |
+|Status|Boolean|Yes|false|Specifies whether the transfer prohibition lock is enabled. Valid values:
 
-## Error codes {#section_ggp_wyr_b2b .section}
+-   **true:** enabled
+-   **false:** disabled |
+|Lang|String|No|en|The language of the error message to return. Valid values:
 
-|Error code|Description|HTTP status code|Semantics|
-|:---------|:----------|:---------------|:--------|
-|ParameterIllegal|Parameter illegal.|400|Parameter error.|
-|NetworkIOError|Network IO Error.|400|Network I/O exception.|
+-   **zh:** Chinese
+-   **en:** English
 
-## Examples { .section}
+Default value:**en**. |
+|UserClientIp|String|No|127.0.0.1|The IP address of the client. |
 
-**Request example**
+## Response parameters
+
+|Parameter|Type|Example|Description|
+|---------|----|-------|-----------|
+|RequestId|String|F51977F9-2B40-462B-BCCD-CF5BB1E9DB56|The ID of the request. |
+|TaskNo|String|d3babb0a-c939-4c25-8c65-c47b65f5492a|The ID of the task that was submitted. |
+
+## Examples
+
+Sample requests
 
 ```
-http://domain-intl.aliyuncs.com/
-? Action=SaveSingleTaskForTransferProhibitionLock
+
+http://domain.aliyuncs.com/?Action=SaveSingleTaskForTransferProhibitionLock
 &DomainName=test1.com
 &Status=false
-&<Public request parameters>
+&<Common request parameters>
+
 ```
 
-**Response example**
+Sample success responses
 
--   XML format
+`XML` format
 
-    ```
-    <? xml version='1.0' encoding='UTF-8'? >
-    <SaveSingleTaskForTransferProhibitionLockResponse>
-        <TaskNo>d3babb0a-c939-4c25-8c65-c47b65f5492a</TaskNo>
-        <RequestId>F51977F9-2B40-462B-BCCD-CF5BB1E9DB56</RequestId>
-    </SaveSingleTaskForTransferProhibitionLockResponse>
-    ```
+```
+<SaveSingleTaskForTransferProhibitionLockResponse>
+      <TaskNo>d3babb0a-c939-4c25-8c65-c47b65f5492a</TaskNo>
+      <RequestId>F51977F9-2B40-462B-BCCD-CF5BB1E9DB56</RequestId>
+</SaveSingleTaskForTransferProhibitionLockResponse>
+```
 
--   JSON format
+`JSON` format
 
-    ```
-    {    
-      "TaskNo": "d3babb0a-c939-4c25-8c65-c47b65f5492a",
-      "RequestId": "F51977F9-2B40-462B-BCCD-CF5BB1E9DB56"
-    }
-    ```
+```
+{
+	"TaskNo":"d3babb0a-c939-4c25-8c65-c47b65f5492a",
+	"RequestId":"F51977F9-2B40-462B-BCCD-CF5BB1E9DB56"
+}
+```
 
+## Error codes
+
+For a list of error codes, visit the [API Error Center](https://error-center.alibabacloud.com/status/product/Domain).
 
