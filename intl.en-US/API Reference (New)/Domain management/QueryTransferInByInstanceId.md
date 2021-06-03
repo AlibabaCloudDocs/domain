@@ -1,163 +1,147 @@
-# QueryTransferInByInstanceId {#concept_b3t_wyk_c2b .concept}
+# QueryTransferInByInstanceId
 
-QueryTransferInByInstanceId: queries domain name transfer information by instance ID.
+You can call this operation to query the domain name transfer-in information by instance ID.
 
-## Request parameters {#section_ahd_f5m_c2b .section}
+## Debugging
 
-|Parameter|Type|Required|Sample value|Description|
-|:--------|:---|:-------|:-----------|:----------|
-|InstanceId|String|Yes|S20181T0WLI85212|Instance ID.|
-|Lang|String|No|en|Language of the error message returned by the API, which has the following enumerated values: zh \(Chinese\) and en \(English\). The default value is en.|
-|UserClientIp|String|No|127.0.0.1|User IP address.|
+[OpenAPI Explorer automatically calculates the signature value. For your convenience, we recommend that you call this operation in OpenAPI Explorer. OpenAPI Explorer dynamically generates the sample code of the operation for different SDKs.](https://api.aliyun.com/#product=Domain&api=QueryTransferInByInstanceId&type=RPC&version=2018-01-29)
 
-## Response parameters {#section_ahr_j5m_c2b .section}
+## Request parameters
 
-|Parameter|Type|Sample value|Description|
-|:--------|:---|:-----------|:----------|
-|RequestId|String|AF7D4DCE-0776-47F2-A9B2-6FB85A87AA60|The unique request ID.|
-|SubmissionDate|String|2018-03-28 00:41:42|Transfer request submission time.|
-|ModificationDate|String|2018-03-28 00:41:42|Transfer information update time.|
-|UserId|String|123456|User ID.|
-|InstanceId|String|S20181T0WLI85212|Instance ID.|
-|DomainName|String|test.com|Domain name.|
-|Status|Integer|11|Detailed domain name transfer status, with the following enumerated values: -   10 Initial status.
--   11 Email verification token link sent.
--   19 Token link verification successful.
--   20 Submitted for name verification.
--   21 Name verification failed.
--   29 Name verification successful.
--   31 Incorrect transfer authorization code.
--   39 Transfer submission successful.
--   50 Transfer cancelled by customer.
--   51 Transfer failed.
--   52 Transfer expired.
--   59 Transfer successful.
+|Parameter|Type|Required|Example|Description|
+|---------|----|--------|-------|-----------|
+|Action|String|Yes|QueryTransferInByInstanceId|The operation that you want to perform. Set the value to **QueryTransferInByInstanceId**. |
+|InstanceId|String|Yes|S20181T0WLI85212|The instance ID of the domain name that you want to query. |
+|Lang|String|No|en|The language of the error message to return. Valid values:
 
- |
-|SimpleTransferInStatus|String|SUCCESS|Transfer status, with the following enumerated values: -   INIT Transfer submitted.
--   AUTHORIZATION Transfer authorization \(email verification\).
--   NAME\_VERIFICATION Name verification.
--   PASSWORD\_VERIFICATION Transfer authorization code verification.
--   PENDING Transfer in progress.
--   SUCCESS Transfer successful.
--   FAIL Transfer failed.
+-   **zh:** Chinese
+-   **en:** English
 
- |
-|ResultCode|String|clientCancelled|The failure code returned when a transfer fails, with the following enumerated values: -   clientCancelled You cancelled this transfer.
--   clientRejected The original domain name registrar rejected the transfer \(or you rejected the operation at the original registrar\).
--   serverCancelled The registry cancelled the transfer.
--   transferProhibited The domain name status does not permit a transfer.
--   transferExpired You did not complete the transfer within the effective period.
--   nameVerificationFailed The domain name did not pass name verification.
--   transferSubmitted Another user has already submitted a domain name transfer.
+Default value:**en** |
+|UserClientIp|String|No|127.0.0.1|The IP address of the client used by the user to initiate the query. |
 
- |
-|ResultDate|String|2018-03-28 00:41:42|Time of transfer success or failure.|
-|ResultMsg|String|You have cancelled this domain name transfer|The transfer description returned when a transfer fails.|
-|TransferAuthorizationCodeSubmissionDate|String|2018-03-28 00:41:42|Transfer authorization code submission time.|
-|NeedMailCheck|Boolean|true|Whether email verification is required.|
-|Email|String|test@test.com|The address to which the domain name transfer confirmation email is sent.|
-|WhoisMailStatus|Boolean|true|Whether the domain name registrant’s email is crawled by WHOIS. If this field is false for an authorized domain name transfer \(email verification\), it indicates that the registrant’s email is not crawled by WHOIS and must be manually entered.|
-|ExpirationDate|String|2018-03-28 00:41:42|Domain name transfer expiration time.|
-|ProgressBarType|Integer|0|The transfer progress bar type, with the following enumerated values: -   0 Requires both email verification and name verification.
--   1 Requires email verification, but not name verification.
--   2 Requires name verification, but not email verification.
--   3 Does not require email verification or name verification.
+## Response parameters
 
- |
-|SubmissionDateLong|Long|1514428524669|Transfer request submission timestamp.|
-|ModificationDateLong|Long|1514428524669|Transfer information update timestamp.|
-|Resultdatelong|Long|1514428524669|Timestamp of transfer success or failure.|
-|ExpirationDateLong|Long|1514428524669|Domain name transfer expiration timestamp.|
-|TransferAuthorizationCodeSubmissionDateLong|Long|1514428524669|Transfer authorization code submission timestamp.|
+|Parameter|Type|Example|Description|
+|---------|----|-------|-----------|
+|DomainName|String|test.com|The domain name returned. |
+|Email|String|test@test.com|The email address to which the confirmation email for domain name transfer-in was sent. |
+|ExpirationDate|String|2018-03-28 00:41:42|The time when the domain name transfer-in expired. |
+|ExpirationDateLong|Long|1514428524669|The timestamp when the domain name transfer-in expired. |
+|InstanceId|String|S20181T0WLI85212|The instance ID of the domain name that was queried. |
+|ModificationDate|String|2018-03-28 00:41:42|The time when the transfer-in information was updated. |
+|ModificationDateLong|Long|1514428524669|The timestamp when the transfer-in information was updated. |
+|NeedMailCheck|Boolean|true|Indicates whether email verification is required. |
+|ProgressBarType|Integer|0|The type of the transfer progress bar. Valid values:
 
-## Examples {#section_of5_389_b2b .section}
+-   **0:** Both email verification and domain name auditing are required.
+-   **1:** Only email verification is required.
+-   **2:** Only domain name auditing is required.
+-   **3:** Neither email verification nor domain name auditing is required. |
+|RequestId|String|AF7D4DCE-0776-47F2-A9B2-6FB85A87AA60|The ID of the request. |
+|ResultCode|String|clientCancelled|The code returned when the transfer fails. Valid values:
 
-**Request example**
+-   **clientCancelled:** You canceled the domain name transfer-in request.
+-   **clientRejected:** The original registrar of the domain name rejected the domain name transfer-in request, or you rejected the request through the original registrar.
+-   **serverCancelled:** The domain name registry canceled the transfer-in.
+-   **transferProhibited:** The domain name transfer was prohibited.
+-   **transferExpired:** You did not complete the relevant transfer-in confirmation within the validity period.
+-   **nameVerificationFailed:** The domain name did not pass the name audit.
+-   **transferSubmitted:** Another user has submitted the domain name transfer-in request. |
+|ResultDate|String|2018-03-28 00:41:42|The time when the transfer succeeded or failed. |
+|ResultDateLong|Long|1514428524669|The timestamp when the transfer succeeded or failed. |
+|ResultMsg|String|You canceled the domain name transfer-in request.|The description of the cause for this transfer failure. |
+|SimpleTransferInStatus|String|SUCCESS|The status of the domain name transfer-in. Valid values:
+
+-   **INIT:** Submitted
+-   **AUTHORIZATION:** Authorization through email verification
+-   **NAME\_VERIFICATION:** Domain name audit
+-   **PASSWORD\_VERIFICATION:** Transfer code verification
+-   **PENDING:** In progress
+-   **SUCCESS:** Succeeded
+-   **FAIL:** Failed |
+|Status|Integer|11|The detailed status of the domain name transfer-in. Valid values:
+
+-   **10:** Initial state.
+-   **11:** The token link for email verification has been sent.
+-   **19:** The token link verification succeeded.
+-   **20:** The request for a domain name audit has been submitted.
+-   **21:** Domain name auditing failed.
+-   **29:** Domain name auditing succeeded.
+-   **31:** The transfer code is incorrect.
+-   **39:** The transfer-in request is submitted successfully.
+-   **50:** The customer canceled the transfer-in request.
+-   **51:** The transfer-in failed.
+-   **52:** The transfer-in expired.
+-   **59:** The transfer-in succeeded. |
+|SubmissionDate|String|2018-03-28 00:41:42|The time when the transfer request was submitted. |
+|SubmissionDateLong|Long|1514428524669|The timestamp when the transfer request was submitted. |
+|TransferAuthorizationCodeSubmissionDate|String|2018-03-28 00:41:42|The time when the transfer code was submitted successfully. |
+|TransferAuthorizationCodeSubmissionDateLong|Long|1514428524669|The timestamp when the transfer code was submitted successfully. |
+|UserId|String|123456|The ID of the user who initiated the domain name transfer-in request. |
+|WhoisMailStatus|Boolean|true|Indicates whether the email address of the domain name registrant was captured through WHOIS. When the domain name transfer-in is in the state of authorization through email verification and this field is set to **false**, the email address of the domain name registrant was not captured through WHOIS, and the capture must be manually processed. |
+
+## Examples
+
+Sample requests
 
 ```
-/? Action=QueryTransferInByInstanceId
+
+http(s)://[Endpoint]/? Action=QueryTransferInByInstanceId
 &InstanceId=S20181T0WLI85212
-&<Public request parameter>
+&<Common request parameters>
+
 ```
 
-**Normal response example**
+Sample success responses
 
--   XML format
+`XML` format
 
-    ```
-    <QueryTransferInByInstanceIdResponse>
-      <InstanceId>S20182F0RED000000</InstanceId>
-      <WhoisMailStatus>true</WhoisMailStatus>
-      <UserId>123456</UserId>
-      <ResultDate>2018-03-28 09:54:39</ResultDate>
-      <ExpirationDate>2018-04-12 09:51:53</ExpirationDate>
-      <NeedMailCheck>true</NeedMailCheck>
-      <Status>50</Status>
-      <Email/>
-      <SimpleTransferInStatus>FAIL</SimpleTransferInStatus>
-      <ResultMsg>You have canceled this domain name transfer in.</ResultMsg>
-      <RequestId>0D6108ED-7BB3-4898-83D0-44883DE0D3E7</RequestId>
-      <ModificationDate>2018-03-28 09:54:39</ModificationDate>
-      <ResultCode>clientCancelled</ResultCode>
-      <DomainName>test.com</DomainName>
-      <ProgressBarType>0</ProgressBarType>
-      <SubmissionDate>2018-03-28 09:51:53</SubmissionDate>
-    </QueryTransferInByInstanceIdResponse>
-    ```
+```
+<QueryTransferInByInstanceIdResponse>
+    <InstanceId>S20182F0RED000000</InstanceId>
+    <WhoisMailStatus>true</WhoisMailStatus>
+    <UserId>123456</UserId>
+    <ResultDate>2018-03-28 09:54:39</ResultDate>
+    <ExpirationDate>2018-04-12 09:51:53</ExpirationDate>
+    <NeedMailCheck>true</NeedMailCheck>
+    <Status>50</Status>
+    <Email></Email>
+    <SimpleTransferInStatus>FAIL</SimpleTransferInStatus>
+    <ResultMsg>You have canceled this domain name transfer in. </ResultMsg>
+    <RequestId>0D6108ED-7BB3-4898-83D0-44883DE0D3E7</RequestId>
+    <ModificationDate>2018-03-28 09:54:39</ModificationDate>
+    <ResultCode>clientCancelled</ResultCode>
+    <DomainName>test.com</DomainName>
+    <ProgressBarType>0</ProgressBarType>
+    <SubmissionDate>2018-03-28 09:51:53</SubmissionDate>
+</QueryTransferInByInstanceIdResponse>
+```
 
--   JSON format
+`JSON` format
 
-    ```
-    {
-        "DomainName":"test.com",
-        "Email":"",
-        "ExpirationDate":"2018-04-12 09:51:53",
-        "InstanceId":"S20182F0RED000000",
-        "ModificationDate":"2018-03-28 09:54:39",
-        "NeedMailCheck":true,
-        "ProgressBarType":0,
-        "RequestId":"B3E437A1-4947-4E4F-B9E2-9781AB1C8134",
-        "ResultCode":"clientCancelled",
-        "ResultDate":"2018-03-28 09:54:39",
-        "ResultMsg":"You have canceled this domain name transfer in.",
-        "SimpleTransferInStatus":"FAIL",
-        "Status":50,
-        "SubmissionDate":"2018-03-28 09:51:53",
-        "UserId":"123456",
-        "WhoisMailStatus":true
-    }
-    ```
+```
+{
+	"InstanceId":"S20182F0RED000000",
+	"WhoisMailStatus":true,
+	"UserId":"123456",
+	"ResultDate":"2018-03-28 09:54:39",
+	"ExpirationDate":"2018-04-12 09:51:53",
+	"NeedMailCheck":true,
+	"Status":50,
+	"Email":"",
+	"ResultMsg":"You have canceled this domain name transfer in.",
+	"SimpleTransferInStatus":"FAIL",
+	"RequestId":"B3E437A1-4947-4E4F-B9E2-9781AB1C8134",
+	"ModificationDate":"2018-03-28 09:54:39",
+	"ResultCode":"clientCancelled",
+	"DomainName":"test.com",
+	"ProgressBarType":0,
+	"SubmissionDate":"2018-03-28 09:51:53"
+}
+```
 
+## Error codes
 
-**Abnormal response example**
-
--   XML format
-
-    ```
-    <Error>
-      <RequestId>41187FF2-262D-4414-8AD2-7B85D74E1385</RequestId>
-      <HostId>domain.aliyuncs.com</HostId>
-      <Code>MissingInstanceId</Code>
-      <Message>InstanceId is mandatory for this action.</Message>
-      <Recommend><![ CDATA[https://error-center.aliyun.com/status/search?Keyword=MissingInstanceId&source=PopGw]]></Recommend>
-    </Error>
-    ```
-
--   JSON format
-
-    ```
-    {
-        "Code":"MissingInstanceId",
-        "HostId":"domain.aliyuncs.com",
-        "Message":"InstanceId is mandatory for this action.",
-        "Recommend":"https://error-center.aliyun.com/status/search?Keyword=MissingInstanceId&source=PopGw",
-        "RequestId":"05973664-CD29-4CF5-8060-FAC3E2CE0D87"
-    }
-    ```
-
-
-## Error code {#section_nwb_389_b2b .section}
-
-[See error codes of this product](reseller.en-US/API Reference (New)/Appendix/Error code table.md#).
+For a list of error codes, visit the [API Error Center](https://error-center.alibabacloud.com/status/product/Domain).
 
