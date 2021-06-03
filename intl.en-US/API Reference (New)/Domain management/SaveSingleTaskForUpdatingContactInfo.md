@@ -1,68 +1,78 @@
-# SaveSingleTaskForUpdatingContactInfo {#concept_enl_j5r_b2b .concept}
+# SaveSingleTaskForUpdatingContactInfo
 
-The SaveSingleTaskForUpdatingContactInfo API submits a task of modifying the domain name information. You can use the QueryTaskDetailList API to query the task execution result.
+Submits a task to modify the information of a domain name.
 
-## Request parameters {#section_fd3_gvr_b2b .section}
+You can call the [QueryTaskDetailList](~~67710~~) operation to query the task execution result.
 
-For more information about public request parameters, see [Public parameters](intl.en-US/API Reference (New)/Calling method/Public parameters.md#).
+## Debugging
 
-|Parameter|Type|Required|Description|
-|:--------|:---|:-------|:----------|
-|Action|String|Yes|API of the action, system required parameter. Set this parameter to SaveSingleTaskForUpdatingContactInfo.|
-|InstanceId|String|Optional|Domain name instance ID.|
-|DomainName|String|Yes|Domain name.|
-|RegistrantProfileId|Long|Yes|Information template ID.|
-|ContactType|String|Yes|Contact type. The enumerated values include registrant, admin, billing, tech.|
-|AddTransferLock|Boolean|Optional|Whether to add transfer prohibition. This parameter takes effect only when ContactType is set to registrant, and indicates whether the domain name can be transferred 60 days after the owner modifies the domain name. The value of the parameter defaults to false, that is, transfer is allowed.|
-|Lang|String|No|Language of the error message returned from the API. The enumerated values include zh \(Chinese\) and en \(English\). The default value is en.|
+[OpenAPI Explorer automatically calculates the signature value. For your convenience, we recommend that you call this operation in OpenAPI Explorer. OpenAPI Explorer dynamically generates the sample code of the operation for different SDKs.](https://api.aliyun.com/#product=Domain&api=SaveSingleTaskForUpdatingContactInfo&type=RPC&version=2018-01-29)
 
-## Response parameters {#section_kx5_nvr_b2b .section}
+## Request parameters
 
-|Parameter|Type|Description|
-|:--------|:---|:----------|
-|RequestId|String|Unique request identifier.|
-|TaskNo|String|Task ID.|
+|Parameter|Type|Required|Example|Description|
+|---------|----|--------|-------|-----------|
+|Action|String|Yes|SaveSingleTaskForUpdatingContactInfo|The operation that you want to perform. Set the value to **SaveSingleTaskForUpdatingContactInfo**. |
+|ContactType|String|Yes|registrant|The type of the contact. Valid values:
 
-## Error codes {#section_hdm_rvr_b2b .section}
+-   **registrant**
+-   **admin**
+-   **billing**
+-   **tech** |
+|DomainName|String|Yes|test.com|The domain name whose information you want to modify. |
+|RegistrantProfileId|Long|Yes|1|The ID of the registrant profile. |
+|AddTransferLock|Boolean|No|false|Specifies whether to enable transfer prohibition. This parameter is valid only when the value of the**ContactType** parameter is**registrant**. It specifies whether the domain name can be transferred out within 60 days after the registrant information is modified. Default value:**false** \(no transfer prohibition\). |
+|InstanceId|String|No|S123456789|The instance ID of the domain name. |
+|Lang|String|No|en|The language of the error message to return. Valid values:
 
-|Error code|Description|HTTP status code|Semantics|
-|:---------|:----------|:---------------|:--------|
-|ParameterIllegal|Parameter illegal.|400|Parameter error.|
-|NetworkIOError|Network IO Error.|400|Network I/O exception.|
-|DomainNotExist|The domain name does not exist.|400|The domain name does not exist.|
-|TaskIsBeingProcessed|An operation is being processed. Please try again later.|400| An action is being processed for the domain name. Try again later.|
+-   **zh:** Chinese
+-   **en:** English
 
-## Examples {#section_evc_wvr_b2b .section}
+Default value:**en**. |
+|UserClientIp|String|No|127.0.0.1|The IP address of the client. |
 
-**Request example**
+## Response parameters
+
+|Parameter|Type|Example|Description|
+|---------|----|-------|-----------|
+|RequestId|String|40F46D3D-F4F3-4CCB-AC30-2DD20E32E528|The ID of the request. |
+|TaskNo|String|3cb1adc3-20e8-44ae-9e76-e812fa6fc9d8|The ID of the task that was submitted. |
+
+## Examples
+
+Sample requests
 
 ```
-http://domain-intl.aliyuncs.com/?Action=SaveSingleTaskForUpdatingContactInfo
-&RegistrantProfileId=1
-&DomainName=test.com
+
+http(s)://[Endpoint]/? Action=SaveSingleTaskForUpdatingContactInfo
 &ContactType=registrant
-&<Public request parameters>
+&DomainName=test.com
+&RegistrantProfileId=1
+&<Common request parameters>
+
 ```
 
-**Response example**
+Sample success responses
 
--   XML format
+`XML` format
 
-    ```
-    <? xml version='1.0' encoding='UTF-8'? >
-    <SaveSingleTaskForUpdatingContactInfoResponse>
-        <TaskNo>3cb1adc3-20e8-44ae-9e76-e812fa6fc9d8</TaskNo>
-        <RequestId>40F46D3D-F4F3-4CCB-AC30-2DD20E32E528</RequestId>
-    </SaveSingleTaskForUpdatingContactInfoResponse>
-    ```
+```
+<SaveSingleTaskForUpdatingContactInfoResponse>
+      <TaskNo>3cb1adc3-20e8-44ae-9e76-e812fa6fc9d8</TaskNo>
+      <RequestId>40F46D3D-F4F3-4CCB-AC30-2DD20E32E528</RequestId>
+</SaveSingleTaskForUpdatingContactInfoResponse>
+```
 
--   JSON format
+`JSON` format
 
-    ```
-    {    
-      "TaskNo": "3cb1adc3-20e8-44ae-9e76-e812fa6fc9d8",
-      "RequestId": "40F46D3D-F4F3-4CCB-AC30-2DD20E32E528"
-    }
-    ```
+```
+{
+	"TaskNo":"3cb1adc3-20e8-44ae-9e76-e812fa6fc9d8",
+	"RequestId":"40F46D3D-F4F3-4CCB-AC30-2DD20E32E528"
+}
+```
 
+## Error codes
+
+For a list of error codes, visit the [API Error Center](https://error-center.alibabacloud.com/status/product/Domain).
 
