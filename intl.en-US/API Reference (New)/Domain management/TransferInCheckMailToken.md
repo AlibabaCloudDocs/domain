@@ -1,88 +1,76 @@
-# TransferInCheckMailToken {#concept_qbg_rrp_b2b .concept}
+# TransferInCheckMailToken
 
-The TransferInCheckMailToken API provides the token in the registrant verification email for domain name transfer in.
+Verifies the token sent to the email address of the domain name registrant.
 
-## Request parameters {#section_fhn_4lr_b2b .section}
+## Debugging
 
-|Parameter|Type| Required|Sample value|Description|
-|:--------|:---|:--------|:-----------|:----------|
-|Token|String|Yes|3bdbaa0e-faa2-4ad2-98f4-bcfeb0237054|Token received in the email.|
-|Lang|String|No|en|Language of the information returned by the API, which has the following enumerated values: zh \(Chinese\) and en \(English\). The default value is en.|
-|UserClientIp|String|No|127.0.0.1|User IP address.|
+[OpenAPI Explorer automatically calculates the signature value. For your convenience, we recommend that you call this operation in OpenAPI Explorer. OpenAPI Explorer dynamically generates the sample code of the operation for different SDKs.](https://api.aliyun.com/#product=Domain&api=TransferInCheckMailToken&type=RPC&version=2018-01-29)
 
-## Response parameters {#section_gbh_slr_b2b .section}
+## Request parameters
 
-|Parameter|Type|Sample value|Description|
-|:--------|:---|:-----------|:----------|
-|RequestId|String|AF7D4DCE-0776-47F2-A9B2-6FB85A87AA60|Unique request ID.|
-|SuccessList|String|test.com|List of successfully verified domain names.|
-|FailList|String|test.com|List domain names that failed verification.|
+|Parameter|Type|Required|Example|Description|
+|---------|----|--------|-------|-----------|
+|Action|String|Yes|TransferInCheckMailToken|The operation that you want to perform. Set the value to **TransferInCheckMailToken**. |
+|Token|String|Yes|3bdbaa0e-faa2-4ad2-98f4-bcfeb0237054|The token in the email that the domain name registrant receives. |
+|Lang|String|No|en|The language of the error message to return. Valid values:
 
-## Examples {#section_of5_423_b2b .section}
+-   **zh:** Chinese
+-   **en:** English
 
-**Request example**
+Default value:**en**. |
+|UserClientIp|String|No|127.0.0.1|The IP address of the client. |
+
+## Response parameters
+
+|Parameter|Type|Example|Description|
+|---------|----|-------|-----------|
+|FailList| |test.com|The domain names that failed verification. |
+|RequestId|String|AF7D4DCE-0776-47F2-A9B2-6FB85A87AA60|The ID of the request. |
+|SuccessList| |test.com|The domain names that passed verification. |
+
+## Examples
+
+Sample requests
 
 ```
-/? Action=TransferInCheckMailToken
+
+http(s)://[Endpoint]/? Action=TransferInCheckMailToken
 &Token=3bdbaa0e-faa2-4ad2-98f4-bcfeb0237054
-&<Public request parameter>
+&<Common request parameters>
+
 ```
 
-**Sample of a normal response**
+Sample success responses
 
--   XML format
+`XML` format
 
-    ```
-    <TransferInCheckMailTokenResponse>
-      <FailList/>
-      <RequestId>C99AA313-4A94-4896-915B-4D4043C063DA</RequestId>
-      <SuccessList>
+```
+<TransferInCheckMailTokenResponse>
+    <FailList></FailList>
+    <RequestId>C99AA313-4A94-4896-915B-4D4043C063DA</RequestId>
+    <SuccessList>
         <SuccessDomain>test.com</SuccessDomain>
-      </SuccessList>
-    </TransferInCheckMailTokenResponse>
-    ```
+    </SuccessList>
+</TransferInCheckMailTokenResponse>
+```
 
--   JSON format
+`JSON` format
 
-    ```
-    {
-        "FailList":{
-            "FailDomain":[]
-        },
-        "RequestId":"3E5677B5-6F55-4518-9A55-A9CE57313C9D",
-        "SuccessList":{
-            "SuccessDomain":["test.com"]
-        }
-    }
-    ```
+```
+{
+	"FailList":{
+		"FailDomain":[]
+	},
+	"RequestId":"3E5677B5-6F55-4518-9A55-A9CE57313C9D",
+	"SuccessList":{
+		"SuccessDomain":[
+			"test.com"
+		]
+	}
+}
+```
 
+## Error codes
 
-**Sample of an abnormal response**
-
--   XML format
-
-    ```
-    <Error>
-      <RequestId>0F260AD0-67BD-44EC-AB95-F50FD0F25D16</RequestId>
-      <HostId>domain.aliyuncs.com</HostId>
-      <Code>TokenFailed</Code>
-      <Message>Invalid email link, please get a new verification email</Message>
-    </Error>
-    ```
-
--   JSON format
-
-    ```
-    {
-        "Code":"TokenFailed",
-        "HostId":"domain.aliyuncs.com",
-        "Message": "invalid email link, please get a new verification email ",
-        "RequestId":"EA123BFB-2D07-4AB6-B6E5-28F4D64D6BD4"
-    }
-    ```
-
-
-## Error code {#section_nwb_4423_b2b .section}
-
-[See the error codes of the product](intl.en-US/API Reference (New)/Appendix/Error code table.md#).
+For a list of error codes, visit the [API Error Center](https://error-center.alibabacloud.com/status/product/Domain).
 
