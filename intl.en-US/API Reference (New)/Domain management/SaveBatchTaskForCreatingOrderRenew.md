@@ -4,7 +4,7 @@ Submits a task for renewing multiple domain names.
 
 ## Description
 
-You can call the [QueryTaskDetailList](~~67710~~)operation to query the running result of the task.
+You can call the [QueryTaskDetailList](~~67710~~) operation to query the running result of the task.
 
 ## Debugging
 
@@ -18,22 +18,22 @@ You can call the [QueryTaskDetailList](~~67710~~)operation to query the running 
 |PromotionNo|String|No|123123123|The ID of the coupon that you want to use. |
 |UsePromotion|Boolean|No|false|Specifies whether to use coupons. Valid values:
 
- -   **false**: Coupons are not used.
+-   **false**: Coupons are not used.
 -   **true**: Coupons are used. |
-|OrderRenewParam.N.DomainName|String|No|Aliyun.com|The domain name that you want to renew. If you want to renew multiple domain names, specify this parameter by using a domain name list. You can call the [QueryDomainList](~~69362~~)operation to query the domain name list. |
+|OrderRenewParam.N.DomainName|String|No|Aliyun.com|The domain name that you want to renew. If you want to renew multiple domain names, specify this parameter by using a domain name list. You can call the [QueryDomainList](~~69362~~) operation to query the domain name list. |
 |OrderRenewParam.N.CurrentExpirationDate|Long|No|1522080000000|The time when the domain name expires. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since the epoch time January 1, 1970, 00:00:00 UTC. |
 |OrderRenewParam.N.SubscriptionDuration|Integer|No|1|The renewal duration. Default value: **1**. Valid values: **1** to **10**. Unit: year. |
 |CouponNo|String|No|12312412|The ID of the voucher that you want to use. |
 |UseCoupon|Boolean|No|false|Specifies whether to use vouchers. Valid values:
 
- -   **false**: Vouchers are not used.
+-   **false**: Vouchers are not used.
 -   **true**: Vouchers are used. |
 |Lang|String|No|en|The language of the error message returned. Valid values:
 
- -   **zh**: Chinese
+-   **zh**: Chinese
 -   **en**: English
 
- Default value: **en**. |
+Default value: **en**. |
 |UserClientIp|String|No|127.0.0.1|The IP address of the client that is used to submit the task. Set the value to **127.0.0.1**. |
 
 ## Response parameters
