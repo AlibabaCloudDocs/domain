@@ -2,8 +2,6 @@
 
 This topic describes the common causes for failures to access a website by using its domain name and shows you how to resolve these issues.
 
-**Note:** If you failed to access your website, we recommend that you use the domain name detection tool provided by Alibaba Cloud to check the domain name first. For more information, see [t14347.md\#]().
-
 -   [Failed to access a website because the domain name has expired](#section_ulx_wmd_b2b)
 -   [Failed to access a website because the domain name has expired and requires renewal](#section_r4w_hnd_b2b)
 
