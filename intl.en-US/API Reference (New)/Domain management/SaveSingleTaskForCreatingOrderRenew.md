@@ -4,7 +4,7 @@ Submits a task for renewing a domain name.
 
 ## Description
 
-You can call the [QueryTaskDetailList](~~67710~~)operation to query the running result of the task.
+You can call the [QueryTaskDetailList](~~67710~~) operation to query the running result of the task.
 
 ## Debugging
 
