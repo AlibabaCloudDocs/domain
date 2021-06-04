@@ -11,8 +11,6 @@ Alibaba Cloud Domains is a domain name management platform that provides domain 
 
 If you need to use a domain name to provide website or email services, you can register the domain name on the [Domain Name Registration](https://wanwang.aliyun.com/) page. After you register a domain name, you must complete real-name verification, apply for an ICP filing, and enable domain name resolution for the domain name. Then, your domain name becomes accessible and you can provide services by using the domain name.
 
-![Register a domain name](../images/p178629.png)
-
 -   **Register a domain name**
 
     Alibaba Cloud allows you to register a variety of types of domain names. You can select a suffix for the domain name to register on the [Domain Name Registration](https://wanwang.aliyun.com/) page. For more information, see [Register a generic domain name](/intl.en-US/Quick Start/Register a generic domain name.md).
@@ -34,8 +32,6 @@ If you need to use a domain name to provide website or email services, you can r
 ## Buy a domain name
 
 If the domain name that you want has been registered by another user, you can buy the domain name from the user on the [Alibaba Cloud Domain Name Trade](https://mi.aliyun.com/) platform. After you complete the payment, wait for the seller to transfer the ownership to you. You must complete real-name verification to use the domain name. You may also need to apply for an ICP filing and reset the DNS records for the domain name to make the domain name accessible and provide services by using the domain name.
-
-![Sell a domain name](../images/p178631.png)
 
 -   **Check the status of a domain name**
 
@@ -70,8 +66,6 @@ If the domain name that you want has been registered by another user, you can bu
 ## Sell a domain name
 
 You can post your domain names for sale in the Alibaba Cloud Domains console for free. After the buyer completes the payment, you must transfer the ownership of your domain name to the buyer in a timely manner.
-
-![Sell a domain name](../images/p178632.png)
 
 -   **Sell a domain name**
 
