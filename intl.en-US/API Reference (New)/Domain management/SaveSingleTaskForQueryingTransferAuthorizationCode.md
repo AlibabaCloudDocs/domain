@@ -2,7 +2,7 @@
 
 Submits a task to obtain a domain name transfer key.
 
-You can call the[QueryTaskDetailList](~~67710~~) operation to query the task execution result. The transfer key is returned in the TaskResult field of the corresponding task.
+You can call the [QueryTaskDetailList](~~67710~~) operation to query the task execution result. The transfer key is returned in the TaskResult field of the corresponding task.
 
 ## Debugging
 
