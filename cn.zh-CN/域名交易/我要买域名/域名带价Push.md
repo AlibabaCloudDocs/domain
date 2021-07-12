@@ -34,7 +34,7 @@
 ## 交易费用
 
 -   购买域名的费用：买家需支付购买域名的费用，最终支付价格为卖家Push域名时所带的域名价格。
--   手续费：免手续费。
+-   手续费：为了进一步规范阿里云域名交易平台秩序，完善阿里云域名交易平台功能，自2021年07月12日10:00起，带价PUSH交易类型将开始收取交易手续费。费用由卖家承担，费率为整笔订单成交金额的1%，最低收取手续费为0.01元，支持免费提现。
 
     **说明：** 手续费是指域名交易过程中，阿里云根据用户的成交价格，向卖家收取的一定比例的费用，和域名买家无关，买家只需按照订单价格全额支付购买域名的费用。
 
@@ -46,12 +46,12 @@
 1.  登录[阿里云域名控制台](https://dc.console.aliyun.com/next/index#/domain/list/all-domain)。
 2.  单击左侧导航的**我是买家** \> **收到的Push**，查看收到的Push。
 
-    ![查看接收的带价PUSH](https://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/zh-CN/9167480061/p169455.png)
+    ![查看接收的带价PUSH](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/9167480061/p169455.png)
 
 3.  单击**查看并接收**，查看卖家Push给买家的域名信息。
 4.  单击**接收**即可成功接收域名。接收域名时需要选择域名信息模板，域名信息模板必须是已完成实名认证的。
 
-    ![查看并接收PUSH的域名](https://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/zh-CN/9167480061/p169457.png)
+    ![查看并接收PUSH的域名](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/9167480061/p169457.png)
 
 
 ## 交易交割时间
